@@ -29,7 +29,7 @@ const locais = [
         lng: -56.846,
         descricao: "Uma das regiões mais tradicionais da Transpantaneira.",
         foto: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200",
-        site: "https://www.rioclarolodge.com.br",
+        site: "https://www.rioclarolodge.com.br"
     },
 
     {
@@ -40,53 +40,45 @@ const locais = [
         lat: -16.3106,
         lng: -56.7417,
         descricao: "Principal destino para observação de onças."
-    }
+    },
 
     {
         id: 5,
-
         tipo: "hotel",
-
         nome: "Araras Pantanal Eco Lodge",
-
         km: 32,
-
         lat: -16.51175,
         lng: -56.71094,
-
         foto: "img/pousadas/araras.jpg",
-
         site: "https://araraslodge.com.br",
-
         descricao: "Uma das pousadas mais tradicionais e reconhecidas do Pantanal Norte. Construída em harmonia com a natureza, oferece experiências autênticas de ecoturismo durante todo o ano.",
-
         destaque: "Referência internacional em ecoturismo.",
 
         melhorPara: [
-        "🦜 Birdwatching",
-        "📸 Fotografia",
-        "🌅 Nascer do sol"
-    ],
+            "🦜 Birdwatching",
+            "📸 Fotografia",
+            "🌅 Nascer do sol"
+        ],
 
         fauna: [
-        "Arara-azul",
-        "Tuiuiú",
-        "Tamanduá-bandeira",
-        "Veado-campeiro",
-        "Macaco-prego"
-    ],
+            "Arara-azul",
+            "Tuiuiú",
+            "Tamanduá-bandeira",
+            "Veado-campeiro",
+            "Macaco-prego"
+        ],
 
         atividades: [
-        "Trilhas ecológicas",
-        "Passarelas suspensas",
-        "Safári fotográfico",
-        "Safári noturno",
-        "Canoagem",
-        "Cavalgadas",
-        "Torres de observação"
-    ],
+            "Trilhas ecológicas",
+            "Passarelas suspensas",
+            "Safári fotográfico",
+            "Safári noturno",
+            "Canoagem",
+            "Cavalgadas",
+            "Torres de observação"
+        ],
 
         tempoIdeal: "2 a 3 noites"
-},
+    }
 
 ];
