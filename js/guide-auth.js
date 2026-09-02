@@ -8,6 +8,15 @@
   const recoveryHint = /type=recovery/.test(location.hash);
   let mode = recoveryHint ? "recovery" : "login";
 
+  async function redirectAfterAuth(fallback = "/guias/painel/") {
+    const { data: isAdmin, error } = await P.db.rpc("is_admin");
+    if (!error && isAdmin) {
+      location.replace("/admin/guias/");
+      return;
+    }
+    location.replace(P.localNext() || fallback);
+  }
+
   function showRecoveryMode() {
     mode = "recovery";
     document.querySelector(".auth-tabs").classList.add("hidden");
@@ -25,7 +34,7 @@
 
   const { data } = await P.db.auth.getSession();
   if (data.session && mode !== "recovery") {
-    location.replace(P.localNext());
+    await redirectAfterAuth();
     return;
   }
 
@@ -50,7 +59,7 @@
       if (mode === "login") {
         const { error } = await P.db.auth.signInWithPassword({ email, password: userPassword });
         if (error) throw error;
-        location.replace(P.localNext());
+        await redirectAfterAuth();
       } else if (mode === "signup") {
         const redirectTo = `${location.origin}/guias/login/?next=${encodeURIComponent("/guias/cadastro/")}`;
         const { data: signup, error } = await P.db.auth.signUp({ email, password: userPassword, options: { emailRedirectTo: redirectTo } });
@@ -61,7 +70,7 @@
         const { error } = await P.db.auth.updateUser({ password: userPassword });
         if (error) throw error;
         P.setMessage("#auth-message", "Senha atualizada. Abrindo seu painel...", "success");
-        setTimeout(() => location.replace("/guias/painel/"), 800);
+        setTimeout(() => { redirectAfterAuth(); }, 800);
       }
     } catch (error) {
       console.error(error);
