@@ -9,103 +9,232 @@
   <meta property="og:type" content="profile">
   <meta property="og:image" content="https://pantanal.bento.host/assets/og-guias.png">
   <meta name="theme-color" content="#173a2b">
+
   <title>Guia verificado | Bento Pantanal</title>
-  <link id="canonical-link" rel="canonical" href="https://pantanal.bento.host/guias/">
+
+  <link
+    id="canonical-link"
+    rel="canonical"
+    href="https://pantanal.bento.host/guias/"
+  >
+
   <link rel="stylesheet" href="/css/guides.css">
 </head>
+
 <body>
-  <a class="skip-link" href="#profile-content">Ir para o perfil</a>
+  <a class="skip-link" href="#profile-content">
+    Ir para o perfil
+  </a>
+
   <header class="site-header">
     <nav class="site-nav" aria-label="Navegação principal">
-      <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">🐆</span><span class="brand-text">BENTO PANTANAL</span></a>
-      <div class="nav-links"><a href="/explorer.html">Explorer</a><a href="/guias/">Todos os guias</a><a class="nav-cta" href="/guias/cadastro/">Sou guia</a></div>
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true">🐆</span>
+        <span class="brand-text">BENTO PANTANAL</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="/explorer.html">Explorer</a>
+        <a href="/guias/">Todos os guias</a>
+        <a class="nav-cta" href="/guias/cadastro/">Sou guia</a>
+      </div>
     </nav>
   </header>
+
   <main id="profile-content">
-    <div id="profile-loading" class="container" style="padding:70px 0"><div class="skeleton" style="height:520px"></div></div>
-    <div id="profile-error" class="container hidden" style="padding:70px 0"><div class="empty-state"><strong>Guia não encontrado.</strong>Este perfil pode estar em análise ou indisponível. <a class="text-link" href="/guias/">Ver guias aprovados</a>.</div></div>
+    <div
+      id="profile-loading"
+      class="container"
+      style="padding:70px 0"
+    >
+      <div
+        class="skeleton"
+        style="height:520px"
+      ></div>
+    </div>
+
+    <div
+      id="profile-error"
+      class="container hidden"
+      style="padding:70px 0"
+    >
+      <div class="empty-state">
+        <strong>Guia não encontrado.</strong>
+
+        Este perfil pode estar em análise ou indisponível.
+
+        <a class="text-link" href="/guias/">
+          Ver guias aprovados
+        </a>.
+      </div>
+    </div>
+
     <article id="profile-view" class="hidden">
-      <div class="profile-cover" id="profile-cover"></div>
+      <div
+        class="profile-cover"
+        id="profile-cover"
+      ></div>
+
       <div class="container profile-identity">
         <section class="identity-card">
-          <div class="avatar profile-avatar" id="profile-avatar"></div>
+          <div
+            class="avatar profile-avatar"
+            id="profile-avatar"
+          ></div>
+
           <div>
-            <span id="profile-badge" class="verified-badge">✓ Guia de Turismo Verificado</span>
+            <span
+              id="profile-badge"
+              class="verified-badge"
+            >
+              ✓ Guia de Turismo Verificado
+            </span>
+
             <h1 id="profile-name"></h1>
             <p id="profile-regions"></p>
           </div>
+
           <div class="identity-actions">
-  <div class="profile-social-actions" aria-label="Contato do guia">
+            <div
+              class="profile-social-actions"
+              aria-label="Contato do guia"
+            >
+              <a
+                id="profile-whatsapp-top"
+                class="button social-icon-button whatsapp-icon-button"
+                href="#"
+                target="_blank"
+                rel="noopener"
+                aria-label="Abrir WhatsApp"
+                title="WhatsApp"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path d="M20 11.8a8 8 0 0 1-11.8 7L4 20l1.2-4.1A8 8 0 1 1 20 11.8Z"></path>
 
-    <a
-      id="profile-whatsapp-top"
-      class="button social-icon-button whatsapp-icon-button"
-      href="#"
-      target="_blank"
-      rel="noopener"
-      aria-label="Abrir WhatsApp"
-      title="WhatsApp"
-    >
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M20 11.8a8 8 0 0 1-11.8 7L4 20l1.2-4.1A8 8 0 1 1 20 11.8Z"></path>
-        <path d="M9 8.5c.2-.4.4-.4.7-.4h.3c.2 0 .4.1.5.4l.7 1.6c.1.3.1.5-.1.7l-.6.7c-.2.2-.1.4 0 .6.6 1 1.4 1.8 2.4 2.3.3.2.5.2.7 0l.8-1c.2-.2.4-.3.7-.2l1.7.8c.3.1.4.3.4.5 0 .3-.1 1.2-.7 1.7-.6.6-1.4.8-2.3.5-1.1-.3-2.5-.8-4.1-2.2-1.3-1.2-2.2-2.7-2.5-3.7-.3-.9 0-1.8.4-2.3Z"></path>
-      </svg>
-    </a>
+                  <path d="M9 8.5c.2-.4.4-.4.7-.4h.3c.2 0 .4.1.5.4l.7 1.6c.1.3.1.5-.1.7l-.6.7c-.2.2-.1.4 0 .6.6 1 1.4 1.8 2.4 2.3.3.2.5.2.7 0l.8-1c.2-.2.4-.3.7-.2l1.7.8c.3.1.4.3.4.5 0 .3-.1 1.2-.7 1.7-.6.6-1.4.8-2.3.5-1.1-.3-2.5-.8-4.1-2.2-1.3-1.2-2.2-2.7-2.5-3.7-.3-.9 0-1.8.4-2.3Z"></path>
+                </svg>
+              </a>
 
-    <a
-      id="profile-instagram-top"
-      class="button social-icon-button instagram-icon-button"
-      href="#"
-      target="_blank"
-      rel="noopener"
-      aria-label="Abrir Instagram"
-      title="Instagram"
-    >
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <rect x="3" y="3" width="18" height="18" rx="5"></rect>
-        <circle cx="12" cy="12" r="4"></circle>
-        <circle
-          class="instagram-icon-dot"
-          cx="17.4"
-          cy="6.6"
-          r="1"
-        ></circle>
-      </svg>
-    </a>
+              <a
+                id="profile-instagram-top"
+                class="button social-icon-button instagram-icon-button"
+                href="#"
+                target="_blank"
+                rel="noopener"
+                aria-label="Abrir Instagram"
+                title="Instagram"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <rect
+                    x="3"
+                    y="3"
+                    width="18"
+                    height="18"
+                    rx="5"
+                  ></rect>
 
-  </div>
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="4"
+                  ></circle>
 
-  <button
-    id="share-profile"
-    class="button button-ghost"
-    type="button"
-  >
-    Compartilhar perfil
-  </button>
-</div>
-            <a id="profile-whatsapp-top" class="button button-primary" href="#" target="_blank" rel="noopener">Falar com o guia</a>
-            <button id="share-profile" class="button button-ghost" type="button">Compartilhar perfil</button>
+                  <circle
+                    class="instagram-icon-dot"
+                    cx="17.4"
+                    cy="6.6"
+                    r="1"
+                  ></circle>
+                </svg>
+              </a>
+            </div>
+
+            <button
+              id="share-profile"
+              class="button button-ghost"
+              type="button"
+            >
+              Compartilhar perfil
+            </button>
           </div>
         </section>
       </div>
+
       <div class="container profile-layout profile-layout-simple">
-        <div id="profile-about" class="profile-stack hidden">
-          <section class="content-card"><span class="eyebrow">Sobre</span><h2>Guia no Pantanal</h2><p id="profile-bio"></p></section>
+        <div
+          id="profile-about"
+          class="profile-stack hidden"
+        >
+          <section class="content-card">
+            <span class="eyebrow">Sobre</span>
+            <h2>Guia no Pantanal</h2>
+            <p id="profile-bio"></p>
+          </section>
         </div>
+
         <aside class="content-card contact-card">
-          <span class="verified-badge">✓ Cadastur verificado</span>
-          <div id="profile-vip-actions" class="vip-actions hidden">
-            <span class="verified-badge vip-badge">★ Perfil VIP</span>
-            <a id="profile-personal-domain" class="button button-outline" href="#" target="_blank" rel="noopener">Abrir site pessoal</a>
-            <a id="profile-expedition" class="button button-primary" href="#">Escolher para liderar expedição</a>
-            <button class="button sightings-button" type="button" disabled>Avistamentos — Em breve</button>
+          <span class="verified-badge">
+            ✓ Cadastur verificado
+          </span>
+
+          <div
+            id="profile-vip-actions"
+            class="vip-actions hidden"
+          >
+            <span class="verified-badge vip-badge">
+              ★ Perfil VIP
+            </span>
+
+            <a
+              id="profile-personal-domain"
+              class="button button-outline"
+              href="#"
+              target="_blank"
+              rel="noopener"
+            >
+              Abrir site pessoal
+            </a>
+
+            <a
+              id="profile-expedition"
+              class="button button-primary"
+              href="#"
+            >
+              Escolher para liderar expedição
+            </a>
+
+            <button
+              class="button sightings-button"
+              type="button"
+              disabled
+            >
+              Avistamentos — Em breve
+            </button>
           </div>
-          <p class="contact-note">O contato é direto com o profissional. O Bento Pantanal não cobra comissão.</p>
+
+          <p class="contact-note">
+            O contato é direto com o profissional.
+            O Bento Pantanal não cobra comissão.
+          </p>
         </aside>
       </div>
     </article>
   </main>
-  <footer class="site-footer"><p>Bento Pantanal — Guias de quem conhece o chão que pisa.</p></footer>
+
+  <footer class="site-footer">
+    <p>
+      Bento Pantanal — Guias de quem conhece o chão que pisa.
+    </p>
+  </footer>
+
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.4/dist/umd/supabase.min.js"></script>
   <script src="/js/supabase-config.js"></script>
   <script src="/js/guides-common.js"></script>
