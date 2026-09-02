@@ -1,93 +1,57 @@
 (async function () {
   "use strict";
+
   const P = window.PantanalGuides;
   const slug = P.currentGuideSlug();
-  const loading = document.querySelector("#profile-loading");
-  const errorBox = document.querySelector("#profile-error");
-  const view = document.querySelector("#profile-view");
+
+  const loading =
+    document.querySelector("#profile-loading");
+
+  const errorBox =
+    document.querySelector("#profile-error");
+
+  const view =
+    document.querySelector("#profile-view");
 
   function addImage(container, src, alt) {
     const url = P.safeUrl(src);
-    if (!url) return false;
+
+    if (!url) {
+      return false;
+    }
+
     const image = document.createElement("img");
+
     image.src = url;
     image.alt = alt;
+
     container.append(image);
+
     return true;
   }
 
   function socialUrl(value, base) {
-    if (!value) return "";
+    if (!value) {
+      return "";
+    }
+
     const text = String(value).trim();
-    if (/^https?:\/\//i.test(text)) return P.safeUrl(text);
+
+    if (/^https?:\/\//i.test(text)) {
+      return P.safeUrl(text);
+    }
+
     const handle = text
       .replace(/^@/, "")
-      .replace(/^(?:www\.)?instagram\.com\//i, "")
+      .replace(
+        /^(?:www\.)?instagram\.com\//i,
+        ""
+      )
       .replace(/\/$/, "");
-    return handle ? `${base}${encodeURIComponent(handle)}` : "";
-  }
 
-  function addContact(
-    container,
-    label,
-    href,
-    primary = false,
-    iconOnly = false
-  ) {
-    if (!href) return false;
-
-    const link = document.createElement("a");
-    link.className = `button ${
-      primary ? "button-primary" : "button-outline"
-    }`;
-    link.href = href;
-
-    if (iconOnly) {
-      link.classList.add(
-        "social-icon-button",
-        "instagram-icon-button"
-      );
-
-      link.setAttribute("aria-label", label);
-      link.title = label;
-
-      link.innerHTML = `
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-          focusable="false"
-        >
-          <rect
-            x="3"
-            y="3"
-            width="18"
-            height="18"
-            rx="5"
-          ></rect>
-          <circle
-            cx="12"
-            cy="12"
-            r="4"
-          ></circle>
-          <circle
-            class="instagram-icon-dot"
-            cx="17.4"
-            cy="6.6"
-            r="1"
-          ></circle>
-        </svg>
-      `;
-    } else {
-      link.textContent = label;
-    }
-
-    if (!href.startsWith("mailto:")) {
-      link.target = "_blank";
-      link.rel = "noopener";
-    }
-
-    container.append(link);
-    return true;
+    return handle
+      ? `${base}${encodeURIComponent(handle)}`
+      : "";
   }
 
   function updateMeta(guide, name) {
@@ -153,16 +117,20 @@
 
     updateMeta(guide, name);
 
-    document.querySelector("#profile-name").textContent =
-      name;
+    document.querySelector(
+      "#profile-name"
+    ).textContent = name;
 
-    document.querySelector("#profile-regions").textContent =
+    document.querySelector(
+      "#profile-regions"
+    ).textContent =
       P.asArray(guide.regioes).join(" · ") ||
       "Pantanal Mato-Grossense";
 
     if (guide.vip && guide.bio) {
-      document.querySelector("#profile-bio").textContent =
-        guide.bio;
+      document.querySelector(
+        "#profile-bio"
+      ).textContent = guide.bio;
 
       document
         .querySelector("#profile-about")
@@ -196,7 +164,8 @@
       `Paisagem de capa de ${name}`
     );
 
-    const phone = P.normalizePhone(guide.whatsapp);
+    const phone =
+      P.normalizePhone(guide.whatsapp);
 
     const whatsapp = phone
       ? `https://wa.me/${phone}?text=${encodeURIComponent(
@@ -204,48 +173,38 @@
         )}`
       : "";
 
-    const topContact =
-      document.querySelector("#profile-whatsapp-top");
+    const whatsappButton =
+      document.querySelector(
+        "#profile-whatsapp-top"
+      );
 
     if (whatsapp) {
-      topContact.href = whatsapp;
+      whatsappButton.href = whatsapp;
     } else {
-      topContact.classList.add("hidden");
+      whatsappButton.classList.add("hidden");
     }
 
-    const contacts =
-      document.querySelector("#profile-contacts");
-
-    addContact(
-      contacts,
-      "Falar pelo WhatsApp",
-      whatsapp,
-      true
+    const instagram = socialUrl(
+      guide.instagram,
+      "https://instagram.com/"
     );
 
-    addContact(
-      contacts,
-      "Instagram",
-      socialUrl(
-        guide.instagram,
-        "https://instagram.com/"
-      ),
-      false,
-      Boolean(guide.vip)
-    );
+    const instagramButton =
+      document.querySelector(
+        "#profile-instagram-top"
+      );
 
-    if (!contacts.children.length) {
-      const notice = document.createElement("p");
-
-      notice.textContent =
-        "Os contatos deste guia serão adicionados em breve.";
-
-      contacts.append(notice);
+    if (instagram) {
+      instagramButton.href = instagram;
+    } else {
+      instagramButton.classList.add("hidden");
     }
 
     if (guide.vip) {
       const vipActions =
-        document.querySelector("#profile-vip-actions");
+        document.querySelector(
+          "#profile-vip-actions"
+        );
 
       const personalDomain =
         document.querySelector(
@@ -263,7 +222,9 @@
       }
 
       const expedition =
-        document.querySelector("#profile-expedition");
+        document.querySelector(
+          "#profile-expedition"
+        );
 
       expedition.href =
         `/?guia=${encodeURIComponent(
@@ -283,7 +244,10 @@
       .addEventListener("click", async () => {
         const share = {
           title: `${name} | Bento Pantanal`,
-          text: `Conheça o perfil profissional de ${name}.`,
+
+          text:
+            `Conheça o perfil profissional de ${name}.`,
+
           url:
             `${location.origin}${P.guidePath(
               guide.slug
@@ -313,6 +277,7 @@
     view.classList.remove("hidden");
   } catch (profileError) {
     console.error(profileError);
+
     loading.classList.add("hidden");
     errorBox.classList.remove("hidden");
   }
