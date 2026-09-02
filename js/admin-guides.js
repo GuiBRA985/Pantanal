@@ -140,7 +140,7 @@
       const payload = {
       nome: document.querySelector("#dialog-full-name").value.trim(),
       nome_profissional: document.querySelector("#dialog-professional-name").value.trim() || null,
-      cadastur_numero: document.querySelector("#dialog-cadastur").value.trim(),
+      cadastur_numero: document.querySelector("#dialog-cadastur").value.trim() || null,
       whatsapp: P.normalizePhone(document.querySelector("#dialog-whatsapp").value),
       instagram: document.querySelector("#dialog-instagram").value.trim() || null,
       email: document.querySelector("#dialog-email").value.trim() || null,
