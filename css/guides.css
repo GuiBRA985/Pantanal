@@ -432,6 +432,27 @@ input:focus, select:focus, textarea:focus { border-color: var(--leaf); box-shado
 
 .contact-list .button { width: 100%; }
 
+.contact-list .social-icon-button {
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border-radius: 50%;
+  justify-self: start;
+}
+
+.instagram-icon-button svg {
+  width: 25px;
+  height: 25px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+
+.instagram-icon-button .instagram-icon-dot {
+  fill: currentColor;
+  stroke: none;
+}
+
 .contact-note { margin-top: 16px; color: var(--muted); font-size: 0.82rem; text-align: center; }
 
 .vip-actions {
