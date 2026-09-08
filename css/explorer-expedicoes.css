@@ -1,0 +1,81 @@
+/* Extends the existing Explorer without changing the Jaguar package rules. */
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { overflow: auto; }
+body { color: #18291f; font-size: 1rem; line-height: 1.5; }
+body:not(.catalog-mode) { display: grid; grid-template-rows: auto auto minmax(0, 1fr) auto; height: 100vh; height: 100dvh; }
+button, input, textarea { font: inherit; }
+a, button { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
+button:disabled { cursor: wait; opacity: .55; }
+:focus-visible { outline: 3px solid #cc9215; outline-offset: 4px; }
+.topbar { position: sticky; height: auto; min-height: 64px; padding: 12px 24px; justify-content: space-between; gap: 20px; grid-row: 1; }
+.logo { color: #fff; text-decoration: none; font-size: 1.15rem; }
+.home-link { color: #fff; font-size: .95rem; text-decoration: none; border: 1px solid #ffffff60; border-radius: 30px; padding: 7px 16px; white-space: nowrap; }
+.catalog-mode { height: auto; min-height: 100vh; overflow: auto; background: #0f2118; color: #fff; }
+.expedition-catalog { max-width: 1250px; padding: 48px 24px 60px; margin: auto; }
+.catalog-heading { max-width: 850px; margin-bottom: 32px; }
+.eyebrow { color: #b7820e; font-size: .78rem; font-weight: 800; letter-spacing: .12em; }
+.catalog-mode .eyebrow { color: #e5be53; }
+.catalog-heading h1 { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.15; letter-spacing: -.03em; margin: 12px 0; }
+.catalog-heading p { color: #d8e5de; margin: 0; font-size: 1.1rem; }
+.expedition-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.expedition-card { display: flex; flex-direction: column; padding: 24px; background: #193d2c; border: 1px solid #ffffff2b; border-top: 4px solid #d4a52c; border-radius: 14px; }
+.chapada-card { border-top-color: #ca8051; }.jaciara-card { border-top-color: #52b5c3; }
+.expedition-number { font-size: .78rem; font-weight: 800; letter-spacing: .12em; color: #d9e5dd; }
+.destination-symbol { font-size: 2.6rem; margin: 18px 0 10px; }
+.expedition-card h2 { font-size: 1.75rem; line-height: 1.18; margin: 0 0 12px; }
+.expedition-card h3 { font-size: 1rem; margin: 0; color: #e5be53; }
+.expedition-card p { color: #e0e9e3; line-height: 1.65; margin: 15px 0 24px; }
+.expedition-link, .action-button { display: inline-flex; justify-content: center; align-items: center; gap: 8px; padding: 12px 18px; min-height: 46px; border: 1px solid transparent; border-radius: 9px; background: #d9af3f; color: #152419; text-decoration: none; font-weight: 700; text-align: center; font-size: 1rem; }
+.expedition-link { margin-top: auto; }
+.expedition-link:hover, .action-button:hover { background: #ebc462; }
+.action-button.light { background: #fff; border-color: #9aaca0; color: #173a2b; }
+.catalog-guides { margin-top: 28px; padding: 26px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border: 1px solid #c9a22777; border-radius: 14px; background: #10281c; }
+.catalog-guides h2 { margin: 8px 0; font-size: 1.5rem; }.catalog-guides p { margin: 0; color: #e0e9e3; }.catalog-guides .action-button { flex-shrink: 0; }
+.route-bar { grid-row: 2; display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; background: #fff; gap: 16px; border-bottom: 1px solid #ccd5ce; }
+.route-bar strong, .route-bar span { display: block; }.route-bar span { font-size: .9rem; margin-top: 2px; }
+#map { grid-row: 3; position: relative; top: auto; bottom: auto; left: auto; right: auto; min-width: 0; min-height: 0; background: #dae1db; }
+.bottom-menu { grid-row: 4; position: static; min-height: 68px; height: auto; padding-bottom: env(safe-area-inset-bottom); }
+.regional-actions { grid-row: 4; display: flex; justify-content: space-between; gap: 10px; padding: 12px 20px calc(12px + env(safe-area-inset-bottom)); background: #fff; }
+#info-panel, #roteiro-panel { width: 410px; max-width: 100%; }
+#panel-content h2, #roteiro-content h2 { line-height: 1.2; padding-right: 16px; }
+#panel-content p, #roteiro-content p { line-height: 1.6; }
+#panel-content img { max-height: 220px; object-fit: cover; }
+#panel-content a { overflow-wrap: anywhere; }
+#roteiro-content button { padding: 10px 16px; background: #173a2b; color: #fff; border: 0; border-radius: 8px; }
+#close-panel, #close-roteiro { min-width: 44px; min-height: 44px; }
+#roteiro-count { width: auto; min-width: 30px; padding: 0 4px; }
+.map-error { position: fixed; z-index: 1600; top: 45%; left: 50%; transform: translate(-50%, -50%); width: min(90vw, 400px); padding: 22px; border: 1px solid #94701f; background: #fff; border-radius: 12px; }
+.regional-marker { background: none; border: 0; }
+.map-pin { display: grid; place-items: center; width: 36px; height: 36px; border: 2px solid #fff; border-radius: 50%; box-shadow: 0 2px 8px #0007; background: #e8b930; color: #142219; font-size: 14px; font-weight: 800; }
+.airport-pin { background: #176da0; color: #fff; font-size: 21px; }.destination-pin { background: #943b24; color: #fff; font-size: 20px; }
+.fuel-list { list-style: none; padding: 0; }
+#panel-content .fuel-item { width: 100%; display: block; text-align: left; border: 1px solid #c9d5cd; background: #f0f5f1; color: #173a2b; margin: 8px 0; padding: 14px; }
+.fuel-item span { display: block; font-size: .9rem; font-weight: normal; margin-top: 5px; }
+.explorer-dialog { width: min(700px, calc(100% - 28px)); max-height: calc(100dvh - 32px); padding: 30px; color: #18291f; background: #fff; border: 0; border-radius: 16px; overflow-y: auto; box-shadow: 0 18px 90px #0005; }
+.explorer-dialog::backdrop { background: #071a10b3; }
+.explorer-dialog h2 { font-size: 1.7rem; line-height: 1.2; margin: 12px 26px 16px 0; }
+.explorer-dialog p { line-height: 1.6; }.dialog-close { position: absolute; right: 12px; top: 10px; border: 0; border-radius: 50%; background: #eff3f0; min-width: 44px; min-height: 44px; font-size: 1.4rem; }
+.vip-guide-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.vip-guide-card { border: 2px solid #d4ddd7; border-radius: 12px; overflow: hidden; }
+.vip-guide-card:has(input:checked) { border-color: #a47b14; background: #fff8e6; }
+.vip-choice { padding: 16px; display: grid; grid-template-columns: 22px 64px minmax(0, 1fr); align-items: center; gap: 10px; cursor: pointer; }
+.vip-choice input { width: 20px; height: 20px; accent-color: #173a2b; }
+.vip-avatar { width: 64px; height: 64px; display: grid; place-items: center; border-radius: 50%; overflow: hidden; background: #173a2b; color: #fff; font-size: 1.4rem; font-weight: 800; }
+.vip-avatar img { width: 100%; height: 100%; object-fit: cover; }.vip-description { min-width: 0; }.vip-description>* { display: block; }.vip-description strong { font-size: 1.06rem; margin: 4px 0; overflow-wrap: anywhere; }.vip-description span { font-size: .88rem; }.vip-badge { color: #7c5c0c; font-weight: 700; }
+.vip-profile-link { display: block; padding: 10px 16px; border-top: 1px solid #d4ddd7; color: #173a2b; font-size: .9rem; }
+.dialog-footer { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 12px; margin-top: 24px; }
+#request-summary { display: block; width: 100%; margin-top: 8px; min-height: 250px; line-height: 1.5; resize: vertical; padding: 14px; border: 1px solid #a0b2a6; border-radius: 8px; color: #1d3627; background: #f5f8f6; }
+.small-note { font-size: .88rem; color: #4c5f53; }.noscript-message { padding: 20px; background: #fff; color: #173a2b; }
+@media(max-width: 950px) { .expedition-grid { grid-template-columns: 1fr; }.expedition-card { min-height: 0; }.destination-symbol { margin: 12px 0; }.expedition-catalog { max-width: 750px; }.catalog-guides { flex-direction: column; align-items: stretch; } }
+@media(max-width: 650px) {
+  .topbar { padding: 10px 14px; gap: 8px; }.logo { font-size: 1rem; }.home-link { padding: 7px 12px; font-size: .88rem; }
+  .expedition-catalog { padding: 28px 16px; }.expedition-card { padding: 20px; }
+  .route-bar { padding: 9px 12px; gap: 8px; flex-wrap: wrap; }.route-bar .action-button { padding: 8px 12px; }
+  .regional-actions { padding: 10px 10px calc(10px + env(safe-area-inset-bottom)); }.regional-actions .action-button { flex: 1; font-size: .88rem; padding: 10px 8px; }
+  .vip-guide-options { grid-template-columns: 1fr; }.explorer-dialog { padding: 26px 18px; }.explorer-dialog h2 { font-size: 1.4rem; }
+  .dialog-footer .action-button { flex: 1; }.vip-choice { grid-template-columns: 22px 64px minmax(0, 1fr); }
+  #roteiro-btn { right: 14px; padding: 13px 16px; }
+}
+@media(prefers-reduced-motion: reduce) { #info-panel, #roteiro-panel { transition: none; } }
