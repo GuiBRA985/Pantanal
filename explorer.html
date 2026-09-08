@@ -3,60 +3,117 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Pantanal Explorer | Bento Pantanal</title>
-
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+  <meta name="description" content="Escolha Porto Jofre, Chapada dos Guimarães ou Jaciara e um guia VIP para liderar sua expedição com o Bento Pantanal.">
+  <meta name="theme-color" content="#173a2b">
+  <title>Explorer do Pantanal | Três expedições, seu guia</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="css/explorer.css">
+  <link rel="stylesheet" href="css/explorer-expedicoes.css">
 </head>
+<body class="catalog-mode">
+  <header class="topbar">
+    <a href="explorer.html" class="logo" id="catalog-link">🐆 Pantanal Explorer</a>
+    <a href="index.html" class="home-link">Início</a>
+  </header>
 
-<body>
+  <main id="expedition-catalog" class="expedition-catalog">
+    <div class="catalog-heading">
+      <span class="eyebrow">BENTO PANTANAL · MATO GROSSO</span>
+      <h1>Escolha sua expedição.</h1>
+      <p>O destino é o começo. Escolha também o guia VIP que vai acompanhar você.</p>
+    </div>
+    <div class="expedition-grid">
+      <article class="expedition-card jaguar-card">
+        <span class="expedition-number">01 / PANTANAL</span>
+        <span class="destination-symbol" aria-hidden="true">🐆</span>
+        <h2>Porto Jofre</h2>
+        <h3>Veja a onça-pintada</h3>
+        <p>A Expedição Jaguar pela Transpantaneira: 10 dias, 9 noites, duas pousadas à sua escolha e três noites em Porto Jofre.</p>
+        <a class="expedition-link" data-expedition="porto-jofre" href="explorer.html?expedicao=porto-jofre">Montar Expedição Jaguar</a>
+      </article>
+      <article class="expedition-card chapada-card">
+        <span class="expedition-number">02 / CHAPADA</span>
+        <span class="destination-symbol" aria-hidden="true">⛰️</span>
+        <h2>Chapada dos Guimarães</h2>
+        <h3>Cerrado e grandes paisagens</h3>
+        <p>Do Aeroporto Marechal Rondon, em Várzea Grande, até Chapada dos Guimarães. Consulte o trajeto e os postos de combustível.</p>
+        <a class="expedition-link" data-expedition="chapada" href="explorer.html?expedicao=chapada">Explorar Chapada</a>
+      </article>
+      <article class="expedition-card jaciara-card">
+        <span class="expedition-number">03 / JACIARA</span>
+        <span class="destination-symbol" aria-hidden="true">🌊</span>
+        <h2>Jaciara</h2>
+        <h3>Natureza e aventura</h3>
+        <p>Do Aeroporto Marechal Rondon, em Várzea Grande, até Jaciara. Consulte o trajeto e os postos de combustível.</p>
+        <a class="expedition-link" data-expedition="jaciara" href="explorer.html?expedicao=jaciara">Explorar Jaciara</a>
+      </article>
+    </div>
+    <section class="catalog-guides" aria-labelledby="catalog-guide-title">
+      <div><span class="eyebrow">SEU COMPANHEIRO DE EXPEDIÇÃO</span><h2 id="catalog-guide-title">Quem vai liderar?</h2><p id="catalog-guide-summary">Escolha um dos guias VIP do site para qualquer uma das três expedições.</p></div>
+      <button class="action-button" data-open-guides type="button">Escolher guia VIP</button>
+    </section>
+  </main>
 
-<header class="topbar">
-  <div class="logo">🐆 Pantanal Explorer</div>
-  <a href="index.html" class="home-link">Bento Pantanal</a>
-</header>
+  <section id="route-bar" class="route-bar" hidden aria-label="Expedição selecionada">
+    <div><strong id="route-name"></strong><span id="selected-guide-label" aria-live="polite">Escolha o guia da expedição</span></div>
+    <button class="action-button" data-open-guides type="button">Escolher / trocar guia</button>
+  </section>
+  <div id="map" hidden aria-label="Mapa da expedição"></div>
+  <p id="map-error" class="map-error" role="status" hidden>Não foi possível abrir o mapa. Recarregue a página para tentar novamente.</p>
 
-<div id="map"></div>
-
-<div id="info-panel">
-  <button id="close-panel">✕</button>
-
-  <div id="panel-content">
-    <h2>Pantanal Explorer</h2>
-    <p>Explore a Transpantaneira até Porto Jofre.</p>
+  <div id="info-panel" hidden>
+    <button id="close-panel" type="button" aria-label="Fechar detalhes">✕</button>
+    <div id="panel-content"></div>
   </div>
-</div>
-
-<div id="roteiro-panel">
-  <button id="close-roteiro">✕</button>
-
-  <div id="roteiro-content">
-    <h2>📋 Minha Expedição</h2>
-    <p>Nenhuma parada adicionada.</p>
+  <div id="roteiro-panel" hidden>
+    <button id="close-roteiro" type="button" aria-label="Fechar roteiro">✕</button>
+    <div id="roteiro-content"></div>
   </div>
-</div>
+  <button id="roteiro-btn" type="button" hidden>📋 Minha Expedição <span id="roteiro-count">0</span></button>
+  <nav class="bottom-menu" id="jaguar-menu" hidden aria-label="Filtros do mapa">
+    <button data-tipo="todos" type="button" aria-label="Todos os locais">🌎</button>
+    <button data-tipo="hotel" type="button" aria-label="Pousadas">🏨</button>
+    <button data-tipo="cidade" type="button" aria-label="Cidades">🏙️</button>
+    <button data-tipo="destino" type="button" aria-label="Porto Jofre">🐆</button>
+  </nav>
+  <div id="regional-actions" class="regional-actions" hidden>
+    <button id="fuel-list-button" class="action-button light" type="button">⛽ Postos no caminho</button>
+    <button id="regional-request" class="action-button" type="button">Solicitar expedição</button>
+  </div>
 
-<button id="roteiro-btn">
-  📋 Minha Expedição
-  <span id="roteiro-count">0</span>
-</button>
+  <dialog id="guide-dialog" class="explorer-dialog" aria-labelledby="guide-dialog-title">
+    <button class="dialog-close" type="button" data-close-dialog aria-label="Fechar escolha de guia">✕</button>
+    <span class="eyebrow">GUIAS VIP</span>
+    <h2 id="guide-dialog-title">Quem vai liderar sua expedição?</h2>
+    <p>Escolha o seu guia. A disponibilidade para as datas da viagem será confirmada pelo Bento Pantanal.</p>
+    <p id="guide-status" role="status">Carregando guias VIP...</p>
+    <div id="vip-guide-options" class="vip-guide-options" role="radiogroup" aria-labelledby="guide-dialog-title"></div>
+    <button id="retry-guides" type="button" class="action-button light" hidden>Tentar carregar novamente</button>
+    <div class="dialog-footer"><button id="confirm-guide" type="button" class="action-button" disabled>Usar este guia</button></div>
+  </dialog>
 
-<nav class="bottom-menu">
-  <button data-tipo="todos">🌎</button>
-  <button data-tipo="hotel">🏨</button>
-  <button data-tipo="cidade">🏙️</button>
-  <button data-tipo="destino">🐆</button>
-</nav>
+  <dialog id="request-dialog" class="explorer-dialog" aria-labelledby="request-title">
+    <button class="dialog-close" type="button" data-close-dialog aria-label="Fechar pedido">✕</button>
+    <span class="eyebrow">BENTO PANTANAL</span>
+    <h2 id="request-title">Seu pedido de cotação</h2>
+    <p>A expedição e o guia escolhido serão incluídos na mensagem para o Bento Pantanal.</p>
+    <label for="request-summary">Confira os detalhes</label>
+    <textarea id="request-summary" rows="12" readonly></textarea>
+    <div class="dialog-footer">
+      <button id="copy-request" type="button" class="action-button light">Copiar pedido</button>
+      <a id="send-request" class="action-button" href="#">Continuar por e-mail</a>
+    </div>
+    <p id="request-notice" class="small-note" role="status">O pedido só será enviado quando você confirmar no aplicativo de e-mail. Reserva e disponibilidade dependem de confirmação.</p>
+  </dialog>
 
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-<script src="js/data/cidades.js"></script>
-<script src="js/data/pousadas.js"></script>
-<script src="js/data/destinos.js"></script>
-<script src="js/data/pontes.js"></script>
-
-<script src="js/explorer.js"></script>
-
+  <noscript><p class="noscript-message">Ative o JavaScript para abrir os mapas e escolher o guia da expedição.</p></noscript>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.4/dist/umd/supabase.min.js"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/guides-common.js"></script>
+  <script src="js/explorer-config.js"></script>
+  <script src="js/data/expedicoes.js"></script>
+  <script src="js/explorer-guides.js"></script>
+  <script src="js/explorer.js"></script>
 </body>
 </html>
