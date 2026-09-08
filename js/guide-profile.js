@@ -227,9 +227,9 @@
         );
 
       expedition.href =
-        `/?guia=${encodeURIComponent(
+        `/explorer.html?guia=${encodeURIComponent(
           guide.slug
-        )}#expedicao`;
+        )}`;
 
       expedition.classList.toggle(
         "hidden",
