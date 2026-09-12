@@ -42,7 +42,11 @@
             <div class="field"><label for="instagram">Instagram</label><input id="instagram" name="instagram" type="text" placeholder="@usuario ou link"></div>
             <div class="field"><label for="facebook">Facebook</label><input id="facebook" name="facebook" type="url"></div>
             <div class="field"><label for="professional-email">E-mail profissional</label><input id="professional-email" name="email" type="email"></div>
-            <div class="field"><label for="website">Site</label><input id="website" name="site" type="url"></div>
+            <div id="vip-website-field" class="field hidden">
+              <label for="personal-domain">Página pessoal <span class="verified-badge vip-badge">★ VIP</span></label>
+              <input id="personal-domain" name="personal_domain" type="url" placeholder="https://seusite.com.br">
+              <small>Benefício exclusivo para guias VIP.</small>
+            </div>
           </div>
           <div class="form-actions"><button id="dashboard-save" class="button" type="submit">Salvar alterações</button></div>
         </form>
