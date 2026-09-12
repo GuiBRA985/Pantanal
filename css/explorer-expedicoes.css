@@ -23,7 +23,12 @@ button:disabled { cursor: wait; opacity: .55; }
 .expedition-card { display: flex; flex-direction: column; padding: 24px; background: #193d2c; border: 1px solid #ffffff2b; border-top: 4px solid #d4a52c; border-radius: 14px; }
 .chapada-card { border-top-color: #ca8051; }.jaciara-card { border-top-color: #52b5c3; }
 .expedition-number { font-size: .78rem; font-weight: 800; letter-spacing: .12em; color: #d9e5dd; }
-.destination-symbol { font-size: 2.6rem; margin: 18px 0 10px; }
+.expedition-cover { position: relative; width: 100%; aspect-ratio: 2 / 1; margin: 18px 0 18px; display: grid; place-items: center; overflow: hidden; border: 1px solid #ffffff24; border-radius: 11px; background: #102b1e; }
+.cover-fallback { font-size: 3rem; }.cover-photo { position: absolute; inset: 0; background-position: center; background-size: cover; background-repeat: no-repeat; }
+.cover-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, #071a1066); }
+.porto-jofre-cover .cover-photo { background-image: url("../assets/expedicoes/porto-jofre.jpg"); }
+.chapada-cover .cover-photo { background-image: url("../assets/expedicoes/chapada-dos-guimaraes.jpg"); }
+.jaciara-cover .cover-photo { background-image: url("../assets/expedicoes/jaciara.jpg"); }
 .expedition-card h2 { font-size: 1.75rem; line-height: 1.18; margin: 0 0 12px; }
 .expedition-card h3 { font-size: 1rem; margin: 0; color: #e5be53; }
 .expedition-card p { color: #e0e9e3; line-height: 1.65; margin: 15px 0 24px; }
@@ -92,7 +97,7 @@ button:disabled { cursor: wait; opacity: .55; }
 #panel-content #chapada-all-guides, #panel-content #chapada-request-quote { width: 100%; margin-top: 9px; }
 #panel-content #chapada-all-guides { border: 1px solid #9aaca0; background: #fff; color: #173a2b; }
 #panel-content #chapada-request-quote { background: #d9af3f; color: #152419; }
-@media(max-width: 950px) { .expedition-grid { grid-template-columns: 1fr; }.expedition-card { min-height: 0; }.destination-symbol { margin: 12px 0; }.expedition-catalog { max-width: 750px; }.catalog-guides { flex-direction: column; align-items: stretch; } }
+@media(max-width: 950px) { .expedition-grid { grid-template-columns: 1fr; }.expedition-card { min-height: 0; }.expedition-catalog { max-width: 750px; }.catalog-guides { flex-direction: column; align-items: stretch; } }
 @media(max-width: 650px) {
   .topbar { padding: 10px 14px; gap: 8px; }.logo { font-size: 1rem; }.home-link { padding: 7px 12px; font-size: .88rem; }
   .expedition-catalog { padding: 28px 16px; }.expedition-card { padding: 20px; }
