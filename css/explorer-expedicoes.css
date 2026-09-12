@@ -35,9 +35,16 @@ button:disabled { cursor: wait; opacity: .55; }
 .catalog-guides h2 { margin: 8px 0; font-size: 1.5rem; }.catalog-guides p { margin: 0; color: #e0e9e3; }.catalog-guides .action-button { flex-shrink: 0; }
 .route-bar { grid-row: 2; display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; background: #fff; gap: 16px; border-bottom: 1px solid #ccd5ce; }
 .route-bar strong, .route-bar span { display: block; }.route-bar span { font-size: .9rem; margin-top: 2px; }
+.route-bar-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 9px; }
 #map { grid-row: 3; position: relative; top: auto; bottom: auto; left: auto; right: auto; min-width: 0; min-height: 0; background: #dae1db; }
 .bottom-menu { grid-row: 4; position: static; min-height: 68px; height: auto; padding-bottom: env(safe-area-inset-bottom); }
 .regional-actions { grid-row: 4; display: flex; justify-content: space-between; gap: 10px; padding: 12px 20px calc(12px + env(safe-area-inset-bottom)); background: #fff; }
+.chapada-bottom-menu { grid-row: 4; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; padding: 8px max(12px, calc((100vw - 720px) / 2)) calc(8px + env(safe-area-inset-bottom)); background: #fff; border-top: 1px solid #cdd8d0; box-shadow: 0 -2px 10px #0002; z-index: 1000; }
+.chapada-bottom-menu button { min-height: 58px; display: flex; justify-content: center; align-items: center; gap: 10px; border: 1px solid #cad6ce; border-radius: 10px; background: #f7faf8; color: #173a2b; font-weight: 800; }
+.chapada-bottom-menu button:hover { background: #edf4ef; }
+.chapada-bottom-menu button[aria-pressed="true"] { color: #fff; border-color: #173a2b; background: #173a2b; }
+.chapada-bottom-menu svg { width: 27px; height: 27px; fill: currentColor; flex: 0 0 auto; }
+.chapada-bottom-menu span { white-space: nowrap; }
 #info-panel, #roteiro-panel { width: 410px; max-width: 100%; }
 #panel-content h2, #roteiro-content h2 { line-height: 1.2; padding-right: 16px; }
 #panel-content p, #roteiro-content p { line-height: 1.6; }
@@ -50,6 +57,7 @@ button:disabled { cursor: wait; opacity: .55; }
 .regional-marker { background: none; border: 0; }
 .map-pin { display: grid; place-items: center; width: 36px; height: 36px; border: 2px solid #fff; border-radius: 50%; box-shadow: 0 2px 8px #0007; background: #e8b930; color: #142219; font-size: 14px; font-weight: 800; }
 .airport-pin { background: #176da0; color: #fff; font-size: 21px; }.destination-pin { background: #943b24; color: #fff; font-size: 20px; }
+.lodge-pin { width: 40px; height: 40px; background: #9a5c2f; color: #fff; font-size: 22px; }.attraction-pin { width: 40px; height: 40px; background: #178398; color: #fff; }.fuel-pin { background: #e2a925; color: #17251c; font-size: 15px; }
 .fuel-list { list-style: none; padding: 0; }
 #panel-content .fuel-item { width: 100%; display: block; text-align: left; border: 1px solid #c9d5cd; background: #f0f5f1; color: #173a2b; margin: 8px 0; padding: 14px; }
 .fuel-item span { display: block; font-size: .9rem; font-weight: normal; margin-top: 5px; }
@@ -68,12 +76,29 @@ button:disabled { cursor: wait; opacity: .55; }
 .dialog-footer { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 12px; margin-top: 24px; }
 #request-summary { display: block; width: 100%; margin-top: 8px; min-height: 250px; line-height: 1.5; resize: vertical; padding: 14px; border: 1px solid #a0b2a6; border-radius: 8px; color: #1d3627; background: #f5f8f6; }
 .small-note { font-size: .88rem; color: #4c5f53; }.noscript-message { padding: 20px; background: #fff; color: #173a2b; }
+.chapada-place-type { color: #426150; font-weight: 700; }
+.chapada-panel-actions { display: grid; gap: 9px; margin: 18px 0; }
+.chapada-lodge-facts { margin: 18px 0; }
+.chapada-lodge-facts div { padding: 10px 0; border-bottom: 1px solid #d8e0da; }
+.chapada-lodge-facts dt { color: #6a7b70; font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }.chapada-lodge-facts dd { margin: 3px 0 0; }
+.chapada-planner { margin-top: 28px; padding-top: 24px; border-top: 3px solid #d9af3f; }
+.chapada-planner h3 { line-height: 1.3; margin: 8px 0 12px; }.chapada-planner label { display: block; font-weight: 800; margin: 15px 0 7px; }
+#panel-content .chapada-planner select { width: 100%; min-height: 48px; padding: 8px 12px; border: 1px solid #84998c; border-radius: 8px; background: #fff; color: #173a2b; }
+.chapada-guide-suggestions { display: grid; gap: 10px; margin: 12px 0; }
+.chapada-guide-card { display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; align-items: center; gap: 10px; padding: 10px; border: 2px solid #d4ddd7; border-radius: 10px; }.chapada-guide-card.selected { border-color: #aa8016; background: #fff8e5; }
+.chapada-guide-avatar { width: 52px; height: 52px; display: grid; place-items: center; overflow: hidden; border-radius: 50%; background: #173a2b; color: #fff; font-weight: 800; }.chapada-guide-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.chapada-guide-card strong, .chapada-guide-card small { display: block; }.chapada-guide-card small { color: #86630c; font-weight: 800; }.chapada-guide-card strong { overflow-wrap: anywhere; }
+#panel-content .chapada-guide-card button { min-height: 40px; margin: 0; padding: 7px 10px; border: 1px solid #173a2b; background: #fff; color: #173a2b; }.chapada-guide-card.selected button { background: #173a2b !important; color: #fff !important; }
+#panel-content #chapada-all-guides, #panel-content #chapada-request-quote { width: 100%; margin-top: 9px; }
+#panel-content #chapada-all-guides { border: 1px solid #9aaca0; background: #fff; color: #173a2b; }
+#panel-content #chapada-request-quote { background: #d9af3f; color: #152419; }
 @media(max-width: 950px) { .expedition-grid { grid-template-columns: 1fr; }.expedition-card { min-height: 0; }.destination-symbol { margin: 12px 0; }.expedition-catalog { max-width: 750px; }.catalog-guides { flex-direction: column; align-items: stretch; } }
 @media(max-width: 650px) {
   .topbar { padding: 10px 14px; gap: 8px; }.logo { font-size: 1rem; }.home-link { padding: 7px 12px; font-size: .88rem; }
   .expedition-catalog { padding: 28px 16px; }.expedition-card { padding: 20px; }
-  .route-bar { padding: 9px 12px; gap: 8px; flex-wrap: wrap; }.route-bar .action-button { padding: 8px 12px; }
+  .route-bar { padding: 9px 12px; gap: 8px; flex-wrap: wrap; }.chapada-mode .route-bar-actions { width: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }.route-bar .action-button { padding: 8px 9px; font-size: .84rem; }
   .regional-actions { padding: 10px 10px calc(10px + env(safe-area-inset-bottom)); }.regional-actions .action-button { flex: 1; font-size: .88rem; padding: 10px 8px; }
+  .chapada-bottom-menu { gap: 5px; padding: 6px 6px calc(6px + env(safe-area-inset-bottom)); }.chapada-bottom-menu button { min-height: 56px; flex-direction: column; gap: 1px; font-size: .78rem; }.chapada-bottom-menu svg { width: 24px; height: 24px; }
   .vip-guide-options { grid-template-columns: 1fr; }.explorer-dialog { padding: 26px 18px; }.explorer-dialog h2 { font-size: 1.4rem; }
   .dialog-footer .action-button { flex: 1; }.vip-choice { grid-template-columns: 22px 64px minmax(0, 1fr); }
   #roteiro-btn { right: 14px; padding: 13px 16px; }
