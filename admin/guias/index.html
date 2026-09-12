@@ -54,10 +54,10 @@
         <div class="field"><label for="dialog-whatsapp">WhatsApp</label><input id="dialog-whatsapp"></div>
         <div class="field"><label for="dialog-instagram">Instagram</label><input id="dialog-instagram" type="text" placeholder="@usuario ou link"></div>
         <div class="field"><label for="dialog-email">E-mail profissional</label><input id="dialog-email" type="email"></div>
-        <div class="field"><label for="dialog-personal-domain">Domínio pessoal</label><input id="dialog-personal-domain" type="url" placeholder="https://..."></div>
+        <div id="dialog-personal-domain-field" class="field"><label for="dialog-personal-domain">Página pessoal (somente VIP)</label><input id="dialog-personal-domain" type="url" placeholder="https://..."><small>Este campo será removido se o guia deixar de ser VIP.</small></div>
         <div class="field"><label for="dialog-login-email">Vincular conta de acesso</label><input id="dialog-login-email" type="email" placeholder="E-mail usado pelo guia no login"><small>O guia precisa criar a conta antes.</small></div>
         <label class="check-option"><input id="dialog-vip" type="checkbox"><span>Guia VIP</span></label>
-        <label class="check-option"><input id="dialog-expedition-leader" type="checkbox"><span>Pode liderar expedições</span></label>
+        <label id="dialog-expedition-leader-option" class="check-option"><input id="dialog-expedition-leader" type="checkbox"><span>Pode liderar expedições <small>— somente VIP</small></span></label>
         <div class="field field-full"><label for="dialog-bio">Biografia</label><textarea id="dialog-bio"></textarea></div>
         <div class="field field-full"><label>Idiomas, regiões e especialidades</label><p id="dialog-tags"></p></div>
         <div class="field field-full"><label>Situação</label><div id="dialog-status"></div><small id="dialog-created"></small></div>
