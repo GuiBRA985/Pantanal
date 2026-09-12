@@ -3,9 +3,14 @@
   const params = new URLSearchParams(location.search);
   const routeId = params.get("expedicao") || (params.get("montar") === "1" ? "porto-jofre" : "");
   const isJaguar = routeId === "porto-jofre";
+  const isChapada = routeId === "chapada";
   const expeditions = window.PantanalExpeditions || {};
   const regional = Object.hasOwn(expeditions, routeId) ? expeditions[routeId] : null;
-  const expeditionName = isJaguar ? "Expedição Jaguar — Porto Jofre" : regional ? `Expedição ${regional.nome}` : "";
+  const expeditionName = isJaguar
+    ? "Expedição Jaguar — Porto Jofre"
+    : isChapada
+      ? "Expedição de Cachoeiras — Chapada dos Guimarães"
+      : regional ? `Expedição ${regional.nome}` : "";
   const P = window.PantanalGuides;
   const G = window.ExplorerGuides;
   const infoPanel = document.getElementById("info-panel");
@@ -82,6 +87,15 @@
     if (isJaguar) {
       lines.push("Duração: 10 dias / 9 noites", "Paradas:");
       window.JaguarExpedition.stops().forEach((stop, index) => lines.push(`${index + 1}. ${stop.nome} — ${stop.noites} noites`));
+    } else if (isChapada) {
+      const chapada = window.ChapadaWaterfalls;
+      const days = window.ChapadaExplorer?.getDays() || 0;
+      lines.push(
+        `Estadia desejada: ${days} ${days === 1 ? "dia" : "dias"}`,
+        `Etapa 1 — traslado: ${chapada.origem.nome} até ${chapada.pousada.nome}`,
+        `Base: ${chapada.pousada.nome}`,
+        `Etapa 2 — roteiro entre ${chapada.atracoes.length} atrações mapeadas, a combinar conforme os dias e condições de acesso.`
+      );
     } else {
       lines.push(`Saída: ${regional.origem.nome}, Várzea Grande — MT`, `Destino: ${regional.nome} — MT`, "Duração e detalhes do roteiro: a combinar com o Bento Pantanal.");
     }
@@ -124,9 +138,13 @@
       window.JaguarExpedition?.openItinerary();
       return;
     }
+    if (isChapada && !window.ChapadaExplorer?.getDays()) {
+      window.ChapadaExplorer?.openLodge({ focusDays: true });
+      return;
+    }
     if (!G.getSelected()) { G.openPicker(prepareRequest); return; }
     requestBusy = true;
-    document.getElementById("regional-request").disabled = true;
+    document.querySelectorAll("#regional-request, #chapada-request-quote").forEach(button => { button.disabled = true; });
     try {
       // Always re-read eligibility before preparing a quote; never trust a URL or stored profile.
       const success = await G.load();
@@ -135,7 +153,7 @@
       showRequest(guide);
     } finally {
       requestBusy = false;
-      document.getElementById("regional-request").disabled = false;
+      document.querySelectorAll("#regional-request, #chapada-request-quote").forEach(button => { button.disabled = false; });
     }
   }
   document.getElementById("copy-request").addEventListener("click", async event => {
@@ -169,7 +187,7 @@
     return;
   }
   document.title = `${expeditionName} | Pantanal Explorer`;
-  document.body.className = isJaguar ? "jaguar-mode" : "regional-mode";
+  document.body.className = isJaguar ? "jaguar-mode" : isChapada ? "chapada-mode" : "regional-mode";
   document.getElementById("expedition-catalog").hidden = true;
   document.getElementById("route-bar").hidden = false;
   document.getElementById("route-name").textContent = expeditionName;
@@ -184,6 +202,12 @@
         await loadScript("js/explorer-jaguar.js");
       } catch (_) { showMapError(); }
     })();
+  } else if (isChapada) {
+    document.getElementById("chapada-menu").hidden = false;
+    document.getElementById("chapada-plan-button").hidden = false;
+    try {
+      window.ChapadaExplorer.init({ regional, openPanel, showPlace, prepareRequest });
+    } catch (_) { showMapError(); }
   } else {
     document.getElementById("regional-actions").hidden = false;
     try { regionalMap(); } catch (_) { showMapError(); }

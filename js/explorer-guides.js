@@ -24,6 +24,9 @@
   function getSelected() {
     return guides.find(guide => guide.slug === selected && eligible(guide)) || null;
   }
+  function getGuides() {
+    return guides.filter(eligible).slice();
+  }
   function publishChoice() {
     const guide = getSelected();
     try {
@@ -102,6 +105,7 @@
         if (!guides.length) status.textContent = "Nenhum guia VIP está habilitado para liderar no momento. Tente novamente mais tarde.";
         else if (requested && !guide) status.textContent = "O guia anterior não está habilitado para liderar. Escolha um dos VIPs disponíveis abaixo.";
         else if (!guide) status.textContent = "Selecione um guia para continuar.";
+        window.dispatchEvent(new CustomEvent("explorer:guidesloaded", { detail: { count: guides.length } }));
         return true;
       } catch (error) {
         guides = [];
@@ -110,6 +114,7 @@
         publishChoice();
         status.textContent = "Não foi possível consultar os guias agora. Tente novamente para escolher um guia.";
         retry.hidden = false;
+        window.dispatchEvent(new CustomEvent("explorer:guidesloaded", { detail: { count: 0, error: true } }));
         return false;
       } finally {
         options.removeAttribute("aria-busy");
@@ -135,6 +140,6 @@
   retry.addEventListener("click", load);
   document.querySelectorAll("[data-open-guides]").forEach(button => button.addEventListener("click", () => openPicker()));
   document.querySelectorAll("[data-close-dialog]").forEach(button => button.addEventListener("click", () => button.closest("dialog").close()));
-  window.ExplorerGuides = Object.freeze({ load, openPicker, getSelected, choose });
+  window.ExplorerGuides = Object.freeze({ load, openPicker, getSelected, getGuides, choose });
   load();
 })();
