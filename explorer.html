@@ -33,11 +33,11 @@
       </article>
       <article class="expedition-card chapada-card">
         <span class="expedition-number">02 / CHAPADA</span>
-        <span class="destination-symbol" aria-hidden="true">⛰️</span>
+        <span class="destination-symbol" aria-hidden="true">💧</span>
         <h2>Chapada dos Guimarães</h2>
-        <h3>Cerrado e grandes paisagens</h3>
-        <p>Do Aeroporto Marechal Rondon, em Várzea Grande, até Chapada dos Guimarães. Consulte o trajeto e os postos de combustível.</p>
-        <a class="expedition-link" data-expedition="chapada" href="explorer.html?expedicao=chapada">Explorar Chapada</a>
+        <h3>Duas etapas, uma base</h3>
+        <p>Primeiro, o traslado até a Pousada Flor da Chapada. Depois, escolha entre 16 atrações para montar a expedição com um guia VIP.</p>
+        <a class="expedition-link" data-expedition="chapada" href="explorer.html?expedicao=chapada">Montar rota de cachoeiras</a>
       </article>
       <article class="expedition-card jaciara-card">
         <span class="expedition-number">03 / JACIARA</span>
@@ -56,7 +56,10 @@
 
   <section id="route-bar" class="route-bar" hidden aria-label="Expedição selecionada">
     <div><strong id="route-name"></strong><span id="selected-guide-label" aria-live="polite">Escolha o guia da expedição</span></div>
-    <button class="action-button" data-open-guides type="button">Escolher / trocar guia</button>
+    <div class="route-bar-actions">
+      <button id="chapada-plan-button" class="action-button light" type="button" hidden>Planejar estadia</button>
+      <button class="action-button" data-open-guides type="button">Escolher / trocar guia</button>
+    </div>
   </section>
   <div id="map" hidden aria-label="Mapa da expedição"></div>
   <p id="map-error" class="map-error" role="status" hidden>Não foi possível abrir o mapa. Recarregue a página para tentar novamente.</p>
@@ -80,6 +83,20 @@
     <button id="fuel-list-button" class="action-button light" type="button">⛽ Postos no caminho</button>
     <button id="regional-request" class="action-button" type="button">Solicitar expedição</button>
   </div>
+  <nav id="chapada-menu" class="chapada-bottom-menu" hidden aria-label="Etapas e camadas do mapa da Chapada">
+    <button id="chapada-transfer-button" type="button" aria-pressed="true">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 16a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm14 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM4 3h13a4 4 0 0 1 4 4v9h-1.2a3 3 0 0 0-5.6 0H9.8a3 3 0 0 0-5.6 0H3V5a2 2 0 0 1 1-2Zm1 2v5h6V5H5Zm8 0v5h6V7a2 2 0 0 0-2-2h-4Z"/></svg>
+      <span>Traslado</span>
+    </button>
+    <button id="chapada-attractions-button" type="button" aria-pressed="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h8v4H8v4H5V7H4V3Zm10 0h6v8h-3V7h-3V3ZM3 15c3 0 3 2 6 2s3-2 6-2 3 2 6 2v4c-3 0-3-2-6-2s-3 2-6 2-3-2-6-2v-4Zm7-4h5v3c-2.6 0-3.3 1.2-5 1.8V11Z"/></svg>
+      <span>Atrações</span>
+    </button>
+    <button id="chapada-fuel-button" type="button" aria-pressed="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 2h9a2 2 0 0 1 2 2v16h1v2H3v-2h1V4a2 2 0 0 1 1-2Zm1 2v6h8V4H6Zm1 10h6v2H7v-2Zm11.2-9.8L22 8v9a3 3 0 0 1-3 3h-1v-2h1a1 1 0 0 0 1-1v-3h-3V8l1.2-3.8Z"/></svg>
+      <span>Postos</span>
+    </button>
+  </nav>
 
   <dialog id="guide-dialog" class="explorer-dialog" aria-labelledby="guide-dialog-title">
     <button class="dialog-close" type="button" data-close-dialog aria-label="Fechar escolha de guia">✕</button>
@@ -113,7 +130,9 @@
   <script src="js/guides-common.js"></script>
   <script src="js/explorer-config.js"></script>
   <script src="js/data/expedicoes.js"></script>
+  <script src="js/data/chapada-cachoeiras.js"></script>
   <script src="js/explorer-guides.js"></script>
+  <script src="js/explorer-chapada.js"></script>
   <script src="js/explorer.js"></script>
 </body>
 </html>
