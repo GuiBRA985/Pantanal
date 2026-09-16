@@ -19,6 +19,9 @@ button{border:none;border-radius:999px;padding:10px 16px;background:#173A2B;colo
 .tag{background:#eef3ec;padding:7px 10px;border-radius:999px;font-size:13px}
 .btn{display:inline-block;margin-top:12px;background:#173A2B;color:white;padding:12px 16px;border-radius:10px;text-decoration:none;font-weight:bold}
 </style>
+<link rel="stylesheet" href="css/languages.css">
+<script src="js/i18n/translations.js"></script>
+<script src="js/i18n/runtime.js"></script>
 </head>
 
 <body>
@@ -81,8 +84,8 @@ function renderizar(lista){
   container.innerHTML = lista.map(g => `
     <div class="card">
       <span class="badge">${g.cadastur_status || "aguardando validação"}</span>
-      <h2>${g.nome}</h2>
-      <p>${g.bio || "Guia local no Pantanal."}</p>
+      <h2 translate="no">${g.nome}</h2>
+      <p${g.bio ? ' translate="no"' : ""}>${g.bio || "Guia local no Pantanal."}</p>
 
       <h4>Idiomas</h4>
       <div class="tags">

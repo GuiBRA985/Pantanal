@@ -1,0 +1,42 @@
+PANTANAL BENTO — SETE IDIOMAS
+
+PUBLICAR
+Extraia este ZIP, abra a pasta Pantanal-main e envie o conteúdo para a raiz do repositório Pantanal. Não crie uma subpasta Pantanal-main dentro do site. Preserve as fotos que você tenha acrescentado após o ZIP original.
+Para uma atualização mínima, substitua apenas os arquivos listados ao final deste documento e adicione os novos. Não basta enviar somente o index.html nesta atualização.
+
+IDIOMAS
+Português (pt), alemão (de), inglês (en), espanhol (es), francês (fr), hindi (hi) e japonês (ja). Hindi foi adotado para o pedido de idioma indiano; a Índia possui vários idiomas.
+O seletor aparece nas páginas públicas e guarda a preferência no navegador. Os links internos também carregam ?lang=CODIGO. Para compartilhar, por exemplo: https://pantanal.bento.host/?lang=en ou https://pantanal.bento.host/explorer.html?expedicao=porto-jofre&lang=de.
+
+COBERTURA
+Página inicial, catálogo Explorer, três expedições, diálogos, textos de atrações e pousadas exibidos no mapa, rede pública de guias, perfil público e página de erro. Rótulos, instruções, botões e mensagens de cotação possuem tradução local.
+Nomes próprios, endereços e dados digitados permanecem intactos. Biografias livres dos guias, conteúdo de sites externos e nomes incorporados às imagens dos mapas não são traduzidos. Login, cadastro, painel do guia e administração permanecem em português.
+
+PRESERVADO
+Vídeo original assets/videos/capa.mp4, capas compartilhadas das expedições, rotas, coordenadas, regras de seleção de guias VIP, configuração de contato e configurações do banco. Nenhuma migração ou alteração de banco é necessária. As cotações continuam abrindo o aplicativo de e-mail do visitante, com confirmação de envio por ele.
+
+MANUTENÇÃO
+js/i18n/translations.js contém as traduções: a chave é a frase original em português; en, de, es, fr, hi e ja são as traduções. Preserve marcadores como {0} e {1}. Ao mudar um texto original ou acrescentar novo conteúdo, atualize a entrada correspondente. Não existe tradução automática remota.
+js/i18n/runtime.js aplica os textos e guarda o idioma. css/languages.css contém o seletor e ajustes de layout. Não altere os valores das opções de formulários: os rótulos são traduzidos mantendo os valores originais usados pela lógica.
+
+VERIFICAÇÃO
+Testes automatizados de DOM nos sete idiomas: preferência, retorno ao português, formulário de traslado, cotação traduzida e preservação dos dados digitados. Explorer testado com Leaflet local e dados de guias simulados: catálogo, três rotas, escolha de guia, montagem Jaguar, diárias da Chapada, mensagens e filtros. Integrações externas reais não foram alteradas nem consultadas nesses testes. Não foi possível executar inspeção visual em navegador real neste ambiente; confira o cabeçalho e os textos no celular após publicar.
+
+ARQUIVOS ALTERADOS
+- 404.html
+- assets/pantanal-home/home.js
+- explorer.html
+- guias.html
+- guias/404.html
+- guias/index.html
+- guias/perfil/index.html
+- index.html
+- js/explorer-jaguar.js
+- js/explorer.js
+- js/guide-profile.js
+- js/guides-list.js
+
+ARQUIVOS NOVOS
+- css/languages.css
+- js/i18n/runtime.js
+- js/i18n/translations.js

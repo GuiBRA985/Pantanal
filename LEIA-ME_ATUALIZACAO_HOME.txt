@@ -1,0 +1,26 @@
+ATENÇÃO: Para a atualização com sete idiomas, siga LEIA-ME_IDIOMAS.txt. Ela inclui mais arquivos do que a atualização inicial da capa.
+
+ATUALIZAÇÃO DA HOME — EXPLORER PRESERVADO
+
+Extraia o ZIP. Entre em Pantanal-main e envie seu conteúdo para a raiz do repositório existente. Não envie a pasta Pantanal-main como subpasta do site.
+
+Para aplicar somente a correção, substitua estes três arquivos:
+- index.html
+- assets/pantanal-home/home.css
+- assets/pantanal-home/home.js
+
+O Explorer aparece no menu, na chamada principal, nos cartões de destino, em uma seção própria e no rodapé. Cada destino abre sua rota real:
+explorer.html?expedicao=porto-jofre
+explorer.html?expedicao=chapada
+explorer.html?expedicao=jaciara
+
+O catálogo fica em explorer.html. Todos os arquivos do Explorer, mapas, guias, administração, dados e CNAME foram preservados byte a byte em relação ao ZIP recebido. Nenhuma configuração de Supabase foi alterada. O Explorer já estava configurado para gui@bento.host e permanece assim.
+
+Os cartões da home agora também usam as mesmas capas JPG do Explorer em assets/expedicoes. Consulte o LEIA-ME dessa pasta para nomes e dimensões. Ilustrações continuam como alternativa enquanto não houver fotos.
+
+O formulário de traslado e cotação geral permanece na home. O envio abre o aplicativo de e-mail do visitante; ele precisa confirmar o envio. Não há envio automático pelo servidor.
+
+Validação: links locais e parâmetros das três expedições conferidos; integridade dos arquivos existentes comparada com o ZIP original. O funcionamento ao vivo de mapas e consultas ao Supabase depende de serviços externos.
+
+CAPA EM VÍDEO
+O hero utiliza assets/videos/capa.mp4, já incluído no repositório, sem alterar o vídeo. Reprodução sem som, em loop e inline em celulares, com botão de pausar. Navegadores podem bloquear a reprodução automática; nesse caso, use Reproduzir vídeo. A preferência do sistema por movimento reduzido é respeitada.
