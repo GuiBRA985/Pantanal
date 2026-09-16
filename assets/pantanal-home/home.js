@@ -14,3 +14,16 @@ arrival.addEventListener("change",()=>{departure.min=arrival.value;departure.set
 function request(){departure.setCustomValidity(arrival.value&&departure.value&&departure.value<arrival.value?"A saída deve ser igual ou posterior à chegada.":"");if(!form.reportValidity())return null;const d=new FormData(form);const date=v=>v?v.split("-").reverse().join("/"):"A combinar";return ["Olá! Gostaria de uma cotação de viagem.","",`Nome: ${d.get("nome")}`,`E-mail: ${d.get("email")}`,`WhatsApp: ${d.get("telefone")}`,`Destino: ${d.get("destino")}`,`Chegada: ${date(d.get("chegada"))}`,`Saída: ${date(d.get("saida"))}`,`Pessoas: ${d.get("pessoas")}`,`Traslado: ${d.get("traslado")}`,...(fields.hidden?[]:[`Origem: ${d.get("origem")||"A combinar"}`,`Destino do traslado: ${d.get("destino_traslado")||"A combinar"}`]),"",`Observações: ${d.get("observacoes")||"Nenhuma"}`].join("\n")}
 form.addEventListener("submit",e=>{e.preventDefault();const body=request();if(!body)return;window.location.href="mailto:gui@bento.host?subject="+encodeURIComponent("Cotação — "+document.querySelector("#destination").value)+"&body="+encodeURIComponent(body);status.textContent="Pedido preparado. Conclua o envio no seu aplicativo de e-mail. Se ele não abrir, use ‘Copiar pedido’ e envie para gui@bento.host."});
 document.querySelector("#copy").addEventListener("click",async()=>{const body=request();if(!body)return;try{await navigator.clipboard.writeText(body);status.textContent="Pedido copiado. Cole em um e-mail e envie para gui@bento.host."}catch{fallback.hidden=false;fallback.value=body;fallback.focus();fallback.select();status.textContent="Copie o texto abaixo e envie para gui@bento.host."}});
+
+// Capa original: respeita a preferência por movimento reduzido.
+const heroVideo=document.querySelector("#hero-video"),videoToggle=document.querySelector("#hero-video-toggle");
+if(heroVideo&&videoToggle){
+ const reducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)");
+ const updateVideoButton=()=>{videoToggle.textContent=heroVideo.paused?"Reproduzir vídeo":"Pausar vídeo"};
+ const motionPreference=()=>{if(reducedMotion.matches){heroVideo.autoplay=false;heroVideo.pause()}updateVideoButton()};
+ videoToggle.hidden=false;heroVideo.muted=true;
+ heroVideo.addEventListener("play",updateVideoButton);heroVideo.addEventListener("pause",updateVideoButton);
+ videoToggle.addEventListener("click",async()=>{if(heroVideo.paused){try{await heroVideo.play()}catch{videoToggle.textContent="Tentar reproduzir"}}else{heroVideo.pause()}});
+ reducedMotion.addEventListener("change",motionPreference);motionPreference();
+ if(!reducedMotion.matches)heroVideo.play().catch(updateVideoButton);
+}
