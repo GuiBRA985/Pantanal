@@ -3175,5 +3175,189 @@ window.PANTANAL_TRANSLATIONS = {
     "fr": "Station-service : {0}",
     "hi": "ईंधन स्टेशन: {0}",
     "ja": "給油所：{0}"
+  },
+  "Escolha entre três pousadas, defina os dias e monte o roteiro entre 16 atrações com um guia VIP.": {
+    "en": "Choose from three lodges, set the number of days and build an itinerary among 16 attractions with a VIP guide.",
+    "de": "Wählen Sie eine von drei Unterkünften, legen Sie die Reisedauer fest und planen Sie mit einem VIP-Guide eine Route aus 16 Attraktionen.",
+    "es": "Elija entre tres alojamientos, defina los días y prepare una ruta entre 16 atracciones con un guía VIP.",
+    "fr": "Choisissez parmi trois hébergements, indiquez la durée et composez un itinéraire parmi 16 sites avec un guide VIP.",
+    "hi": "तीन लॉज में से चुनें, दिनों की संख्या तय करें और VIP गाइड के साथ 16 आकर्षणों में से यात्रा कार्यक्रम बनाएँ।",
+    "ja": "3つの宿泊施設から選び、日数を決め、VIPガイドと16の観光スポットから旅程を組み立てます。"
+  },
+  "Alterar pousada e dias": {
+    "en": "Change lodge and days",
+    "de": "Unterkunft und Tage ändern",
+    "es": "Cambiar alojamiento y días",
+    "fr": "Modifier l'hébergement et la durée",
+    "hi": "लॉज और दिन बदलें",
+    "ja": "宿泊施設と日数を変更"
+  },
+  "Duas etapas, três pousadas": {
+    "en": "Two stages, three lodges",
+    "de": "Zwei Etappen, drei Unterkünfte",
+    "es": "Dos etapas, tres alojamientos",
+    "fr": "Deux étapes, trois hébergements",
+    "hi": "दो चरण, तीन लॉज",
+    "ja": "2つの行程、3つの宿泊施設"
+  },
+  "Guia e orçamento": {
+    "en": "Guide and quote",
+    "de": "Guide und Angebot",
+    "es": "Guía y presupuesto",
+    "fr": "Guide et devis",
+    "hi": "गाइड और मूल्य प्रस्ताव",
+    "ja": "ガイドと見積もり"
+  },
+  "Escolha sua pousada e os dias": {
+    "en": "Choose your lodge and number of days",
+    "de": "Wählen Sie Unterkunft und Reisedauer",
+    "es": "Elija el alojamiento y los días",
+    "fr": "Choisissez l'hébergement et la durée",
+    "hi": "अपना लॉज और दिनों की संख्या चुनें",
+    "ja": "宿泊施設と日数を選んでください"
+  },
+  "ESCOLHA A POUSADA": {
+    "en": "CHOOSE YOUR LODGE",
+    "de": "UNTERKUNFT WÄHLEN",
+    "es": "ELIJA EL ALOJAMIENTO",
+    "fr": "CHOISISSEZ L'HÉBERGEMENT",
+    "hi": "लॉज चुनें",
+    "ja": "宿泊施設を選ぶ"
+  },
+  "Escolha onde deseja se hospedar": {
+    "en": "Choose where you want to stay",
+    "de": "Wählen Sie Ihre Unterkunft",
+    "es": "Elija dónde desea alojarse",
+    "fr": "Choisissez votre hébergement",
+    "hi": "चुनें कि आप कहाँ ठहरना चाहते हैं",
+    "ja": "宿泊先を選んでください"
+  },
+  "Selecione uma das três pousadas e informe quantos dias pretende ficar. Você poderá alterar essas escolhas antes de solicitar o orçamento.": {
+    "en": "Select one of the three lodges and enter how many days you plan to stay. You can change these choices before requesting a quote.",
+    "de": "Wählen Sie eine der drei Unterkünfte und geben Sie die geplante Aufenthaltsdauer an. Vor der Angebotsanfrage können Sie beides ändern.",
+    "es": "Seleccione uno de los tres alojamientos e indique cuántos días desea quedarse. Podrá cambiar estas opciones antes de solicitar el presupuesto.",
+    "fr": "Sélectionnez l'un des trois hébergements et indiquez la durée du séjour. Vous pourrez modifier ces choix avant de demander le devis.",
+    "hi": "तीन लॉज में से एक चुनें और बताएँ कि आप कितने दिन रहना चाहते हैं। मूल्य प्रस्ताव माँगने से पहले आप इन विकल्पों को बदल सकते हैं।",
+    "ja": "3つの宿泊施設から1つを選び、滞在日数を入力してください。見積もり依頼前に変更できます。"
+  },
+  "{0} km · cerca de {1} min do aeroporto": {
+    "en": "{0} km · about {1} min from the airport",
+    "de": "{0} km · etwa {1} Min. vom Flughafen",
+    "es": "{0} km · unos {1} min desde el aeropuerto",
+    "fr": "{0} km · environ {1} min depuis l'aéroport",
+    "hi": "{0} किमी · हवाई अड्डे से लगभग {1} मिनट",
+    "ja": "{0} km・空港から約{1}分"
+  },
+  "Código de localização:": {
+    "en": "Location code:",
+    "de": "Standortcode:",
+    "es": "Código de ubicación:",
+    "fr": "Code de localisation :",
+    "hi": "स्थान कोड:",
+    "ja": "ロケーションコード："
+  },
+  "Abrir site": {
+    "en": "Open website",
+    "de": "Website öffnen",
+    "es": "Abrir sitio web",
+    "fr": "Ouvrir le site",
+    "hi": "वेबसाइट खोलें",
+    "ja": "ウェブサイトを開く"
+  },
+  "{0} atrações mapeadas ao redor da pousada escolhida": {
+    "en": "{0} mapped attractions around the selected lodge",
+    "de": "{0} erfasste Attraktionen rund um die gewählte Unterkunft",
+    "es": "{0} atracciones mapeadas alrededor del alojamiento elegido",
+    "fr": "{0} sites cartographiés autour de l'hébergement choisi",
+    "hi": "चुने गए लॉज के आसपास {0} मानचित्रित आकर्षण",
+    "ja": "選択した宿泊施設周辺の{0}の観光スポット"
+  },
+  "Confirmar pousada e dias": {
+    "en": "Confirm lodge and days",
+    "de": "Unterkunft und Tage bestätigen",
+    "es": "Confirmar alojamiento y días",
+    "fr": "Confirmer l'hébergement et la durée",
+    "hi": "लॉज और दिन पक्के करें",
+    "ja": "宿泊施設と日数を確定"
+  },
+  "Escolha uma pousada para continuar.": {
+    "en": "Choose a lodge to continue.",
+    "de": "Wählen Sie eine Unterkunft, um fortzufahren.",
+    "es": "Elija un alojamiento para continuar.",
+    "fr": "Choisissez un hébergement pour continuer.",
+    "hi": "आगे बढ़ने के लिए एक लॉज चुनें।",
+    "ja": "続行するには宿泊施設を選んでください。"
+  },
+  "Escolha quantos dias deseja ficar antes de continuar.": {
+    "en": "Choose how many days you want to stay before continuing.",
+    "de": "Wählen Sie vor dem Fortfahren die Anzahl der Aufenthaltstage.",
+    "es": "Elija cuántos días desea quedarse antes de continuar.",
+    "fr": "Indiquez la durée du séjour avant de continuer.",
+    "hi": "आगे बढ़ने से पहले चुनें कि आप कितने दिन रहना चाहते हैं।",
+    "ja": "続行する前に滞在日数を選んでください。"
+  },
+  "Sua escolha foi salva. Agora você pode ver as atrações ou escolher o guia.": {
+    "en": "Your choice has been saved. You can now view the attractions or choose your guide.",
+    "de": "Ihre Auswahl wurde gespeichert. Sie können nun die Attraktionen ansehen oder Ihren Guide wählen.",
+    "es": "Su elección se guardó. Ahora puede ver las atracciones o elegir el guía.",
+    "fr": "Votre choix est enregistré. Vous pouvez maintenant voir les sites ou choisir votre guide.",
+    "hi": "आपकी पसंद सहेज ली गई है। अब आप आकर्षण देख सकते हैं या गाइड चुन सकते हैं।",
+    "ja": "選択内容を保存しました。観光スポットを見るか、ガイドを選べます。"
+  },
+  "Pousada escolhida: {0}": {
+    "en": "Selected lodge: {0}",
+    "de": "Gewählte Unterkunft: {0}",
+    "es": "Alojamiento elegido: {0}",
+    "fr": "Hébergement choisi : {0}",
+    "hi": "चुना हुआ लॉज: {0}",
+    "ja": "選択した宿泊施設：{0}"
+  },
+  "Pousada: {0}": {
+    "en": "Lodge: {0}",
+    "de": "Unterkunft: {0}",
+    "es": "Alojamiento: {0}",
+    "fr": "Hébergement : {0}",
+    "hi": "लॉज: {0}",
+    "ja": "宿泊施設：{0}"
+  },
+  "Base escolhida: {0}": {
+    "en": "Selected base: {0}",
+    "de": "Gewählter Ausgangspunkt: {0}",
+    "es": "Base elegida: {0}",
+    "fr": "Base choisie : {0}",
+    "hi": "चुना हुआ आधार: {0}",
+    "ja": "選択した拠点：{0}"
+  },
+  "Base das atrações: {0}": {
+    "en": "Attractions base: {0}",
+    "de": "Ausgangspunkt für die Attraktionen: {0}",
+    "es": "Base para las atracciones: {0}",
+    "fr": "Base pour les sites : {0}",
+    "hi": "आकर्षणों का आधार: {0}",
+    "ja": "観光の拠点：{0}"
+  },
+  "Traçar rota desde a pousada escolhida": {
+    "en": "Get directions from the selected lodge",
+    "de": "Route ab der gewählten Unterkunft",
+    "es": "Trazar ruta desde el alojamiento elegido",
+    "fr": "Tracer l'itinéraire depuis l'hébergement choisi",
+    "hi": "चुने गए लॉज से मार्ग देखें",
+    "ja": "選択した宿泊施設からのルート"
+  },
+  "{0} · aproximadamente {1} km de {2} em linha reta": {
+    "en": "{0} · approximately {1} km from {2} in a straight line",
+    "de": "{0} · Luftlinie etwa {1} km von {2}",
+    "es": "{0} · aproximadamente {1} km en línea recta desde {2}",
+    "fr": "{0} · environ {1} km à vol d'oiseau de {2}",
+    "hi": "{0} · {2} से सीधी दूरी लगभग {1} किमी",
+    "ja": "{0}・{2}から直線距離で約{1} km"
+  },
+  "Escolha a pousada e a quantidade de dias antes de escolher o guia.": {
+    "en": "Choose the lodge and number of days before selecting your guide.",
+    "de": "Wählen Sie Unterkunft und Reisedauer, bevor Sie den Guide auswählen.",
+    "es": "Elija el alojamiento y los días antes de seleccionar el guía.",
+    "fr": "Choisissez l'hébergement et la durée avant de sélectionner le guide.",
+    "hi": "गाइड चुनने से पहले लॉज और दिनों की संख्या चुनें।",
+    "ja": "ガイドを選ぶ前に宿泊施設と日数を選んでください。"
   }
 };
