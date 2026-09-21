@@ -1416,6 +1416,14 @@ window.PANTANAL_TRANSLATIONS = {
     "hi": "Chapada के आकर्षणों के लिए शुरुआती स्थान के रूप में चुना गया लॉज और पर्यटन एजेंसी।",
     "ja": "Chapadaの観光拠点として選ばれた宿泊施設と旅行会社。"
   },
+  "Pousada escolhida como ponto de partida para as atrações da Chapada.": {
+    "en": "Lodge selected as the starting point for Chapada attractions.",
+    "de": "Gewählte Unterkunft als Ausgangspunkt für die Sehenswürdigkeiten der Chapada.",
+    "es": "Alojamiento elegido como punto de partida para las atracciones de Chapada.",
+    "fr": "Hébergement choisi comme point de départ pour visiter Chapada.",
+    "hi": "Chapada के आकर्षणों के लिए शुरुआती स्थान के रूप में चुना गया लॉज।",
+    "ja": "Chapadaの観光拠点として選択した宿泊施設。"
+  },
   "Endereço": {
     "en": "Address",
     "de": "Adresse",
@@ -1431,6 +1439,22 @@ window.PANTANAL_TRANSLATIONS = {
     "fr": "Téléphone",
     "hi": "फ़ोन",
     "ja": "電話番号"
+  },
+  "Estadia": {
+    "en": "Stay",
+    "de": "Aufenthalt",
+    "es": "Estancia",
+    "fr": "Séjour",
+    "hi": "ठहराव",
+    "ja": "滞在"
+  },
+  "Código de localização": {
+    "en": "Location code",
+    "de": "Standortcode",
+    "es": "Código de ubicación",
+    "fr": "Code de localisation",
+    "hi": "स्थान कोड",
+    "ja": "ロケーションコード"
   },
   "{0} km · cerca de {1} min": {
     "en": "{0} km · around {1} min",
