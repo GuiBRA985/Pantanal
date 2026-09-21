@@ -12,6 +12,7 @@
   let selectedLodgeLayer;
   let stage = "transfer";
   let openPanel;
+  let closePanel;
   let showPlace;
   let prepareRequest;
 
@@ -114,8 +115,36 @@
     clearLayer(selectedLodgeLayer);
     const lodge = getSelectedLodge();
     if (!lodge) return;
-    const marker = addMarker(selectedLodgeLayer, lodge, "⌂", "lodge-pin selected-lodge", "Base escolhida", () => openTransferPlanner());
+    const marker = addMarker(selectedLodgeLayer, lodge, "⌂", "lodge-pin selected-lodge", "Base escolhida", () => openLodgeDetails(lodge));
     marker.bindTooltip(lodge.nome, { direction: "top", offset: [0, -18] });
+  }
+
+  function openLodgeDetails(lodge = getSelectedLodge()) {
+    if (!lodge) {
+      openTransferPlanner({ focusMissing: true });
+      return;
+    }
+    const days = getDays();
+    const code = lodge.codigoLocalizacao
+      ? `<div><dt>Código de localização</dt><dd>${escapeHTML(lodge.codigoLocalizacao)}</dd></div>`
+      : "";
+    openPanel(`
+      <span class="eyebrow">BASE DA EXPEDIÇÃO</span>
+      <h2>${escapeHTML(lodge.nome)}</h2>
+      <p>Pousada escolhida como ponto de partida para as atrações da Chapada.</p>
+      <dl class="chapada-lodge-facts">
+        <div><dt>Endereço</dt><dd>${escapeHTML(lodge.endereco)}</dd></div>
+        <div><dt>Telefone</dt><dd>${escapeHTML(lodge.telefone)}</dd></div>
+        <div><dt>Traslado</dt><dd>${lodge.traslado.distanciaKm.toLocaleString("pt-BR")} km · cerca de ${lodge.traslado.duracaoMinutos} min</dd></div>
+        <div><dt>Estadia</dt><dd>${days} ${days === 1 ? "dia" : "dias"}</dd></div>
+        ${code}
+      </dl>
+      <div class="chapada-panel-actions">
+        <a class="action-button" href="${escapeHTML(lodge.site)}" target="_blank" rel="noopener">Abrir site da pousada</a>
+        <a class="action-button light" href="${escapeHTML(mapsSearch(lodge))}" target="_blank" rel="noopener">Abrir localização</a>
+        <button id="chapada-change-stay" class="action-button light" type="button">Alterar pousada e dias</button>
+      </div>`);
+    document.getElementById("chapada-change-stay").addEventListener("click", () => openTransferPlanner({ focusMissing: true }));
   }
 
   function lodgeOptionHTML(lodge, checked) {
@@ -184,8 +213,8 @@
       renderTransferRoute();
       renderSelectedLodgeMarker();
       selectStage("transfer", true);
-      notice.textContent = "Sua escolha foi salva. Agora você pode ver as atrações ou escolher o guia.";
       document.getElementById("selected-lodge-label").textContent = lodge ? `Pousada escolhida: ${lodge.nome}` : "";
+      closePanel();
     });
     if (options.focusMissing) {
       setTimeout(() => (preferredId ? days : optionsBox.querySelector("input"))?.focus(), 0);
@@ -259,6 +288,7 @@
   function init(options) {
     if (!D?.pousadas?.length || !window.L) throw new Error("Dados da Chapada ou mapa indisponíveis");
     openPanel = options.openPanel;
+    closePanel = options.closePanel;
     showPlace = options.showPlace;
     prepareRequest = options.prepareRequest;
     map = L.map("map");
@@ -299,6 +329,7 @@
     getSelectedLodge,
     isReady,
     openTransferPlanner,
+    openLodgeDetails,
     attractionCount: () => D?.atracoes?.length || 0
   });
 })();

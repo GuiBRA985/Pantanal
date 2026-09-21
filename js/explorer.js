@@ -50,6 +50,9 @@
     infoPanel.classList.add("show");
     document.getElementById("close-panel").focus();
   }
+  function closePanel() {
+    infoPanel.classList.remove("show");
+  }
   function mapsUrl(local) {
     return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${local.lat},${local.lng}`)}`;
   }
@@ -173,7 +176,7 @@
   document.getElementById("request-dialog").addEventListener("close", () => returnFocus?.focus());
   document.getElementById("regional-request").addEventListener("click", prepareRequest);
   document.getElementById("fuel-list-button").addEventListener("click", showFuelList);
-  document.getElementById("close-panel").addEventListener("click", () => infoPanel.classList.remove("show"));
+  document.getElementById("close-panel").addEventListener("click", closePanel);
   document.addEventListener("keydown", event => {
     if (event.key === "Escape") {
       infoPanel.classList.remove("show");
@@ -210,7 +213,7 @@
     document.getElementById("chapada-plan-button").hidden = false;
     document.getElementById("route-guide-button").hidden = true;
     try {
-      window.ChapadaExplorer.init({ regional, openPanel, showPlace, prepareRequest });
+      window.ChapadaExplorer.init({ regional, openPanel, closePanel, showPlace, prepareRequest });
     } catch (_) { showMapError(); }
   } else {
     document.getElementById("regional-actions").hidden = false;
