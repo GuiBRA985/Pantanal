@@ -301,17 +301,17 @@ function adicionarAoRoteiro(id) {
     const local = pousadas.find(item => item.id === id);
 
     if (!local) {
-        alert("Pousada não encontrada.");
+        alert(window.PantanalI18n?.t("Pousada não encontrada.") || "Pousada não encontrada.");
         return;
     }
 
     if (roteiro.some(item => item.id === id)) {
-        alert("Essa pousada já está na expedição.");
+        alert(window.PantanalI18n?.t("Essa pousada já está na expedição.") || "Essa pousada já está na expedição.");
         return;
     }
 
     if (pousadasEscolhidas().length >= MAX_POUSADAS) {
-        alert("Você já escolheu as duas pousadas do pacote.");
+        alert(window.PantanalI18n?.t("Você já escolheu as duas pousadas do pacote.") || "Você já escolheu as duas pousadas do pacote.");
         return;
     }
 
@@ -328,7 +328,7 @@ function adicionarAoRoteiro(id) {
         infoPanel.classList.remove("show");
         roteiroPanel.classList.add("show");
     } else {
-        alert(`${local.nome} escolhida. Agora selecione mais uma pousada.`);
+        alert(window.PantanalI18n?.t(`${local.nome} escolhida. Agora selecione mais uma pousada.`) || `${local.nome} escolhida. Agora selecione mais uma pousada.`);
     }
 }
 
@@ -368,7 +368,7 @@ document.addEventListener("click", event => {
     const escolhidas = pousadasEscolhidas();
 
     if (escolhidas.length !== MAX_POUSADAS) {
-        alert("Escolha duas pousadas para completar a expedição.");
+        alert(window.PantanalI18n?.t("Escolha duas pousadas para completar a expedição.") || "Escolha duas pousadas para completar a expedição.");
         return;
     }
 

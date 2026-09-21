@@ -90,17 +90,19 @@
     } else if (isChapada) {
       const chapada = window.ChapadaWaterfalls;
       const days = window.ChapadaExplorer?.getDays() || 0;
+      const lodge = window.ChapadaExplorer?.getSelectedLodge();
       lines.push(
         `Estadia desejada: ${days} ${days === 1 ? "dia" : "dias"}`,
-        `Etapa 1 — traslado: ${chapada.origem.nome} até ${chapada.pousada.nome}`,
-        `Base: ${chapada.pousada.nome}`,
+        `Pousada escolhida: ${lodge?.nome || ""}`,
+        `Etapa 1 — traslado: ${chapada.origem.nome} até ${lodge?.nome || ""}`,
+        `Base das atrações: ${lodge?.nome || ""}`,
         `Etapa 2 — roteiro entre ${chapada.atracoes.length} atrações mapeadas, a combinar conforme os dias e condições de acesso.`
       );
     } else {
       lines.push(`Saída: ${regional.origem.nome}, Várzea Grande — MT`, `Destino: ${regional.nome} — MT`, "Duração e detalhes do roteiro: a combinar com o Bento Pantanal.");
     }
     lines.push("", "Quero combinar datas, número de viajantes, orçamento e logística com o Bento Pantanal.", "Guia e reserva sujeitos à confirmação de disponibilidade.");
-    return lines.join("\n");
+    return lines.map(line => window.PantanalI18n?.t(line) || line).join("\n");
   }
   function showRequest(guide) {
     const summary = composeRequest(guide);
@@ -119,7 +121,7 @@
       link.hidden = false;
       notice.textContent = "Confirme o envio no WhatsApp do Bento Pantanal. Reserva e disponibilidade dependem de confirmação.";
     } else if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      link.href = `mailto:${email}?subject=${encodeURIComponent(`Cotação — ${expeditionName}`)}&body=${encodeURIComponent(summary)}`;
+      link.href = `mailto:${email}?subject=${encodeURIComponent((window.PantanalI18n?.t("Cotação") || "Cotação") + " — " + (window.PantanalI18n?.t(expeditionName) || expeditionName))}&body=${encodeURIComponent(summary)}`;
       link.removeAttribute("target");
       link.textContent = "Continuar por e-mail";
       link.hidden = false;
@@ -138,13 +140,13 @@
       window.JaguarExpedition?.openItinerary();
       return;
     }
-    if (isChapada && !window.ChapadaExplorer?.getDays()) {
-      window.ChapadaExplorer?.openLodge({ focusDays: true });
+    if (isChapada && !window.ChapadaExplorer?.isReady()) {
+      window.ChapadaExplorer?.openTransferPlanner({ focusMissing: true });
       return;
     }
     if (!G.getSelected()) { G.openPicker(prepareRequest); return; }
     requestBusy = true;
-    document.querySelectorAll("#regional-request, #chapada-request-quote").forEach(button => { button.disabled = true; });
+    document.querySelectorAll("#regional-request, #chapada-guide-button").forEach(button => { button.disabled = true; });
     try {
       // Always re-read eligibility before preparing a quote; never trust a URL or stored profile.
       const success = await G.load();
@@ -153,7 +155,7 @@
       showRequest(guide);
     } finally {
       requestBusy = false;
-      document.querySelectorAll("#regional-request, #chapada-request-quote").forEach(button => { button.disabled = false; });
+      document.querySelectorAll("#regional-request, #chapada-guide-button").forEach(button => { button.disabled = false; });
     }
   }
   document.getElementById("copy-request").addEventListener("click", async event => {
@@ -179,6 +181,7 @@
     }
   });
   window.addEventListener("explorer:guidechange", syncLinks);
+  window.addEventListener("pantanal:languagechange", () => { if (document.getElementById("request-dialog").open && G.getSelected()) showRequest(G.getSelected()); });
   window.ExplorerApp = Object.freeze({ prepareRequest, composeRequest, routeId });
   syncLinks();
 
@@ -205,6 +208,7 @@
   } else if (isChapada) {
     document.getElementById("chapada-menu").hidden = false;
     document.getElementById("chapada-plan-button").hidden = false;
+    document.getElementById("route-guide-button").hidden = true;
     try {
       window.ChapadaExplorer.init({ regional, openPanel, showPlace, prepareRequest });
     } catch (_) { showMapError(); }

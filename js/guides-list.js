@@ -40,7 +40,7 @@
         <div class="guide-card-body">
           <div class="avatar">${photo ? `<img src="${P.escapeHTML(photo)}" alt="Foto de ${P.escapeHTML(name)}" loading="lazy">` : P.escapeHTML(P.initials(name))}</div>
           <span class="verified-badge${isVip ? " vip-badge" : ""}">${isVip ? "★ Guia VIP" : "✓ Guia verificado"}</span>
-          <h3>${P.escapeHTML(name)}</h3>
+          <h3 translate="no">${P.escapeHTML(name)}</h3>
           <div class="guide-region">${isVip ? "Página profissional exclusiva" : `⌖ ${P.escapeHTML(regions.slice(0, 2).join(" · ") || "Pantanal")}`}</div>
           <div class="chips">${isVip && !P.asArray(guide.idiomas).length ? '<span class="chip chip-gold">Perfil exclusivo</span>' : chipList(guide.idiomas, 3, true)}</div>
           <div class="chips" style="margin-top:8px">${chipList(guide.especialidades, 3)}</div>
@@ -56,7 +56,7 @@
     const query = search.value.trim().toLocaleLowerCase("pt-BR");
     const filtered = guides.filter((guide) => {
       const searchable = [P.displayName(guide), guide.nome, guide.bio, ...P.asArray(guide.idiomas), ...P.asArray(guide.regioes), ...P.asArray(guide.especialidades)].join(" ").toLocaleLowerCase("pt-BR");
-      return (!query || searchable.includes(query))
+      return (!query || searchable.includes(query) || [guide.bio, ...P.asArray(guide.idiomas), ...P.asArray(guide.especialidades)].map(value => window.PantanalI18n?.t(value || "") || value || "").join(" ").toLocaleLowerCase().includes(query))
         && (!language.value || P.asArray(guide.idiomas).includes(language.value))
         && (!region.value || P.asArray(guide.regioes).includes(region.value))
         && (!specialty.value || P.asArray(guide.especialidades).includes(specialty.value));

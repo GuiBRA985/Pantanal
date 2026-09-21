@@ -2,6 +2,7 @@
   "use strict";
 
   const P = window.PantanalGuides;
+  const tr = value => window.PantanalI18n?.t(value) || value;
   const slug = P.currentGuideSlug();
 
   const loading =
@@ -169,7 +170,7 @@
 
     const whatsapp = phone
       ? `https://wa.me/${phone}?text=${encodeURIComponent(
-          `Olá, ${name}! Encontrei seu perfil na Rede de Guias Bento Pantanal.`
+          tr(`Olá, ${name}! Encontrei seu perfil na Rede de Guias Bento Pantanal.`)
         )}`
       : "";
 
@@ -180,6 +181,9 @@
 
     if (whatsapp) {
       whatsappButton.href = whatsapp;
+      window.addEventListener("pantanal:languagechange", () => {
+        whatsappButton.href = `https://wa.me/${phone}?text=${encodeURIComponent(tr(`Olá, ${name}! Encontrei seu perfil na Rede de Guias Bento Pantanal.`))}`;
+      });
     } else {
       whatsappButton.classList.add("hidden");
     }
@@ -246,7 +250,7 @@
           title: `${name} | Bento Pantanal`,
 
           text:
-            `Conheça o perfil profissional de ${name}.`,
+            tr(`Conheça o perfil profissional de ${name}.`),
 
           url:
             `${location.origin}${P.guidePath(
