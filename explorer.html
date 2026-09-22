@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Escolha Porto Jofre, Chapada dos Guimarães ou Jaciara e um guia VIP para liderar sua expedição com o Bento Pantanal.">
+  <meta name="description" content="Escolha entre seis expedições pelo Mato Grosso e encontre um guia VIP para viajar com o Bento Pantanal.">
   <meta name="theme-color" content="#173a2b">
-  <title>Explorer do Pantanal | Três expedições, seu guia</title>
+  <title>Explorer do Pantanal | Seis expedições pelo Mato Grosso</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="css/explorer.css">
   <link rel="stylesheet" href="css/explorer-expedicoes.css">
 <link rel="stylesheet" href="css/languages.css">
 <script src="js/i18n/translations.js"></script>
+<script src="js/i18n/expeditions-translations.js"></script>
 <script src="js/i18n/runtime.js"></script>
 </head>
 <body class="catalog-mode">
@@ -56,9 +57,39 @@
         <p>Do Aeroporto Marechal Rondon, em Várzea Grande, até Jaciara. Consulte o trajeto e os postos de combustível.</p>
         <a class="expedition-link" data-expedition="jaciara" href="explorer.html?expedicao=jaciara">Explorar Jaciara</a>
       </article>
+      <article class="expedition-card nobres-card">
+        <span class="expedition-number">04 / NOBRES</span>
+        <div class="expedition-cover nobres-cover" role="img" aria-label="Foto de capa da expedição para Nobres e Bom Jardim">
+          <span class="cover-fallback" aria-hidden="true">🐠</span><span class="cover-photo" aria-hidden="true"></span>
+        </div>
+        <h2>Nobres — Bom Jardim</h2>
+        <h3>Águas cristalinas e flutuação</h3>
+        <p>Bom Jardim como base para flutuações, cachoeiras, rios transparentes e observação de aves.</p>
+        <a class="expedition-link" data-expedition="nobres" href="explorer.html?expedicao=nobres">Explorar Nobres</a>
+      </article>
+      <article class="expedition-card caceres-card">
+        <span class="expedition-number">05 / CÁCERES</span>
+        <div class="expedition-cover caceres-cover" role="img" aria-label="Foto de capa da expedição para Cáceres">
+          <span class="cover-fallback" aria-hidden="true">🚤</span><span class="cover-photo" aria-hidden="true"></span>
+        </div>
+        <h2>Cáceres</h2>
+        <h3>Rio Paraguai e história</h3>
+        <p>Uma expedição pelo Pantanal Oeste, unindo paisagens do Rio Paraguai, natureza e patrimônio histórico.</p>
+        <a class="expedition-link" data-expedition="caceres" href="explorer.html?expedicao=caceres">Explorar Cáceres</a>
+      </article>
+      <article class="expedition-card alta-floresta-card">
+        <span class="expedition-number">06 / AMAZÔNIA</span>
+        <div class="expedition-cover alta-floresta-cover" role="img" aria-label="Foto de capa da expedição para Alta Floresta e Cristalino">
+          <span class="cover-fallback" aria-hidden="true">🦜</span><span class="cover-photo" aria-hidden="true"></span>
+        </div>
+        <h2>Alta Floresta — Cristalino</h2>
+        <h3>Amazônia e observação de aves</h3>
+        <p>Floresta amazônica, Rio Cristalino e experiências de observação de fauna no norte de Mato Grosso.</p>
+        <a class="expedition-link" data-expedition="alta-floresta" href="explorer.html?expedicao=alta-floresta">Explorar Alta Floresta</a>
+      </article>
     </div>
     <section class="catalog-guides" aria-labelledby="catalog-guide-title">
-      <div><span class="eyebrow">SEU COMPANHEIRO DE EXPEDIÇÃO</span><h2 id="catalog-guide-title">Quem vai liderar?</h2><p id="catalog-guide-summary">Escolha um dos guias VIP do site para qualquer uma das três expedições.</p></div>
+      <div><span class="eyebrow">SEU COMPANHEIRO DE EXPEDIÇÃO</span><h2 id="catalog-guide-title">Quem vai liderar?</h2><p id="catalog-guide-summary">Escolha um dos guias VIP do site para qualquer uma das seis expedições.</p></div>
       <button class="action-button" data-open-guides type="button">Escolher guia VIP</button>
     </section>
   </main>
@@ -90,6 +121,7 @@
   </nav>
   <div id="regional-actions" class="regional-actions" hidden>
     <button id="fuel-list-button" class="action-button light" type="button">⛽ Postos no caminho</button>
+    <button id="attraction-list-button" class="action-button light" type="button" hidden>📍 Atrações do destino</button>
     <button id="regional-request" class="action-button" type="button">Solicitar expedição</button>
   </div>
   <nav id="chapada-menu" class="chapada-bottom-menu" hidden aria-label="Etapas e camadas do mapa da Chapada">
@@ -139,6 +171,7 @@
   <script src="js/guides-common.js"></script>
   <script src="js/explorer-config.js"></script>
   <script src="js/data/expedicoes.js"></script>
+  <script src="js/data/novas-expedicoes.js"></script>
   <script src="js/data/chapada-cachoeiras.js"></script>
   <script src="js/explorer-guides.js"></script>
   <script src="js/explorer-chapada.js"></script>
