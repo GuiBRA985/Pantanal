@@ -872,13 +872,13 @@ window.PANTANAL_TRANSLATIONS = {
     "hi": "नेतृत्व कौन करेगा?",
     "ja": "誰に案内してもらいますか？"
   },
-  "Escolha um dos guias VIP do site para qualquer uma das três expedições.": {
-    "en": "Choose a VIP guide for any of the three expeditions.",
-    "de": "Wählen Sie einen VIP-Guide für eine der drei Expeditionen.",
-    "es": "Elija un guía VIP para cualquiera de las tres expediciones.",
-    "fr": "Choisissez un guide VIP pour l'une des trois expéditions.",
-    "hi": "तीनों में से किसी भी अभियान के लिए VIP गाइड चुनें।",
-    "ja": "3つの探訪から選び、VIPガイドをご指定ください。"
+  "Escolha um dos guias VIP do site para qualquer uma das seis expedições.": {
+    "en": "Choose a VIP guide for any of the six expeditions.",
+    "de": "Wählen Sie einen VIP-Guide für eine der sechs Expeditionen.",
+    "es": "Elija un guía VIP para cualquiera de las seis expediciones.",
+    "fr": "Choisissez un guide VIP pour l'une des six expéditions.",
+    "hi": "छह अभियानों में से किसी के लिए VIP गाइड चुनें।",
+    "ja": "6つの探訪のいずれかにVIPガイドを選べます。"
   },
   "Escolher guia VIP": {
     "en": "Choose a VIP guide",
@@ -1320,13 +1320,13 @@ window.PANTANAL_TRANSLATIONS = {
     "hi": "टेक्स्ट चुना गया है। अपने डिवाइस का कॉपी विकल्प चुनें।",
     "ja": "テキストを選択しました。端末のコピー機能を使ってください。"
   },
-  "Escolha uma das três expedições disponíveis abaixo.": {
-    "en": "Choose one of the three expeditions below.",
-    "de": "Wählen Sie eine der drei Expeditionen unten.",
-    "es": "Elija una de las tres expediciones disponibles.",
-    "fr": "Choisissez l'une des trois expéditions ci-dessous.",
-    "hi": "नीचे दिए गए तीन अभियानों में से चुनें।",
-    "ja": "下の3つの探訪から選んでください。"
+  "Escolha uma das seis expedições disponíveis abaixo.": {
+    "en": "Choose one of the six expeditions below.",
+    "de": "Wählen Sie eine der sechs Expeditionen unten.",
+    "es": "Elija una de las seis expediciones disponibles.",
+    "fr": "Choisissez l'une des six expéditions ci-dessous.",
+    "hi": "नीचे उपलब्ध छह अभियानों में से एक चुनें।",
+    "ja": "以下の6つの探訪から選んでください。"
   },
   "ATRAÇÃO DA CHAPADA": {
     "en": "CHAPADA ATTRACTION",
@@ -2936,13 +2936,13 @@ window.PANTANAL_TRANSLATIONS = {
     "hi": "Pantanal Bento | Mato Grosso की आपकी यात्रा",
     "ja": "Pantanal Bento | マットグロッソの旅"
   },
-  "Explorer do Pantanal | Três expedições, seu guia": {
-    "en": "Pantanal Explorer | Three expeditions, your guide",
-    "de": "Pantanal Explorer | Drei Expeditionen, Ihr Guide",
-    "es": "Pantanal Explorer | Tres expediciones, su guía",
-    "fr": "Pantanal Explorer | Trois expéditions, votre guide",
-    "hi": "Pantanal Explorer | तीन अभियान, आपका गाइड",
-    "ja": "Pantanal Explorer | 3つの探訪とガイド"
+  "Explorer do Pantanal | Seis expedições pelo Mato Grosso": {
+    "en": "Pantanal Explorer | Six expeditions across Mato Grosso",
+    "de": "Pantanal Explorer | Sechs Expeditionen durch Mato Grosso",
+    "es": "Pantanal Explorer | Seis expediciones por Mato Grosso",
+    "fr": "Pantanal Explorer | Six expéditions au Mato Grosso",
+    "hi": "Pantanal Explorer | Mato Grosso में छह अभियान",
+    "ja": "Pantanal Explorer | マットグロッソを巡る6つの探訪"
   },
   "Rede de Guias Verificados | Bento Pantanal": {
     "en": "Verified guide network | Bento Pantanal",
