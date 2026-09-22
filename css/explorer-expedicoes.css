@@ -21,7 +21,7 @@ button:disabled { cursor: wait; opacity: .55; }
 .catalog-heading p { color: #d8e5de; margin: 0; font-size: 1.1rem; }
 .expedition-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .expedition-card { display: flex; flex-direction: column; padding: 24px; background: #193d2c; border: 1px solid #ffffff2b; border-top: 4px solid #d4a52c; border-radius: 14px; }
-.chapada-card { border-top-color: #ca8051; }.jaciara-card { border-top-color: #52b5c3; }
+.chapada-card { border-top-color: #ca8051; }.jaciara-card { border-top-color: #52b5c3; }.nobres-card { border-top-color: #58b7a3; }.caceres-card { border-top-color: #d99145; }.alta-floresta-card { border-top-color: #75a94c; }
 .expedition-number { font-size: .78rem; font-weight: 800; letter-spacing: .12em; color: #d9e5dd; }
 .expedition-cover { position: relative; width: 100%; aspect-ratio: 2 / 1; margin: 18px 0 18px; display: grid; place-items: center; overflow: hidden; border: 1px solid #ffffff24; border-radius: 11px; background: #102b1e; }
 .cover-fallback { font-size: 3rem; }.cover-photo { position: absolute; inset: 0; background-position: center; background-size: cover; background-repeat: no-repeat; }
@@ -29,6 +29,9 @@ button:disabled { cursor: wait; opacity: .55; }
 .porto-jofre-cover .cover-photo { background-image: url("../assets/expedicoes/porto-jofre.jpg"); }
 .chapada-cover .cover-photo { background-image: url("../assets/expedicoes/chapada-dos-guimaraes.jpg"); }
 .jaciara-cover .cover-photo { background-image: url("../assets/expedicoes/jaciara.jpg"); }
+.nobres-cover .cover-photo { background-image: url("../assets/expedicoes/nobres.jpg"); }
+.caceres-cover .cover-photo { background-image: url("../assets/expedicoes/caceres.jpg"); }
+.alta-floresta-cover .cover-photo { background-image: url("../assets/expedicoes/alta-floresta.jpg"); }
 .expedition-card h2 { font-size: 1.75rem; line-height: 1.18; margin: 0 0 12px; }
 .expedition-card h3 { font-size: 1rem; margin: 0; color: #e5be53; }
 .expedition-card p { color: #e0e9e3; line-height: 1.65; margin: 15px 0 24px; }
@@ -65,8 +68,10 @@ button:disabled { cursor: wait; opacity: .55; }
 .airport-pin { background: #176da0; color: #fff; font-size: 21px; }.destination-pin { background: #943b24; color: #fff; font-size: 20px; }
 .lodge-pin { width: 40px; height: 40px; background: #9a5c2f; color: #fff; font-size: 22px; }.lodge-pin.selected-lodge { border-width: 4px; border-color: #f5c841; box-shadow: 0 0 0 4px #173a2b, 0 3px 10px #0008; }.attraction-pin { width: 40px; height: 40px; background: #178398; color: #fff; }.fuel-pin { background: #e2a925; color: #17251c; font-size: 15px; }
 .fuel-list { list-style: none; padding: 0; }
-#panel-content .fuel-item { width: 100%; display: block; text-align: left; border: 1px solid #c9d5cd; background: #f0f5f1; color: #173a2b; margin: 8px 0; padding: 14px; }
-.fuel-item span { display: block; font-size: .9rem; font-weight: normal; margin-top: 5px; }
+#panel-content .fuel-item,
+#panel-content .attraction-item { width: 100%; display: block; text-align: left; border: 1px solid #c9d5cd; background: #f0f5f1; color: #173a2b; margin: 8px 0; padding: 14px; }
+.fuel-item span,
+.attraction-item span { display: block; font-size: .9rem; font-weight: normal; margin-top: 5px; }
 .explorer-dialog { width: min(700px, calc(100% - 28px)); max-height: calc(100dvh - 32px); padding: 30px; color: #18291f; background: #fff; border: 0; border-radius: 16px; overflow-y: auto; box-shadow: 0 18px 90px #0005; }
 .explorer-dialog::backdrop { background: #071a10b3; }
 .explorer-dialog h2 { font-size: 1.7rem; line-height: 1.2; margin: 12px 26px 16px 0; }
