@@ -38,7 +38,7 @@
     document.getElementById("selected-guide-label").textContent = guide ? `Guia escolhido: ${name}` : "Escolha o guia da expedição";
     document.getElementById("catalog-guide-summary").textContent = guide
       ? `${name} foi escolhido. Você pode trocar de guia antes de preparar o pedido.`
-      : "Escolha um dos guias VIP do site para qualquer uma das três expedições.";
+      : "Escolha um dos guias VIP do site para qualquer uma das seis expedições.";
     const url = new URL(location.href);
     if (guide) url.searchParams.set("guia", guide.slug);
     else url.searchParams.delete("guia");

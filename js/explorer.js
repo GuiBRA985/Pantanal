@@ -4,7 +4,7 @@
   const routeId = params.get("expedicao") || (params.get("montar") === "1" ? "porto-jofre" : "");
   const isJaguar = routeId === "porto-jofre";
   const isChapada = routeId === "chapada";
-  const expeditions = window.PantanalExpeditions || {};
+  const expeditions = { ...(window.PantanalExpeditions || {}), ...(window.PantanalNewExpeditions || {}) };
   const regional = Object.hasOwn(expeditions, routeId) ? expeditions[routeId] : null;
   const expeditionName = isJaguar
     ? "Expedição Jaguar — Porto Jofre"
@@ -57,12 +57,62 @@
     return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${local.lat},${local.lng}`)}`;
   }
   function showFuelList() {
-    const list = regional.postos.map((station, index) => `<li><button type="button" class="fuel-item" data-fuel-index="${index}"><b>${index + 1}. ${escapeHTML(station.nome)}</b>${station.endereco ? `<span>${escapeHTML(station.endereco)}</span>` : ""}</button></li>`).join("");
-    openPanel(`<span class="eyebrow">ABASTECIMENTO</span><h2>Postos no caminho</h2><p>${regional.postos.length} pontos mapeados próximos ao trajeto para ${escapeHTML(regional.nome)}.</p><ol class="fuel-list">${list}</ol><p class="small-note">Dados do OpenStreetMap consultados em ${regional.consultadoEm}. Consulte o posto antes da viagem para confirmar funcionamento e acesso.</p>`);
+    const stations = regional?.postos || [];
+    const list = stations.map((station, index) => `<li><button type="button" class="fuel-item" data-fuel-index="${index}"><b>${index + 1}. ${escapeHTML(station.nome)}</b>${station.endereco ? `<span>${escapeHTML(station.endereco)}</span>` : ""}</button></li>`).join("");
+    openPanel(`<span class="eyebrow">ABASTECIMENTO</span><h2>Postos no caminho</h2><p>${stations.length} pontos mapeados próximos ao trajeto para ${escapeHTML(regional.nome)}.</p><ol class="fuel-list">${list}</ol><p class="small-note">Dados do OpenStreetMap consultados em ${regional.consultadoEm}. Consulte o posto antes da viagem para confirmar funcionamento e acesso.</p>`);
     panelContent.querySelectorAll("[data-fuel-index]").forEach(button => button.addEventListener("click", () => showPlace(regional.postos[Number(button.dataset.fuelIndex)], "Posto de combustível")));
   }
   function showPlace(place, label) {
-    openPanel(`<span class="eyebrow">${escapeHTML(label)}</span><h2>${escapeHTML(place.nome)}</h2>${place.endereco ? `<p>${escapeHTML(place.endereco)}</p>` : ""}<a class="action-button" href="${mapsUrl(place)}" target="_blank" rel="noopener">Abrir localização</a>${place.source ? `<p><a href="${escapeHTML(place.source)}" target="_blank" rel="noopener">Ver no OpenStreetMap</a></p>` : ""}`);
+    openPanel(`<span class="eyebrow">${escapeHTML(label)}</span><h2>${escapeHTML(place.nome)}</h2>${place.descricao ? `<p>${escapeHTML(place.descricao)}</p>` : ""}${place.endereco ? `<p>${escapeHTML(place.endereco)}</p>` : ""}<a class="action-button" href="${mapsUrl(place)}" target="_blank" rel="noopener">Abrir localização</a>${place.source ? `<p><a href="${escapeHTML(place.source)}" target="_blank" rel="noopener">Ver no OpenStreetMap</a></p>` : ""}`);
+  }
+  function durationLabel(minutes) {
+    const hours = Math.floor(minutes / 60);
+    const rest = Math.round(minutes % 60);
+    const label = hours ? `${hours} h ${rest} min` : `${rest} min`;
+    return window.PantanalI18n?.t(label) || label;
+  }
+  function distanceLabel(value) {
+    const language = window.PantanalI18n?.language || "pt";
+    const locale = language === "pt" ? "pt-BR" : language;
+    return Number(value).toLocaleString(locale, { maximumFractionDigits: 1 });
+  }
+  function showRegionalDestination() {
+    const place = regional.destino;
+    if (!regional.distanciaKm || !regional.duracaoMinutos) {
+      showPlace(place, "Destino");
+      return;
+    }
+    openPanel(`
+      <span class="eyebrow">DESTINO DA EXPEDIÇÃO</span>
+      <h2>${escapeHTML(place.nome)}</h2>
+      ${place.descricao ? `<p>${escapeHTML(place.descricao)}</p>` : ""}
+      <dl class="chapada-lodge-facts">
+        <div><dt>Traslado rodoviário</dt><dd>${distanceLabel(regional.distanciaKm)} km · cerca de ${durationLabel(regional.duracaoMinutos)}</dd></div>
+        <div><dt>Logística</dt><dd>${escapeHTML(regional.logistica || "A combinar com o Bento Pantanal.")}</dd></div>
+        <div><dt>Atrações mapeadas</dt><dd>${regional.atracoes?.length || 0}</dd></div>
+      </dl>
+      <a class="action-button" href="${mapsUrl(place)}" target="_blank" rel="noopener">Abrir localização</a>`);
+  }
+  function attractionDirections(place) {
+    return `https://www.google.com/maps/dir/?api=1&origin=${regional.destino.lat},${regional.destino.lng}&destination=${place.lat},${place.lng}`;
+  }
+  function showRegionalAttraction(place) {
+    openPanel(`
+      <span class="eyebrow">ATRAÇÃO DO DESTINO</span>
+      <h2>${escapeHTML(place.nome)}</h2>
+      <p class="chapada-place-type">${escapeHTML(place.tipo || "Atração")}</p>
+      ${place.descricao ? `<p>${escapeHTML(place.descricao)}</p>` : ""}
+      <div class="chapada-panel-actions">
+        <a class="action-button" href="${attractionDirections(place)}" target="_blank" rel="noopener">Traçar rota desde a base</a>
+        <a class="action-button light" href="${mapsUrl(place)}" target="_blank" rel="noopener">Abrir localização</a>
+      </div>
+      <p class="small-note">Acesso, horários, reservas e condições do passeio devem ser confirmados antes da viagem.</p>`);
+  }
+  function showAttractionList() {
+    const attractions = regional?.atracoes || [];
+    const list = attractions.map((place, index) => `<li><button type="button" class="attraction-item" data-attraction-index="${index}"><b>${index + 1}. ${escapeHTML(place.nome)}</b><span>${escapeHTML(place.tipo || "Atração")}</span></button></li>`).join("");
+    openPanel(`<span class="eyebrow">ROTEIRO DE ATRAÇÕES</span><h2>Atrações do destino</h2><p>${attractions.length} atrações mapeadas para ${escapeHTML(regional.nome)}.</p><ol class="fuel-list">${list}</ol><p class="small-note">A lista é um ponto de partida. O roteiro final depende dos dias, reservas, clima e condições de acesso.</p>`);
+    panelContent.querySelectorAll("[data-attraction-index]").forEach(button => button.addEventListener("click", () => showRegionalAttraction(attractions[Number(button.dataset.attractionIndex)])));
   }
   function regionalMap() {
     const map = L.map("map");
@@ -72,15 +122,16 @@
     }).addTo(map);
     L.geoJSON(regional.rota, { style: { color: "#173a2b", weight: 5, opacity: 0.85 } }).addTo(map);
     const points = [];
-    function marker(place, symbol, type, label) {
+    function marker(place, symbol, type, label, onClick = () => showPlace(place, label)) {
       const icon = L.divIcon({ className: "regional-marker", html: `<span class="map-pin ${type}">${symbol}</span>`, iconSize: [36, 36], iconAnchor: [18, 18] });
       const point = L.marker([place.lat, place.lng], { icon, title: `${label}: ${place.nome}` }).addTo(map);
-      point.on("click", () => showPlace(place, label));
+      point.on("click", onClick);
       points.push(point);
     }
     marker(regional.origem, "✈", "airport-pin", "Partida");
-    marker(regional.destino, "⚑", "destination-pin", "Destino");
-    regional.postos.forEach((station, index) => marker(station, String(index + 1), "fuel-pin", "Posto de combustível"));
+    marker(regional.destino, "⚑", "destination-pin", "Destino", showRegionalDestination);
+    (regional.postos || []).forEach((station, index) => marker(station, String(index + 1), "fuel-pin", "Posto de combustível"));
+    (regional.atracoes || []).forEach((place, index) => marker(place, String(index + 1), "attraction-pin", "Atração", () => showRegionalAttraction(place)));
     map.fitBounds(L.featureGroup(points).getBounds(), { padding: [35, 35] });
     setTimeout(() => map.invalidateSize(), 0);
   }
@@ -102,7 +153,15 @@
         `Etapa 2 — roteiro entre ${chapada.atracoes.length} atrações mapeadas, a combinar conforme os dias e condições de acesso.`
       );
     } else {
-      lines.push(`Saída: ${regional.origem.nome}, Várzea Grande — MT`, `Destino: ${regional.nome} — MT`, "Duração e detalhes do roteiro: a combinar com o Bento Pantanal.");
+      lines.push(`Saída: ${regional.origem.nome}, Várzea Grande — MT`, `Destino: ${regional.nome} — MT`);
+      if (regional.distanciaKm && regional.duracaoMinutos) {
+        lines.push(`Traslado rodoviário estimado: ${distanceLabel(regional.distanciaKm)} km · cerca de ${durationLabel(regional.duracaoMinutos)}`);
+      }
+      if (regional.atracoes?.length) {
+        lines.push(`Roteiro inicial: ${regional.atracoes.length} atrações mapeadas no destino.`, `Logística: ${regional.logistica}`);
+      } else {
+        lines.push("Duração e detalhes do roteiro: a combinar com o Bento Pantanal.");
+      }
     }
     lines.push("", "Quero combinar datas, número de viajantes, orçamento e logística com o Bento Pantanal.", "Guia e reserva sujeitos à confirmação de disponibilidade.");
     return lines.map(line => window.PantanalI18n?.t(line) || line).join("\n");
@@ -176,6 +235,7 @@
   document.getElementById("request-dialog").addEventListener("close", () => returnFocus?.focus());
   document.getElementById("regional-request").addEventListener("click", prepareRequest);
   document.getElementById("fuel-list-button").addEventListener("click", showFuelList);
+  document.getElementById("attraction-list-button").addEventListener("click", showAttractionList);
   document.getElementById("close-panel").addEventListener("click", closePanel);
   document.addEventListener("keydown", event => {
     if (event.key === "Escape") {
@@ -189,7 +249,7 @@
   syncLinks();
 
   if (!expeditionName) {
-    if (routeId) document.querySelector(".catalog-heading p").textContent = "Escolha uma das três expedições disponíveis abaixo.";
+    if (routeId) document.querySelector(".catalog-heading p").textContent = "Escolha uma das seis expedições disponíveis abaixo.";
     return;
   }
   document.title = `${expeditionName} | Pantanal Explorer`;
@@ -217,6 +277,8 @@
     } catch (_) { showMapError(); }
   } else {
     document.getElementById("regional-actions").hidden = false;
+    document.getElementById("fuel-list-button").hidden = !(regional.postos?.length);
+    document.getElementById("attraction-list-button").hidden = !(regional.atracoes?.length);
     try { regionalMap(); } catch (_) { showMapError(); }
   }
 })();
