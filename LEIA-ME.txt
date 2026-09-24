@@ -1,0 +1,10 @@
+PANTANAL — ATUALIZAÇÃO DA PÁGINA INICIAL
+Substitua somente estes três arquivos no repositório GuiBRA985/Pantanal, mantendo as pastas:
+index.html
+assets/pantanal-home/home.css
+assets/pantanal-home/home.js
+Não exclua nem substitua o repositório inteiro. Os mapas, dados, guias e outras expedições não foram modificados.
+A oferta da Chapada aparece na página inicial, com link para o mapa existente. A seleção de ordem compõe o pedido de reserva; não altera as rotas do mapa.
+O formulário prepara um e-mail, como antes. Não confirma reserva nem processa pagamentos. Criptomoedas são combinadas no atendimento.
+Os novos textos estão em português. O seletor e as traduções existentes permanecem; a tradução integral do novo pacote ainda está pendente.
+Verificações: sintaxe JavaScript, IDs únicos e links internos. Teste visual em navegador não executado neste ambiente.
