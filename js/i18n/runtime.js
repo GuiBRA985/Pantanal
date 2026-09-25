@@ -17,7 +17,7 @@
   if(Object.hasOwn(languages,requested))language=requested;
   function translate(value,depth=0){
     const original=String(value),source=normalize(original);
-    if(language==='pt'||depth>3||!source)return original;
+    if(language==='pt'||depth>3||!source)return window.PantanalMoney?.localize(original,language)||original;
     let target=dictionary[source]?.[language];
     if(target==null){
       for(const pattern of patterns){
@@ -42,8 +42,9 @@
       const pieces=source.split(/(?<=[.!?])\s+(?=[A-ZÀ-Ú])/u);
       if(pieces.length>1){const translated=pieces.map(s=>translate(s,depth+1));if(translated.some((s,i)=>s!==pieces[i]))target=translated.join(' ');}
     }
-    if(target==null)return original;
-    return original.match(/^\s*/)[0]+target+original.match(/\s*$/)[0];
+    if(target==null)return window.PantanalMoney?.localize(original,language)||original;
+    const output=original.match(/^\s*/)[0]+target+original.match(/\s*$/)[0];
+    return window.PantanalMoney?.localize(output,language)||output;
   }
   const textCache=new WeakMap(),attributeCache=new WeakMap();
   const excluded='script,style,textarea,[contenteditable="true"],[translate="no"],[data-no-i18n],.language-switcher';

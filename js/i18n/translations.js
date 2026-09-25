@@ -4205,3 +4205,5 @@ Object.assign(window.PANTANAL_TRANSLATIONS, {
 });
 
 Object.assign(window.PANTANAL_TRANSLATIONS, {"{0} ({1} noites)": {"en": "{0} ({1} nights)", "es": "{0} ({1} noches)", "fr": "{0} ({1} nuits)"}, "{0} ({1} noite)": {"en": "{0} ({1} night)", "es": "{0} ({1} noche)", "fr": "{0} ({1} nuit)"}, "8 noites / 9 dias": {"en": "8 nights / 9 days", "es": "8 noches / 9 días", "fr": "8 nuits / 9 jours"}, "R$ 20.000,00": {"en": "R$20,000.00", "es": "R$20.000,00", "fr": "20 000,00 R$"}});
+
+Object.assign(window.PANTANAL_TRANSLATIONS, {"R$ 50.000,00 por casal": {"en": "R$50,000.00 per couple", "es": "R$50.000,00 por pareja", "fr": "50 000,00 R$ par couple"}, "Expedição Jaguar — R$ 50.000,00 por casal": {"en": "Jaguar Expedition — R$50,000.00 per couple", "es": "Expedición Jaguar — R$50.000,00 por pareja", "fr": "Expédition Jaguar — 50 000,00 R$ par couple"}});
