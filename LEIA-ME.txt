@@ -27,3 +27,8 @@ Verificados: sintaxe JavaScript; duas ordens; oito noites/nove dias; Flor fixa; 
 
 PUBLICAÇÃO
 Os arquivos não foram publicados automaticamente. Envie o conteúdo ao GitHub para atualizar o site.
+
+CORREÇÃO DA PRIMEIRA TELA DO TRASLADO
+Duas caixas selecionáveis: Penhasco (1 noite) ou Parque (2 noites), sem acordeão ou confirmação extra. Escolher atualiza imediatamente o percurso. Quatro trechos numerados com mapa individual, navegação externa e visualização completa. Traslados entre aeroporto e hotéis garantidos no pacote. Deslocamentos dos três dias de passeios combinados com a empresa do guia e já pagos no pacote.
+Nesta correção mudaram apenas explorer.html, js/explorer-chapada.js e css/chapada-package.css. O ZIP é cumulativo, com os 8 arquivos da atualização anterior.
+Teste de lógica com mapa e interface simulados passou; conferência visual em navegador segue pendente.
