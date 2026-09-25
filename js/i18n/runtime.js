@@ -2,7 +2,7 @@
 (function () {
   'use strict';
   const dictionary = window.PANTANAL_TRANSLATIONS || {};
-  const languages = {pt:'Português',de:'Deutsch',en:'English',es:'Español',fr:'Français',hi:'हिन्दी',ja:'日本語'};
+  const languages = {en:'English',pt:'Português',es:'Español',fr:'Français'};
   const key='pantanal.language';
   const normalize=s=>String(s).replace(/\s+/g,' ').trim();
   const escape=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
@@ -11,7 +11,7 @@
     const re=source.split(/(\{\d+\})/).map(s=>/^\{\d+\}$/.test(s)?(order.push(Number(s.slice(1,-1))),'(.+?)'):escape(s)).join('');
     return {source,order,re:new RegExp('^'+re+'$')};
   }).sort((a,b)=>b.source.replace(/\{\d+\}/g,'').length-a.source.replace(/\{\d+\}/g,'').length);
-  let language='pt';
+  let language='en';
   try { const saved=localStorage.getItem(key);if(Object.hasOwn(languages,saved))language=saved; } catch (_) {}
   const requested=new URLSearchParams(location.search).get('lang');
   if(Object.hasOwn(languages,requested))language=requested;
@@ -33,6 +33,14 @@
     if(target==null&&source.includes(' · ')){
       const pieces=source.split(' · ');const translated=pieces.map(s=>translate(s,depth+1));
       if(translated.some((s,i)=>s!==pieces[i]))target=translated.join(' · ');
+    }
+    if(target==null&&source.includes(' → ')){
+      const pieces=source.split(' → ');const translated=pieces.map(s=>translate(s,depth+1));
+      if(translated.some((s,i)=>s!==pieces[i]))target=translated.join(' → ');
+    }
+    if(target==null){
+      const pieces=source.split(/(?<=[.!?])\s+(?=[A-ZÀ-Ú])/u);
+      if(pieces.length>1){const translated=pieces.map(s=>translate(s,depth+1));if(translated.some((s,i)=>s!==pieces[i]))target=translated.join(' ');}
     }
     if(target==null)return original;
     return original.match(/^\s*/)[0]+target+original.match(/\s*$/)[0];
@@ -87,7 +95,7 @@
     document.documentElement.lang=code==='pt'?'pt-BR':code;
     document.documentElement.dataset.language=code;
     observer.disconnect();walk(document.documentElement);observe();
-    document.querySelectorAll('[data-language-select]').forEach(s=>{s.value=code;s.setAttribute('aria-label',translate('Idioma'))});
+    document.querySelectorAll('[data-language-button]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.languageButton===code)));
     const url=new URL(location.href);url.searchParams.set('lang',code);
     try{history.replaceState(null,'',url)}catch(_){}
     window.dispatchEvent(new CustomEvent('pantanal:languagechange',{detail:{language:code}}));
@@ -95,15 +103,20 @@
   window.PantanalI18n=Object.freeze({t:translate,get language(){return language},setLanguage,translatePage:()=>{observer.disconnect();walk(document.documentElement);observe()}});
   function init(){
     const host=document.querySelector('header')||document.querySelector('main')||document.body;
-    const label=document.createElement('label');label.className='language-switcher';label.setAttribute('translate','no');
-    const icon=document.createElement('span');icon.textContent='🌐';icon.setAttribute('aria-hidden','true');
-    const select=document.createElement('select');select.dataset.languageSelect='';select.setAttribute('aria-label','Idioma');
-    for(const [code,name] of Object.entries(languages)){const option=document.createElement('option');option.value=code;option.textContent=name;option.lang=code;select.append(option)}
-    label.append(icon,select);if(host.tagName==='HEADER')host.append(label);else host.prepend(label);
-    select.addEventListener('change',()=>setLanguage(select.value));
+    const label=document.createElement('div');label.className='language-switcher';label.setAttribute('translate','no');label.setAttribute('role','group');label.setAttribute('aria-label','Language / Idioma');
+    const flags={
+      en:'<rect width="60" height="40" fill="#fff"/>'+Array.from({length:7},(_,i)=>`<rect y="${i*80/13}" width="60" height="${40/13}" fill="#b22234"/>`).join('')+'<rect width="25" height="21.54" fill="#3c3b6e"/>'+Array.from({length:9},(_,row)=>Array.from({length:row%2?5:6},(_,col)=>`<text x="${2+col*4.1+(row%2?2:0)}" y="${2.5+row*2.25}" fill="white" font-size="3" text-anchor="middle">★</text>`).join('')).join(''),
+      pt:'<rect width="60" height="40" fill="#009739"/><path d="M30 4 56 20 30 36 4 20Z" fill="#ffdf00"/><circle cx="30" cy="20" r="10" fill="#002776"/><path d="M21 16Q31 15 39 24" fill="none" stroke="white" stroke-width="2"/>',
+      es:'<rect width="60" height="40" fill="#aa151b"/><rect y="10" width="60" height="20" fill="#f1bf00"/><path d="M17 16h6v9q-3 4-6 0z" fill="#aa151b" stroke="#fff" stroke-width=".6"/><path d="M17 14h6l-1-3-2 2-2-2z" fill="#b68522"/>',
+      fr:'<rect width="60" height="40" fill="#fff"/><rect width="20" height="40" fill="#002654"/><rect x="40" width="20" height="40" fill="#ed2939"/>'
+    };
+    const countries={en:'United States — English',pt:'Brasil — Português',es:'España — Español',fr:'France — Français'};
+    for(const [code,name] of Object.entries(languages)){const button=document.createElement('button');button.type='button';button.dataset.languageButton=code;button.setAttribute('aria-label',countries[code]);button.title=countries[code];button.lang=code;button.innerHTML=`<svg viewBox="0 0 60 40" aria-hidden="true" focusable="false">${flags[code]}</svg>`;button.addEventListener('click',()=>setLanguage(code));label.append(button);}
+    if(host.tagName==='HEADER')host.append(label);else host.prepend(label);
     // URL propagation also covers environments where storage is disabled.
     document.addEventListener('click',event=>{const a=event.target.closest?.('a[href]');if(!a||a.hasAttribute('download'))return;const url=new URL(a.href,location.href);if(url.origin!==location.origin||!/^https?:$/.test(url.protocol))return;if(url.pathname===location.pathname&&url.hash)return;url.searchParams.set('lang',language);a.href=url.href;},true);
     setLanguage(language);
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
+

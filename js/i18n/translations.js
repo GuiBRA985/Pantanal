@@ -3385,3 +3385,823 @@ window.PANTANAL_TRANSLATIONS = {
     "ja": "ガイドを選ぶ前に宿泊施設と日数を選んでください。"
   }
 };
+
+
+// Circuito: conteúdos adicionados em setembro de 2026.
+Object.assign(window.PANTANAL_TRANSLATIONS, {
+  "Circuito Parque, Cachoeiras e Penhasco": {
+    "en": "Park, Waterfalls & Penhasco Circuit",
+    "es": "Circuito Parque, Cascadas y Penhasco",
+    "fr": "Circuit Parc, Cascades et Penhasco"
+  },
+  "Circuito Parque,": {
+    "en": "Park,",
+    "es": "Circuito Parque,",
+    "fr": "Circuit Parc,"
+  },
+  "Cachoeiras": {
+    "en": "Waterfalls",
+    "es": "Cascadas",
+    "fr": "Cascades"
+  },
+  "e Penhasco.": {
+    "en": "& Penhasco Circuit.",
+    "es": "y Penhasco.",
+    "fr": "et Penhasco."
+  },
+  "Parque, Cachoeiras e Penhasco": {
+    "en": "Park, Waterfalls & Penhasco",
+    "es": "Parque, Cascadas y Penhasco",
+    "fr": "Parc, Cascades et Penhasco"
+  },
+  "9 dias, 8 noites, três pousadas e três dias de passeios com guia. R$ 20.000,00 por casal.": {
+    "en": "9 days, 8 nights, three lodges and three days of guided outings. R$20,000 per couple.",
+    "es": "9 días, 8 noches, tres posadas y tres días de visitas con guía. R$20.000 por pareja.",
+    "fr": "9 jours, 8 nuits, trois hébergements et trois jours de visites guidées. 20 000 R$ par couple."
+  },
+  "Conhecer o pacote de 8 noites": {
+    "en": "Discover the 8-night package",
+    "es": "Conocer el paquete de 8 noches",
+    "fr": "Découvrir le séjour de 8 nuits"
+  },
+  "9 DIAS / 8 NOITES": {
+    "en": "9 DAYS / 8 NIGHTS",
+    "es": "9 DÍAS / 8 NOCHES",
+    "fr": "9 JOURS / 8 NUITS"
+  },
+  "Chegue ao Aeroporto Marechal Rondon, em Várzea Grande. Da tranquilidade do Parque às cachoeiras, terminando com água fresca e uma bela vista. Hospedagens, traslados e três dias de passeios com guia estão incluídos. Você também pode fazer o circuito na ordem inversa.": {
+    "en": "Arrive at Marechal Rondon Airport in Várzea Grande. From the peace of the park to waterfalls and refreshing pools with a view. Accommodation, transfers and three days of guided outings are included. You can also reverse the itinerary.",
+    "es": "Llegue al aeropuerto Marechal Rondon, en Várzea Grande. De la tranquilidad del parque a las cascadas y las piscinas con vistas. Incluye alojamiento, traslados y tres días de visitas con guía. También puede invertir el itinerario.",
+    "fr": "Arrivez à l’aéroport Marechal Rondon, à Várzea Grande. Du calme du parc aux cascades, puis aux piscines avec vue. Hébergements, transferts et trois jours de visites guidées sont inclus. Vous pouvez aussi inverser l’itinéraire."
+  },
+  "por casal": {
+    "en": "per couple",
+    "es": "por pareja",
+    "fr": "par couple"
+  },
+  "9 dias / 8 noites": {
+    "en": "9 days / 8 nights",
+    "es": "9 días / 8 noches",
+    "fr": "9 jours / 8 nuits"
+  },
+  "De dinheiro a criptomoeda: escolha como prefere pagar. Primeiro, confirme seu voo de chegada; depois, assinamos o contrato. Nenhum pagamento é necessário antes dessa etapa.": {
+    "en": "From cash to cryptocurrency, choose how to pay. First confirm your arrival flight; then we sign the contract. No payment is required before this step.",
+    "es": "De efectivo a criptomonedas, elija cómo pagar. Primero confirme su vuelo de llegada; después firmamos el contrato. No se requiere pago antes de esta etapa.",
+    "fr": "Des espèces aux cryptomonnaies, choisissez votre mode de paiement. Confirmez d’abord votre vol d’arrivée, puis nous signons le contrat. Aucun paiement n’est requis avant cette étape."
+  },
+  "Solicitar reserva da Chapada": {
+    "en": "Request a Chapada booking",
+    "es": "Solicitar reserva en Chapada",
+    "fr": "Demander une réservation à Chapada"
+  },
+  "Guia, transporte, ingressos do roteiro combinado e três almoços estão incluídos. Atrações sujeitas ao clima, à disponibilidade e às condições de acesso.": {
+    "en": "Guide, transport, admission for the agreed itinerary and three lunches are included. Visits depend on weather, availability and access conditions.",
+    "es": "Incluye guía, transporte, entradas del itinerario acordado y tres almuerzos. Las visitas dependen del clima, la disponibilidad y el acceso.",
+    "fr": "Guide, transport, entrées du programme convenu et trois déjeuners sont inclus. Visites selon la météo, les disponibilités et les conditions d’accès."
+  },
+  "Por onde você quer começar?": {
+    "en": "Where would you like to start?",
+    "es": "¿Por dónde quiere empezar?",
+    "fr": "Par où souhaitez-vous commencer ?"
+  },
+  "Primeira pousada": {
+    "en": "First lodge",
+    "es": "Primera posada",
+    "fr": "Premier hébergement"
+  },
+  "Começar pela Pousada do Parque": {
+    "en": "Start at Pousada do Parque",
+    "es": "Empezar en Pousada do Parque",
+    "fr": "Commencer à Pousada do Parque"
+  },
+  "Começar pelo Penhasco": {
+    "en": "Start at Penhasco",
+    "es": "Empezar en Penhasco",
+    "fr": "Commencer au Penhasco"
+  },
+  "{0} noites": {
+    "en": "{0} nights",
+    "es": "{0} noches",
+    "fr": "{0} nuits"
+  },
+  "{0} noite": {
+    "en": "{0} night",
+    "es": "{0} noche",
+    "fr": "{0} nuit"
+  },
+  "dias {0} a {1}": {
+    "en": "days {0} to {1}",
+    "es": "días {0} a {1}",
+    "fr": "jours {0} à {1}"
+  },
+  "Dia 1: recepção no aeroporto e traslado à primeira pousada. Dia 9: saída da última pousada e retorno ao aeroporto.": {
+    "en": "Day 1: airport pickup and transfer to your first lodge. Day 9: departure from your last lodge and transfer back to the airport.",
+    "es": "Día 1: recepción en el aeropuerto y traslado a la primera posada. Día 9: salida de la última posada y regreso al aeropuerto.",
+    "fr": "Jour 1 : accueil à l’aéroport et transfert au premier hébergement. Jour 9 : départ du dernier hébergement et retour à l’aéroport."
+  },
+  "Penhasco: uma parada para aproveitar a vista e o parque aquático. Café da manhã e almoço incluídos; jantar por sua conta.": {
+    "en": "Penhasco: enjoy the views and water park. Breakfast and lunch included; dinner at your own expense.",
+    "es": "Penhasco: disfrute las vistas y el parque acuático. Desayuno y almuerzo incluidos; cena por su cuenta.",
+    "fr": "Penhasco : profitez de la vue et du parc aquatique. Petit-déjeuner et déjeuner inclus ; dîner à votre charge."
+  },
+  "Explorar o circuito no mapa": {
+    "en": "Explore the circuit on the map",
+    "es": "Explorar el circuito en el mapa",
+    "fr": "Explorer le circuit sur la carte"
+  },
+  "O QUE ACOMPANHA VOCÊ": {
+    "en": "WHAT’S INCLUDED",
+    "es": "QUÉ INCLUYE",
+    "fr": "CE QUI EST INCLUS"
+  },
+  "Uma viagem bem cuidada.": {
+    "en": "A thoughtfully planned trip.",
+    "es": "Un viaje bien organizado.",
+    "fr": "Un voyage bien organisé."
+  },
+  "8 noites para o casal nas três pousadas.": {
+    "en": "8 nights for two at three lodges.",
+    "es": "8 noches para la pareja en tres posadas.",
+    "fr": "8 nuits pour deux dans trois hébergements."
+  },
+  "Traslados de chegada e saída pelo aeroporto e transferências entre as hospedagens.": {
+    "en": "Arrival and departure airport transfers and transfers between lodges.",
+    "es": "Traslados de llegada y salida al aeropuerto y entre alojamientos.",
+    "fr": "Transferts aéroport à l’arrivée et au départ et entre les hébergements."
+  },
+  "Guia, três dias de passeios de carro e ingressos do roteiro combinado, incluindo duas cachoeiras.": {
+    "en": "Guide, three days of outings by car and admission for the agreed itinerary, including two waterfalls.",
+    "es": "Guía, tres días de visitas en coche y entradas del itinerario acordado, incluidas dos cascadas.",
+    "fr": "Guide, trois jours de visites en voiture et entrées du programme convenu, dont deux cascades."
+  },
+  "Pensão completa na Pousada do Parque.": {
+    "en": "Full board at Pousada do Parque.",
+    "es": "Pensión completa en Pousada do Parque.",
+    "fr": "Pension complète à Pousada do Parque."
+  },
+  "Café da manhã e almoço no Penhasco.": {
+    "en": "Breakfast and lunch at Penhasco.",
+    "es": "Desayuno y almuerzo en Penhasco.",
+    "fr": "Petit-déjeuner et déjeuner au Penhasco."
+  },
+  "Café da manhã na Flor da Chapada e três almoços nos dias com o guia.": {
+    "en": "Breakfast at Flor da Chapada and three lunches on guided outing days.",
+    "es": "Desayuno en Flor da Chapada y tres almuerzos en los días con guía.",
+    "fr": "Petit-déjeuner à Flor da Chapada et trois déjeuners les jours avec le guide."
+  },
+  "PARA PLANEJAR SEM SURPRESAS": {
+    "en": "PLAN WITHOUT SURPRISES",
+    "es": "PLANIFIQUE SIN SORPRESAS",
+    "fr": "PRÉVOYEZ SANS SURPRISES"
+  },
+  "O que fica por sua conta.": {
+    "en": "What you pay for separately.",
+    "es": "Qué queda por su cuenta.",
+    "fr": "Ce qui reste à votre charge."
+  },
+  "Passagens aéreas e deslocamento até o aeroporto de encontro.": {
+    "en": "Flights and travel to the meeting airport.",
+    "es": "Vuelos y desplazamiento hasta el aeropuerto de encuentro.",
+    "fr": "Vols et trajet jusqu’à l’aéroport de rendez-vous."
+  },
+  "Jantar na estadia do Penhasco.": {
+    "en": "Dinner during your Penhasco stay.",
+    "es": "Cena durante la estancia en Penhasco.",
+    "fr": "Dîner pendant le séjour au Penhasco."
+  },
+  "Todos os jantares na Flor da Chapada.": {
+    "en": "All dinners at Flor da Chapada.",
+    "es": "Todas las cenas en Flor da Chapada.",
+    "fr": "Tous les dîners à Flor da Chapada."
+  },
+  "Almoços nos dias sem passeio com o guia durante a estadia na Flor.": {
+    "en": "Lunches on days without a guided outing during your Flor stay.",
+    "es": "Almuerzos en los días sin visitas con guía durante su estancia en Flor.",
+    "fr": "Déjeuners les jours sans visite guidée pendant le séjour à Flor."
+  },
+  "As atrações do mapa são sugestões. Você define o roteiro com o guia escolhido, conforme clima, disponibilidade e condições de acesso.": {
+    "en": "Attractions on the map are suggestions. Agree on the itinerary with your chosen guide, subject to weather, availability and access conditions.",
+    "es": "Las atracciones del mapa son sugerencias. Acuerde el itinerario con su guía según el clima, la disponibilidad y el acceso.",
+    "fr": "Les attractions sur la carte sont des suggestions. Convenez du programme avec votre guide selon la météo, les disponibilités et l’accès."
+  },
+  "Ordem das hospedagens": {
+    "en": "Order of stays",
+    "es": "Orden de los alojamientos",
+    "fr": "Ordre des hébergements"
+  },
+  "Ordem das pousadas": {
+    "en": "Lodge order",
+    "es": "Orden de las posadas",
+    "fr": "Ordre des hébergements"
+  },
+  "Hospedagens, traslados, guia, três dias de passeios de carro, ingressos e três almoços incluídos. Data de chegada provisória até a confirmação do voo. Contrato após a confirmação do número do voo; nenhum pagamento é necessário antes dessa etapa.": {
+    "en": "Accommodation, transfers, guide, three days of outings by car, admission and three lunches included. Arrival date is provisional until the flight is confirmed. The contract follows confirmation of the flight number; no payment is needed before this step.",
+    "es": "Incluye alojamiento, traslados, guía, tres días de visitas en coche, entradas y tres almuerzos. Fecha de llegada provisional hasta confirmar el vuelo. El contrato se firma tras confirmar el número de vuelo; no se requiere pago previo.",
+    "fr": "Hébergements, transferts, guide, trois jours de visites en voiture, entrées et trois déjeuners inclus. Date d’arrivée provisoire jusqu’à la confirmation du vol. Contrat après confirmation du numéro de vol ; aucun paiement requis avant cette étape."
+  },
+  "9 dias / 8 noites · R$ 20.000,00 por casal. Hospedagens, traslados, guia e três dias de passeios incluídos.": {
+    "en": "9 days / 8 nights · R$20,000 per couple. Accommodation, transfers, guide and three days of outings included.",
+    "es": "9 días / 8 noches · R$20.000 por pareja. Incluye alojamiento, traslados, guía y tres días de visitas.",
+    "fr": "9 jours / 8 nuits · 20 000 R$ par couple. Hébergements, transferts, guide et trois jours de visites inclus."
+  },
+  "Explorar o circuito": {
+    "en": "Explore the circuit",
+    "es": "Explorar el circuito",
+    "fr": "Explorer le circuit"
+  },
+  "Guias e pagamento": {
+    "en": "Guides & payment",
+    "es": "Guías y pago",
+    "fr": "Guides et paiement"
+  },
+  "A natureza começa à sua porta.": {
+    "en": "Nature begins at your doorstep.",
+    "es": "La naturaleza empieza en su puerta.",
+    "fr": "La nature commence à votre porte."
+  },
+  "Seu ponto de partida para descobrir a Chapada.": {
+    "en": "Your base for discovering Chapada.",
+    "es": "Su base para descubrir Chapada.",
+    "fr": "Votre point de départ pour découvrir Chapada."
+  },
+  "Água fresca. Horizonte aberto.": {
+    "en": "Refreshing water. Open horizons.",
+    "es": "Agua fresca. Horizonte abierto.",
+    "fr": "Eau fraîche. Horizon ouvert."
+  },
+  "Pensão completa: café da manhã, almoço e jantar.": {
+    "en": "Full board: breakfast, lunch and dinner.",
+    "es": "Pensión completa: desayuno, almuerzo y cena.",
+    "fr": "Pension complète : petit-déjeuner, déjeuner et dîner."
+  },
+  "Passeios dentro da própria pousada, entre trilhas, paisagens e momentos de descanso.": {
+    "en": "Explore the lodge’s own grounds, trails and scenery, with time to relax.",
+    "es": "Paseos dentro de la propia posada, entre senderos, paisajes y descanso.",
+    "fr": "Promenades dans la propriété, entre sentiers, paysages et détente."
+  },
+  "Café da manhã na pousada e três almoços nos dias de passeio com o guia.": {
+    "en": "Breakfast at the lodge and three lunches on guided outing days.",
+    "es": "Desayuno en la posada y tres almuerzos en los días de visitas con guía.",
+    "fr": "Petit-déjeuner à l’hébergement et trois déjeuners les jours de visites guidées."
+  },
+  "Três dias de passeios de carro com o guia escolhido, incluindo atrações centrais da cidade e duas cachoeiras. O roteiro será definido com o guia.": {
+    "en": "Three days of outings by car with your chosen guide, including town-centre attractions and two waterfalls. Agree on the itinerary with your guide.",
+    "es": "Tres días de visitas en coche con su guía, incluidas atracciones del centro y dos cascadas. El itinerario se define con el guía.",
+    "fr": "Trois jours de visites en voiture avec votre guide, dont les attractions du centre-ville et deux cascades. Le programme est défini avec le guide."
+  },
+  "Café da manhã e almoço incluídos. Jantar por conta do cliente.": {
+    "en": "Breakfast and lunch included. Dinner at your own expense.",
+    "es": "Desayuno y almuerzo incluidos. Cena por cuenta del cliente.",
+    "fr": "Petit-déjeuner et déjeuner inclus. Dîner à la charge du client."
+  },
+  "Uma estadia para aproveitar o parque aquático, o calor da região e a vista do penhasco.": {
+    "en": "Enjoy the water park, warm weather and views from the cliff.",
+    "es": "Disfrute del parque acuático, el clima cálido y las vistas del acantilado.",
+    "fr": "Profitez du parc aquatique, du climat chaud et de la vue sur la falaise."
+  },
+  "Jantares e almoços dos dias sem guia ficam por conta do cliente.": {
+    "en": "Dinners and lunches on days without a guide are at your own expense.",
+    "es": "Las cenas y los almuerzos de los días sin guía corren por cuenta del cliente.",
+    "fr": "Les dîners et les déjeuners des jours sans guide restent à votre charge."
+  },
+  "Alimentação incluída": {
+    "en": "Included meals",
+    "es": "Comidas incluidas",
+    "fr": "Repas inclus"
+  },
+  "No seu roteiro": {
+    "en": "In your itinerary",
+    "es": "En su itinerario",
+    "fr": "Dans votre programme"
+  },
+  "Dias {0} a {1}": {
+    "en": "Days {0} to {1}",
+    "es": "Días {0} a {1}",
+    "fr": "Jours {0} à {1}"
+  },
+  "Referência desde o aeroporto": {
+    "en": "Reference distance from the airport",
+    "es": "Referencia desde el aeropuerto",
+    "fr": "Distance indicative depuis l’aéroport"
+  },
+  "{0} km · cerca de {1} min": {
+    "en": "{0} km · about {1} min",
+    "es": "{0} km · unos {1} min",
+    "fr": "{0} km · environ {1} min"
+  },
+  "Site oficial": {
+    "en": "Official website",
+    "es": "Sitio oficial",
+    "fr": "Site officiel"
+  },
+  "Localização": {
+    "en": "Location",
+    "es": "Ubicación",
+    "fr": "Localisation"
+  },
+  "Estrutura e contatos:": {
+    "en": "Facilities and contacts:",
+    "es": "Instalaciones y contactos:",
+    "fr": "Équipements et contacts :"
+  },
+  "informações da hospedagem": {
+    "en": "lodging information",
+    "es": "información del alojamiento",
+    "fr": "informations de l’hébergement"
+  },
+  ". Categoria do quarto e horários serão confirmados na proposta. A alimentação incluída está descrita acima.": {
+    "en": ". Room category and times will be confirmed in the proposal. Included meals are listed above.",
+    "es": ". La categoría de habitación y los horarios se confirmarán en la propuesta. Las comidas incluidas se detallan arriba.",
+    "fr": ". La catégorie de chambre et les horaires seront confirmés dans la proposition. Les repas inclus sont indiqués ci-dessus."
+  },
+  "Nos limites do Parque Nacional, a pousada reúne trilhas, torre de observação e duas cachoeiras sazonais em uma área privada de 500 hectares.": {
+    "en": "On the edge of the National Park, the lodge has trails, an observation tower and two seasonal waterfalls on 500 hectares of private land.",
+    "es": "Junto al Parque Nacional, la posada dispone de senderos, torre de observación y dos cascadas estacionales en 500 hectáreas privadas.",
+    "fr": "En bordure du Parc national, l’hébergement possède des sentiers, une tour d’observation et deux cascades saisonnières sur 500 hectares privés."
+  },
+  "Natureza, trilhas e observação da paisagem. As cachoeiras dependem da estação e das chuvas.": {
+    "en": "Nature, trails and scenic views. Waterfalls depend on the season and rainfall.",
+    "es": "Naturaleza, senderos y paisajes. Las cascadas dependen de la estación y las lluvias.",
+    "fr": "Nature, sentiers et paysages. Les cascades dépendent de la saison et des pluies."
+  },
+  "Pousada parceira da Chapada Expeditions, com quartos confortáveis, áreas comuns integradas à natureza e gastronomia regional.": {
+    "en": "A Chapada Expeditions partner lodge with comfortable rooms, shared spaces close to nature and regional cuisine.",
+    "es": "Posada asociada a Chapada Expeditions, con habitaciones cómodas, zonas comunes integradas en la naturaleza y cocina regional.",
+    "fr": "Hébergement partenaire de Chapada Expeditions, avec chambres confortables, espaces communs proches de la nature et cuisine régionale."
+  },
+  "Base para os passeios da região e para conhecer o centro da Chapada.": {
+    "en": "A base for exploring the region and Chapada’s town centre.",
+    "es": "Base para visitar la región y el centro de Chapada.",
+    "fr": "Point de départ pour visiter la région et le centre de Chapada."
+  },
+  "Hospedagem com vista para o penhasco e estrutura de lazer aquático, incluindo piscinas aquecidas, hidromassagem e toboáguas.": {
+    "en": "Cliff-view accommodation with water leisure facilities, including heated pools, whirlpools and water slides.",
+    "es": "Alojamiento con vistas al acantilado y ocio acuático, con piscinas climatizadas, hidromasaje y toboganes.",
+    "fr": "Hébergement avec vue sur la falaise et loisirs aquatiques, dont piscines chauffées, bains à remous et toboggans."
+  },
+  "Piscinas, sauna, salão de jogos, trilha ecológica e deck de observação. Consulte horários e condições de uso para sua reserva.": {
+    "en": "Pools, sauna, games room, nature trail and observation deck. Check opening times and conditions for your booking.",
+    "es": "Piscinas, sauna, sala de juegos, sendero ecológico y mirador. Consulte horarios y condiciones para su reserva.",
+    "fr": "Piscines, sauna, salle de jeux, sentier nature et terrasse d’observation. Vérifiez les horaires et conditions de votre réservation."
+  },
+  "TRASLADO · 9 DIAS / 8 NOITES": {
+    "en": "TRANSFERS · 9 DAYS / 8 NIGHTS",
+    "es": "TRASLADOS · 9 DÍAS / 8 NOCHES",
+    "fr": "TRANSFERTS · 9 JOURS / 8 NUITS"
+  },
+  "Escolha sua primeira parada": {
+    "en": "Choose your first stop",
+    "es": "Elija su primera parada",
+    "fr": "Choisissez votre première étape"
+  },
+  "Primeira hospedagem do circuito": {
+    "en": "First stay on the circuit",
+    "es": "Primer alojamiento del circuito",
+    "fr": "Premier hébergement du circuit"
+  },
+  "Parque aquático e vista do penhasco.": {
+    "en": "Water park and cliff views.",
+    "es": "Parque acuático y vistas al acantilado.",
+    "fr": "Parc aquatique et vue sur la falaise."
+  },
+  "Café da manhã e almoço incluídos. Jantar por sua conta.": {
+    "en": "Breakfast and lunch included. Dinner at your own expense.",
+    "es": "Desayuno y almuerzo incluidos. Cena por su cuenta.",
+    "fr": "Petit-déjeuner et déjeuner inclus. Dîner à votre charge."
+  },
+  "Passeios dentro da própria pousada.": {
+    "en": "Activities within the lodge grounds.",
+    "es": "Paseos dentro de la propia posada.",
+    "fr": "Promenades dans la propriété."
+  },
+  "Traslados garantidos no pacote": {
+    "en": "Transfers guaranteed in your package",
+    "es": "Traslados garantizados en el paquete",
+    "fr": "Transferts garantis dans le forfait"
+  },
+  "Aeroporto → pousadas, transferências entre as três hospedagens e retorno ao aeroporto estão incluídos.": {
+    "en": "Airport-to-lodge transfers, transfers between all three lodges and the return to the airport are included.",
+    "es": "Incluye traslados del aeropuerto a las posadas, entre los tres alojamientos y de regreso al aeropuerto.",
+    "fr": "Transferts de l’aéroport aux hébergements, entre les trois hébergements et retour à l’aéroport inclus."
+  },
+  "Nos três dias de passeios, os deslocamentos são operados pela empresa do guia escolhido. Você combina os horários e o roteiro diretamente com ele.": {
+    "en": "Transport during the three outing days is provided by your chosen guide’s company. Arrange times and the itinerary directly with your guide.",
+    "es": "En los tres días de visitas, el transporte lo realiza la empresa del guía elegido. Acuerde los horarios y el itinerario directamente con él.",
+    "fr": "Pendant les trois jours de visites, les déplacements sont assurés par l’entreprise du guide choisi. Convenez des horaires et du programme directement avec lui."
+  },
+  "Esse serviço também já está pago no pacote.": {
+    "en": "This service is also already paid for in the package.",
+    "es": "Este servicio también está pagado en el paquete.",
+    "fr": "Ce service est également déjà payé dans le forfait."
+  },
+  "{0} · Dia {1}": {
+    "en": "{0} · Day {1}",
+    "es": "{0} · Día {1}",
+    "fr": "{0} · Jour {1}"
+  },
+  "Ver trecho {0} no mapa": {
+    "en": "View leg {0} on the map",
+    "es": "Ver tramo {0} en el mapa",
+    "fr": "Voir le trajet {0} sur la carte"
+  },
+  "Abrir navegação": {
+    "en": "Open directions",
+    "es": "Abrir navegación",
+    "fr": "Ouvrir l’itinéraire"
+  },
+  "Ver os quatro trechos no mapa": {
+    "en": "View all four legs on the map",
+    "es": "Ver los cuatro tramos en el mapa",
+    "fr": "Voir les quatre trajets sur la carte"
+  },
+  "ATRAÇÕES · FLOR DA CHAPADA": {
+    "en": "ATTRACTIONS · FLOR DA CHAPADA",
+    "es": "ATRACCIONES · FLOR DA CHAPADA",
+    "fr": "ATTRACTIONS · FLOR DA CHAPADA"
+  },
+  "Passeios no seu ritmo": {
+    "en": "Explore at your own pace",
+    "es": "Visitas a su ritmo",
+    "fr": "Visites à votre rythme"
+  },
+  "Flor da Chapada · sua base": {
+    "en": "Flor da Chapada · your base",
+    "es": "Flor da Chapada · su base",
+    "fr": "Flor da Chapada · votre base"
+  },
+  "Etapa 2 · dias {0} a {1}": {
+    "en": "Stage 2 · days {0} to {1}",
+    "es": "Etapa 2 · días {0} a {1}",
+    "fr": "Étape 2 · jours {0} à {1}"
+  },
+  "As atrações são sugestões. O roteiro dos três dias será definido com o guia, incluindo atrações centrais da cidade e duas cachoeiras, conforme clima, disponibilidade e condições de acesso.": {
+    "en": "Attractions are suggestions. Plan the three-day itinerary with your guide, including town-centre attractions and two waterfalls, subject to weather, availability and access conditions.",
+    "es": "Las atracciones son sugerencias. Defina con el guía el itinerario de tres días, con visitas al centro y dos cascadas, según el clima, la disponibilidad y el acceso.",
+    "fr": "Les attractions sont des suggestions. Définissez avec le guide le programme des trois jours, dont le centre-ville et deux cascades, selon la météo, les disponibilités et l’accès."
+  },
+  "Guia, carro, ingressos e três almoços incluídos nos três dias de passeio. A lista é um conjunto de sugestões, não uma promessa de visitar todas as atrações.": {
+    "en": "Guide, car, admission and three lunches are included for the three outing days. This list offers suggestions, not a promise to visit every attraction.",
+    "es": "Guía, coche, entradas y tres almuerzos incluidos en los tres días de visitas. La lista contiene sugerencias, no una promesa de visitar todas las atracciones.",
+    "fr": "Guide, voiture, entrées et trois déjeuners inclus pour les trois jours de visites. La liste propose des idées, sans garantir la visite de toutes les attractions."
+  },
+  "Ordenadas pela proximidade em linha reta da Flor da Chapada.": {
+    "en": "Sorted by straight-line distance from Flor da Chapada.",
+    "es": "Ordenadas por distancia en línea recta desde Flor da Chapada.",
+    "fr": "Classées par distance à vol d’oiseau depuis Flor da Chapada."
+  },
+  "Interesse registrado": {
+    "en": "Interest noted",
+    "es": "Interés registrado",
+    "fr": "Intérêt enregistré"
+  },
+  "Ver atrações no mapa": {
+    "en": "View attractions on the map",
+    "es": "Ver atracciones en el mapa",
+    "fr": "Voir les attractions sur la carte"
+  },
+  "SUGESTÃO PARA O SEU ROTEIRO": {
+    "en": "ITINERARY SUGGESTION",
+    "es": "SUGERENCIA PARA SU ITINERARIO",
+    "fr": "SUGGESTION POUR VOTRE PROGRAMME"
+  },
+  "Saída de": {
+    "en": "Departing from",
+    "es": "Salida desde",
+    "fr": "Départ de"
+  },
+  "{0} km em linha reta — não é distância rodoviária.": {
+    "en": "{0} km in a straight line — not driving distance.",
+    "es": "{0} km en línea recta — no es distancia por carretera.",
+    "fr": "{0} km à vol d’oiseau — pas la distance routière."
+  },
+  "Traçar rota desde {0}": {
+    "en": "Get directions from {0}",
+    "es": "Trazar ruta desde {0}",
+    "fr": "Itinéraire depuis {0}"
+  },
+  "Remover do meu interesse": {
+    "en": "Remove from my interests",
+    "es": "Quitar de mis intereses",
+    "fr": "Retirer de mes préférences"
+  },
+  "Tenho interesse neste passeio": {
+    "en": "I’m interested in this outing",
+    "es": "Me interesa esta visita",
+    "fr": "Cette visite m’intéresse"
+  },
+  "Voltar às atrações": {
+    "en": "Back to attractions",
+    "es": "Volver a las atracciones",
+    "fr": "Retour aux attractions"
+  },
+  "SUA VIAGEM, PASSO A PASSO": {
+    "en": "YOUR TRIP, STEP BY STEP",
+    "es": "SU VIAJE, PASO A PASO",
+    "fr": "VOTRE VOYAGE, ÉTAPE PAR ÉTAPE"
+  },
+  "Escolha seu guia": {
+    "en": "Choose your guide",
+    "es": "Elija su guía",
+    "fr": "Choisissez votre guide"
+  },
+  "Trocar guia": {
+    "en": "Change guide",
+    "es": "Cambiar guía",
+    "fr": "Changer de guide"
+  },
+  "Escolher guia": {
+    "en": "Choose a guide",
+    "es": "Elegir guía",
+    "fr": "Choisir un guide"
+  },
+  "Conhecimento local para aproveitar cada dia. O acompanhamento do guia nos três dias de passeios está incluído.": {
+    "en": "Local knowledge to make the most of every day. Your guide’s services for the three outing days are included.",
+    "es": "Conocimiento local para aprovechar cada día. El acompañamiento del guía en los tres días de visitas está incluido.",
+    "fr": "Un savoir local pour profiter de chaque jour. L’accompagnement du guide pendant les trois jours de visites est inclus."
+  },
+  "Ver perfil e contato do guia": {
+    "en": "View guide profile and contact",
+    "es": "Ver perfil y contacto del guía",
+    "fr": "Voir le profil et le contact du guide"
+  },
+  "O CIRCUITO PARA VOCÊS DOIS": {
+    "en": "THE CIRCUIT FOR TWO",
+    "es": "EL CIRCUITO PARA DOS",
+    "fr": "LE CIRCUIT POUR DEUX"
+  },
+  "9 dias / 8 noites · hospedagens, traslados e três dias de passeios com guia, carro, ingressos e três almoços.": {
+    "en": "9 days / 8 nights · accommodation, transfers and three days of outings with guide, car, admission and three lunches.",
+    "es": "9 días / 8 noches · alojamiento, traslados y tres días de visitas con guía, coche, entradas y tres almuerzos.",
+    "fr": "9 jours / 8 nuits · hébergements, transferts et trois jours de visites avec guide, voiture, entrées et trois déjeuners."
+  },
+  "Data prevista de chegada": {
+    "en": "Expected arrival date",
+    "es": "Fecha prevista de llegada",
+    "fr": "Date d’arrivée prévue"
+  },
+  "Essa data pode ser alterada quando você confirmar seu voo. A compra da passagem é por sua conta.": {
+    "en": "This date may change when you confirm your flight. You are responsible for buying your flight ticket.",
+    "es": "Esta fecha puede cambiar cuando confirme su vuelo. La compra del billete corre por su cuenta.",
+    "fr": "Cette date peut changer à la confirmation de votre vol. L’achat du billet est à votre charge."
+  },
+  "Pagamentos aceitos": {
+    "en": "Accepted payment methods",
+    "es": "Pagos aceptados",
+    "fr": "Moyens de paiement acceptés"
+  },
+  "Dinheiro": {
+    "en": "Cash",
+    "es": "Efectivo",
+    "fr": "Espèces"
+  },
+  "Pix": {
+    "en": "Pix",
+    "es": "Pix",
+    "fr": "Pix"
+  },
+  "Transferência": {
+    "en": "Bank transfer",
+    "es": "Transferencia bancaria",
+    "fr": "Virement bancaire"
+  },
+  "Cartão": {
+    "en": "Card",
+    "es": "Tarjeta",
+    "fr": "Carte bancaire"
+  },
+  "Criptomoeda": {
+    "en": "Cryptocurrency",
+    "es": "Criptomoneda",
+    "fr": "Cryptomonnaie"
+  },
+  "Sua preferência": {
+    "en": "Your preference",
+    "es": "Su preferencia",
+    "fr": "Votre préférence"
+  },
+  "Condições combinadas no atendimento. Em criptomoeda, confirmamos moeda, rede e cotação antes da transferência.": {
+    "en": "Terms are agreed with our team. For cryptocurrency, we confirm the currency, network and exchange rate before the transfer.",
+    "es": "Condiciones acordadas con nuestro equipo. Para criptomonedas, confirmamos moneda, red y cotización antes de la transferencia.",
+    "fr": "Conditions convenues avec notre équipe. Pour les cryptomonnaies, nous confirmons la monnaie, le réseau et le taux avant le transfert."
+  },
+  "Primeiro o voo. Depois o contrato.": {
+    "en": "Flight first. Contract next.",
+    "es": "Primero el vuelo. Después el contrato.",
+    "fr": "Le vol d’abord. Le contrat ensuite."
+  },
+  "Você providencia sua passagem e confirma o número do voo de chegada a Várzea Grande.": {
+    "en": "You arrange your ticket and confirm your arrival flight number for Várzea Grande.",
+    "es": "Usted compra su billete y confirma el número de vuelo de llegada a Várzea Grande.",
+    "fr": "Vous achetez votre billet et confirmez le numéro du vol d’arrivée à Várzea Grande."
+  },
+  "Conferimos os dados da viagem e seguimos para a assinatura do contrato.": {
+    "en": "We check the trip details and then proceed to signing the contract.",
+    "es": "Verificamos los datos del viaje y pasamos a la firma del contrato.",
+    "fr": "Nous vérifions les détails du voyage, puis passons à la signature du contrat."
+  },
+  "O pagamento é combinado nessa etapa. Nenhum pagamento é necessário antes da confirmação do voo e da etapa de assinatura.": {
+    "en": "Payment is arranged at this stage. No payment is required before flight confirmation and the contract-signing stage.",
+    "es": "El pago se acuerda en esta etapa. No se requiere pago antes de confirmar el vuelo y de la etapa de firma.",
+    "fr": "Le paiement est convenu à cette étape. Aucun paiement n’est requis avant la confirmation du vol et l’étape de signature."
+  },
+  "Já tenho meu voo de chegada": {
+    "en": "I already have my arrival flight",
+    "es": "Ya tengo mi vuelo de llegada",
+    "fr": "J’ai déjà mon vol d’arrivée"
+  },
+  "Número do voo": {
+    "en": "Flight number",
+    "es": "Número de vuelo",
+    "fr": "Numéro de vol"
+  },
+  "Ex.: AB 1234": {
+    "en": "E.g. AB 1234",
+    "es": "Ej.: AB 1234",
+    "fr": "Ex. : AB 1234"
+  },
+  "Confirmo que este voo está confirmado pela companhia aérea.": {
+    "en": "I confirm that this flight has been confirmed by the airline.",
+    "es": "Confirmo que este vuelo está confirmado por la aerolínea.",
+    "fr": "Je confirme que ce vol a été confirmé par la compagnie aérienne."
+  },
+  "Você informou o voo confirmado. Vamos conferir os dados com você antes de seguir para a assinatura do contrato.": {
+    "en": "You have provided a confirmed flight. We will check the details with you before proceeding to the contract.",
+    "es": "Ha informado un vuelo confirmado. Verificaremos los datos con usted antes de pasar al contrato.",
+    "fr": "Vous avez indiqué un vol confirmé. Nous vérifierons les détails avec vous avant de passer au contrat."
+  },
+  "Ainda sem voo confirmado? Você pode planejar a viagem agora. A assinatura do contrato e a etapa de pagamento ficam para depois da confirmação do voo.": {
+    "en": "No confirmed flight yet? You can plan your trip now. Contract signing and payment come after flight confirmation.",
+    "es": "¿Aún no tiene vuelo confirmado? Puede planificar su viaje ahora. La firma del contrato y el pago quedan para después de confirmar el vuelo.",
+    "fr": "Pas encore de vol confirmé ? Vous pouvez déjà préparer le voyage. La signature du contrat et le paiement viendront après la confirmation du vol."
+  },
+  "Enviar dados para preparar o contrato": {
+    "en": "Send details to prepare the contract",
+    "es": "Enviar datos para preparar el contrato",
+    "fr": "Envoyer les détails pour préparer le contrat"
+  },
+  "Enviar meu planejamento inicial": {
+    "en": "Send my initial trip plan",
+    "es": "Enviar mi planificación inicial",
+    "fr": "Envoyer mon projet de voyage"
+  },
+  "O botão prepara uma mensagem para o Bento Pantanal. Reserva e guia dependem de disponibilidade. Esta página não assina contratos nem realiza cobranças.": {
+    "en": "This button prepares a message for Bento Pantanal. Booking and guide availability must be confirmed. This page does not sign contracts or collect payment.",
+    "es": "El botón prepara un mensaje para Bento Pantanal. Reserva y guía sujetos a disponibilidad. Esta página no firma contratos ni realiza cobros.",
+    "fr": "Ce bouton prépare un message pour Bento Pantanal. Réservation et guide selon disponibilités. Cette page ne signe pas de contrat et n’encaisse aucun paiement."
+  },
+  "HOSPEDAGEM · SEU CIRCUITO": {
+    "en": "ACCOMMODATION · YOUR CIRCUIT",
+    "es": "ALOJAMIENTO · SU CIRCUITO",
+    "fr": "HÉBERGEMENT · VOTRE CIRCUIT"
+  },
+  "Ver sugestões de passeios desde a Flor": {
+    "en": "See outing suggestions from Flor",
+    "es": "Ver sugerencias de visitas desde Flor",
+    "fr": "Voir les suggestions de visites depuis Flor"
+  },
+  "Encontro no dia 1 e retorno no dia 9. Horários combinados de acordo com os voos informados.": {
+    "en": "Meet on day 1 and return on day 9. Times are arranged around your flight details.",
+    "es": "Encuentro el día 1 y regreso el día 9. Horarios acordados según los vuelos informados.",
+    "fr": "Rendez-vous le jour 1 et retour le jour 9. Horaires convenus selon vos vols."
+  },
+  "Passagens e deslocamentos até este aeroporto são responsabilidade do viajante.": {
+    "en": "Flights and travel to this airport are the traveller’s responsibility.",
+    "es": "Los vuelos y desplazamientos hasta este aeropuerto son responsabilidad del viajero.",
+    "fr": "Les vols et trajets jusqu’à cet aéroport sont à la charge du voyageur."
+  }
+});
+
+Object.assign(window.PANTANAL_TRANSLATIONS, {
+  "Guia, carro, ingressos do roteiro combinado e três almoços estão incluídos nos três dias de passeios.": {
+    "en": "Guide, car, admission for the agreed itinerary and three lunches are included for the three outing days.",
+    "es": "Guía, coche, entradas del itinerario acordado y tres almuerzos incluidos en los tres días de visitas.",
+    "fr": "Guide, voiture, entrées du programme convenu et trois déjeuners inclus pour les trois jours de visites."
+  },
+  "Marcar interesse não confirma a visita a todas as atrações.": {
+    "en": "Marking interest does not confirm visits to every attraction.",
+    "es": "Marcar interés no confirma la visita a todas las atracciones.",
+    "fr": "Indiquer votre intérêt ne confirme pas la visite de toutes les attractions."
+  },
+  "8 noites · R$ 20.000/casal · Base dos passeios: Flor da Chapada": {
+    "en": "8 nights · R$20,000/couple · Outing base: Flor da Chapada",
+    "es": "8 noches · R$20.000/pareja · Base de visitas: Flor da Chapada",
+    "fr": "8 nuits · 20 000 R$/couple · Base des visites : Flor da Chapada"
+  },
+  "Circuito Parque, Cachoeiras e Penhasco — 9 dias / 8 noites": {
+    "en": "Park, Waterfalls & Penhasco Circuit — 9 days / 8 nights",
+    "es": "Circuito Parque, Cascadas y Penhasco — 9 días / 8 noches",
+    "fr": "Circuit Parc, Cascades et Penhasco — 9 jours / 8 nuits"
+  },
+  "R$ 20.000,00 por casal": {
+    "en": "R$20,000 per couple",
+    "es": "R$20.000 por pareja",
+    "fr": "20 000 R$ par couple"
+  },
+  "Pacote: Circuito Parque, Cachoeiras e Penhasco — R$ 20.000,00 por casal (2 pessoas).": {
+    "en": "Package: Park, Waterfalls & Penhasco Circuit — R$20,000 per couple (2 people).",
+    "es": "Paquete: Circuito Parque, Cascadas y Penhasco — R$20.000 por pareja (2 personas).",
+    "fr": "Forfait : Circuit Parc, Cascades et Penhasco — 20 000 R$ par couple (2 personnes)."
+  },
+  "Duração: 9 dias / 8 noites.": {
+    "en": "Duration: 9 days / 8 nights.",
+    "es": "Duración: 9 días / 8 noches.",
+    "fr": "Durée : 9 jours / 8 nuits."
+  },
+  "{0}: {1} noites — dias {2} a {3}. Alimentação: {4}": {
+    "en": "{0}: {1} nights — days {2} to {3}. Meals: {4}",
+    "es": "{0}: {1} noches — días {2} a {3}. Comidas: {4}",
+    "fr": "{0} : {1} nuits — jours {2} à {3}. Repas : {4}"
+  },
+  "Inclui: hospedagens, traslados aeroporto/pousadas, transferências entre pousadas, guia, três dias de passeios de carro, ingressos do roteiro combinado e três almoços nos dias com o guia.": {
+    "en": "Includes: accommodation, airport/lodge transfers, transfers between lodges, guide, three days of outings by car, admission for the agreed itinerary and three lunches on guided days.",
+    "es": "Incluye: alojamiento, traslados aeropuerto/posadas, traslados entre posadas, guía, tres días de visitas en coche, entradas del itinerario acordado y tres almuerzos en los días con guía.",
+    "fr": "Inclus : hébergements, transferts aéroport/hébergements et entre hébergements, guide, trois jours de visites en voiture, entrées du programme convenu et trois déjeuners les jours avec guide."
+  },
+  "Base dos passeios externos: Flor da Chapada, sempre na segunda etapa.": {
+    "en": "Base for outings: Flor da Chapada, always the second stage.",
+    "es": "Base de las visitas: Flor da Chapada, siempre en la segunda etapa.",
+    "fr": "Base des excursions : Flor da Chapada, toujours la deuxième étape."
+  },
+  "Por conta do cliente: jantar no Penhasco; jantares na Flor da Chapada e almoços nos dias sem guia; passagens aéreas e deslocamento até o aeroporto de encontro.": {
+    "en": "At your expense: dinner at Penhasco; dinners at Flor da Chapada and lunches on days without a guide; flights and travel to the meeting airport.",
+    "es": "Por cuenta del cliente: cena en Penhasco; cenas en Flor da Chapada y almuerzos los días sin guía; vuelos y traslado hasta el aeropuerto de encuentro.",
+    "fr": "À votre charge : dîner au Penhasco ; dîners à Flor da Chapada et déjeuners les jours sans guide ; vols et trajet jusqu’à l’aéroport de rendez-vous."
+  },
+  "A data prevista pode mudar quando o cliente confirmar o voo. O contrato será assinado após a confirmação do número do voo de chegada ao Aeroporto Marechal Rondon. Nenhum pagamento é necessário antes dessa etapa.": {
+    "en": "The expected date may change when the client confirms the flight. The contract will be signed after confirmation of the arrival flight number at Marechal Rondon Airport. No payment is required before this step.",
+    "es": "La fecha prevista puede cambiar al confirmar el vuelo. El contrato se firmará tras confirmar el número del vuelo de llegada al aeropuerto Marechal Rondon. No se requiere pago antes de esta etapa.",
+    "fr": "La date prévue peut changer à la confirmation du vol. Le contrat sera signé après confirmation du numéro du vol d’arrivée à l’aéroport Marechal Rondon. Aucun paiement n’est requis avant cette étape."
+  },
+  "Traslados incluídos: {0}": {
+    "en": "Included transfers: {0}",
+    "es": "Traslados incluidos: {0}",
+    "fr": "Transferts inclus : {0}"
+  },
+  "Chegada prevista: {0} (sujeita a ajuste após confirmação do voo).": {
+    "en": "Expected arrival: {0} (subject to change after flight confirmation).",
+    "es": "Llegada prevista: {0} (sujeta a cambios tras confirmar el vuelo).",
+    "fr": "Arrivée prévue : {0} (modifiable après confirmation du vol)."
+  },
+  "Número do voo de chegada: {0}": {
+    "en": "Arrival flight number: {0}",
+    "es": "Número del vuelo de llegada: {0}",
+    "fr": "Numéro du vol d’arrivée : {0}"
+  },
+  "Ainda não informado": {
+    "en": "Not provided yet",
+    "es": "Aún no informado",
+    "fr": "Pas encore indiqué"
+  },
+  "Confirmação do voo pelo cliente: {0}": {
+    "en": "Flight confirmation by the client: {0}",
+    "es": "Confirmación del vuelo por el cliente: {0}",
+    "fr": "Confirmation du vol par le client : {0}"
+  },
+  "Informada pelo cliente; aguardando conferência pelo Bento Pantanal.": {
+    "en": "Reported by the client; awaiting verification by Bento Pantanal.",
+    "es": "Informada por el cliente; pendiente de verificación por Bento Pantanal.",
+    "fr": "Indiquée par le client ; en attente de vérification par Bento Pantanal."
+  },
+  "Pendente — pedido preliminar, sem assinatura ou pagamento.": {
+    "en": "Pending — preliminary request, no signature or payment.",
+    "es": "Pendiente — solicitud preliminar, sin firma ni pago.",
+    "fr": "En attente — demande préliminaire, sans signature ni paiement."
+  },
+  "Preferência de pagamento: {0}": {
+    "en": "Payment preference: {0}",
+    "es": "Preferencia de pago: {0}",
+    "fr": "Préférence de paiement : {0}"
+  },
+  "Se optar por criptomoeda, moeda, rede e cotação serão combinadas no atendimento.": {
+    "en": "If you choose cryptocurrency, the currency, network and rate will be agreed with our team.",
+    "es": "Si elige criptomoneda, la moneda, red y cotización se acordarán con nuestro equipo.",
+    "fr": "Si vous choisissez une cryptomonnaie, la monnaie, le réseau et le taux seront convenus avec notre équipe."
+  },
+  "Sugestão de interesse: {0} — saída da Flor da Chapada.": {
+    "en": "Suggested outing of interest: {0} — departing from Flor da Chapada.",
+    "es": "Visita de interés: {0} — salida de Flor da Chapada.",
+    "fr": "Suggestion de visite : {0} — départ de Flor da Chapada."
+  },
+  "Quero planejar este circuito para duas pessoas e confirmar os detalhes do voo com o Bento Pantanal.": {
+    "en": "I would like to plan this circuit for two people and confirm flight details with Bento Pantanal.",
+    "es": "Quiero planificar este circuito para dos personas y confirmar los datos del vuelo con Bento Pantanal.",
+    "fr": "Je souhaite organiser ce circuit pour deux personnes et confirmer les détails du vol avec Bento Pantanal."
+  },
+  "Pagamentos aceitos: dinheiro, Pix, transferência, cartão e criptomoeda. Condições combinadas no atendimento.": {
+    "en": "Payments accepted: cash, Pix, bank transfer, card and cryptocurrency. Terms agreed with our team.",
+    "es": "Pagos aceptados: efectivo, Pix, transferencia, tarjeta y criptomoneda. Condiciones acordadas con nuestro equipo.",
+    "fr": "Paiements acceptés : espèces, Pix, virement, carte et cryptomonnaie. Conditions convenues avec notre équipe."
+  },
+  "Aeroporto Internacional Marechal Rondon": {
+    "en": "Marechal Rondon International Airport",
+    "es": "Aeropuerto Internacional Marechal Rondon",
+    "fr": "Aéroport international Marechal Rondon"
+  },
+  "Hospedagem": {
+    "en": "Accommodation",
+    "es": "Alojamiento",
+    "fr": "Hébergement"
+  }
+});
+
+Object.assign(window.PANTANAL_TRANSLATIONS, {"{0} ({1} noites)": {"en": "{0} ({1} nights)", "es": "{0} ({1} noches)", "fr": "{0} ({1} nuits)"}, "{0} ({1} noite)": {"en": "{0} ({1} night)", "es": "{0} ({1} noche)", "fr": "{0} ({1} nuit)"}, "8 noites / 9 dias": {"en": "8 nights / 9 days", "es": "8 noches / 9 días", "fr": "8 nuits / 9 jours"}, "R$ 20.000,00": {"en": "R$20,000.00", "es": "R$20.000,00", "fr": "20 000,00 R$"}});
