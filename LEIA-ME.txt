@@ -1,3 +1,33 @@
+PREÇOS POR CASAL E CONVERSÃO POR IDIOMA — 25/09/2026
+
+BASES EM REAIS
+Circuito Parque, Cachoeiras e Penhasco: R$ 20.000,00 por casal.
+Expedição Jaguar: R$ 50.000,00 por casal.
+O idioma inicial continua inglês. Moeda: inglês USD; português BRL; espanhol e francês EUR. A escolha de idioma mantém os valores-base e recalcula sua apresentação, sem converter um preço já convertido.
+
+COMO APLICAR
+Se já aplicou a versão de bandeiras, envie estes 8 arquivos mantendo as pastas:
+index.html
+explorer.html
+assets/pantanal-home/home.js
+css/languages.css
+js/currency.js (novo)
+js/explorer.js
+js/i18n/runtime.js
+js/i18n/translations.js
+O ZIP é cumulativo, com 12 arquivos. Não exclua outros arquivos do repositório.
+
+FUNCIONAMENTO
+Consulta as taxas BRL/USD e BRL/EUR ao abrir a página, pela API Frankfurter v2. Cada taxa vem com sua data de referência. Os valores convertidos são exibidos com duas casas decimais e código da moeda. A cotação e a data aparecem na página. Os pedidos de viagem incluem o preço convertido, a base em BRL e a referência da cotação.
+A API usa taxas de referência, não uma cotação contratada de processamento de pagamento. Os valores podem mudar com o câmbio. Não foi criado checkout ou cobrança automática.
+Em falha de rede, usa a última taxa válida salva no navegador, mostrando sua data. Sem taxa salva, informa conversão indisponível e a base em BRL. Nenhuma taxa fictícia foi embutida.
+O Jaguar recebeu preço no destaque inicial, cartão, Explorer, cabeçalho da expedição e pedido, sem mudar seu roteiro ou definir novas inclusões.
+Documentação: https://frankfurter.dev/ (API v2).
+
+VALIDAÇÃO
+Sintaxe, colocação dos preços, ordem de carregamento, conversão dos dois pacotes nos quatro idiomas, formatos monetários, data, falha de API e recuperação de cache verificados. Testes usam taxas simuladas apenas fora dos arquivos entregues. Não foi possível verificar a consulta da API ao vivo nem a aparência no navegador neste ambiente. Não publicado automaticamente.
+
+HISTÓRICO (as regras de moeda acima substituem as anteriores):
 ATUALIZAÇÃO DE IDIOMAS — 25/09/2026
 Inglês como padrão na primeira visita, salvo quando há preferência válida ou idioma explícito na URL. Seletor com quatro bandeiras: EUA (inglês), Brasil (português), Espanha (espanhol), França (francês). Bandeiras vetoriais incorporadas ao código, sem dependência de emojis do sistema. Idioma ativo destacado, botões acessíveis e escolha mantida nas páginas que usam o sistema de idiomas existente.
 

@@ -9,10 +9,10 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="css/explorer.css">
   <link rel="stylesheet" href="css/explorer-expedicoes.css">
-<link rel="stylesheet" href="css/languages.css?v=20260925-flags">
-<script src="js/i18n/translations.js?v=20260925-flags"></script>
+<link rel="stylesheet" href="css/languages.css?v=20260925-prices">
+<script src="js/i18n/translations.js?v=20260925-prices"></script>
 <script src="js/i18n/expeditions-translations.js"></script>
-<script src="js/i18n/runtime.js?v=20260925-flags"></script>
+<script src="js/currency.js?v=20260925-prices"></script><script src="js/i18n/runtime.js?v=20260925-prices"></script>
 <link rel="stylesheet" href="css/chapada-package.css?v=20260925c">
 </head>
 <body class="catalog-mode">
@@ -35,7 +35,7 @@
         </div>
         <h2>Porto Jofre</h2>
         <h3>Veja a onça-pintada</h3>
-        <p>A Expedição Jaguar pela Transpantaneira: 10 dias, 9 noites, duas pousadas à sua escolha e três noites em Porto Jofre.</p>
+        <p>A Expedição Jaguar pela Transpantaneira: 10 dias, 9 noites, duas pousadas à sua escolha e três noites em Porto Jofre.</p><p class="jaguar-price">R$ 50.000,00 por casal</p>
         <a class="expedition-link" data-expedition="porto-jofre" href="explorer.html?expedicao=porto-jofre">Montar Expedição Jaguar</a>
       </article>
       <article class="expedition-card chapada-card">
@@ -96,7 +96,7 @@
   </main>
 
   <section id="route-bar" class="route-bar" hidden aria-label="Expedição selecionada">
-    <div><strong id="route-name"></strong><span id="selected-lodge-label" aria-live="polite"></span><span id="selected-guide-label" aria-live="polite">Escolha o guia da expedição</span></div>
+    <div><strong id="route-name"></strong><span id="jaguar-route-price" class="jaguar-price" hidden>R$ 50.000,00 por casal</span><span id="selected-lodge-label" aria-live="polite"></span><p class="fx-note" data-fx-note translate="no"></p><span id="selected-guide-label" aria-live="polite">Escolha o guia da expedição</span></div>
     <div class="route-bar-actions">
       <button id="chapada-plan-button" class="action-button light" type="button" hidden>Ordem das pousadas</button>
       <button id="route-guide-button" class="action-button" data-open-guides type="button">Escolher / trocar guia</button>
@@ -176,7 +176,7 @@
   <script src="js/data/chapada-cachoeiras.js"></script>
   <script src="js/explorer-guides.js"></script>
   <script src="js/chapada-package.js?v=20260925c"></script><script src="js/explorer-chapada.js?v=20260925c"></script>
-  <script src="js/explorer.js?v=20260925c"></script>
+  <script src="js/explorer.js?v=20260925-prices"></script>
 </body>
 </html>
 
