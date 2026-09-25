@@ -9,7 +9,7 @@
   const expeditionName = isJaguar
     ? "Expedição Jaguar — Porto Jofre"
     : isChapada
-      ? "Chapada 20K — 9 dias / 8 noites"
+      ? "Circuito Parque, Cachoeiras e Penhasco — 9 dias / 8 noites"
       : regional ? `Expedição ${regional.nome}` : "";
   const P = window.PantanalGuides;
   const G = window.ExplorerGuides;
@@ -154,7 +154,7 @@
         lines.push("Duração e detalhes do roteiro: a combinar com o Bento Pantanal.");
       }
     }
-    lines.push("", "Quero combinar datas, número de viajantes, orçamento e logística com o Bento Pantanal.", "Guia e reserva sujeitos à confirmação de disponibilidade.");
+    lines.push("", isChapada ? "Quero planejar este circuito para duas pessoas e confirmar os detalhes do voo com o Bento Pantanal." : "Quero combinar datas, número de viajantes, orçamento e logística com o Bento Pantanal.", "Guia e reserva sujeitos à confirmação de disponibilidade.");
     return lines.map(line => window.PantanalI18n?.t(line) || line).join("\n");
   }
   function showRequest(guide) {
