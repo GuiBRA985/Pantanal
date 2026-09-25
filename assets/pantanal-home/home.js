@@ -44,6 +44,7 @@ function renderStays(){
  const stays=packageOrder.value==='penhasco'?[['Penhasco','1 noite · dias 1 a 2'],['Flor da Chapada','5 noites · dias 2 a 7'],['Pousada do Parque','2 noites · dias 7 a 9']]:[['Pousada do Parque','2 noites · dias 1 a 3'],['Flor da Chapada','5 noites · dias 3 a 8'],['Penhasco','1 noite · dias 8 a 9']];
  document.querySelector('#package-stays').replaceChildren(...stays.map(([name,days])=>{const li=document.createElement('li'),b=document.createElement('strong'),span=document.createElement('span');b.textContent=name;span.textContent=tr(days);li.append(b,span);return li;}));
  quoteOrder.value=packageOrder.value;
+ syncPackageDetails();
 }
 function packageDates(){if(destination.value!=='Chapada dos Guimarães')return;if(arrival.value){const date=new Date(arrival.value+'T12:00:00Z');date.setUTCDate(date.getUTCDate()+8);departure.value=date.toISOString().slice(0,10);}else departure.value='';departure.setCustomValidity('');}
 function updatePackage(){const active=destination.value==='Chapada dos Guimarães';packageFields.hidden=!active;quoteOrder.disabled=!active;people.readOnly=active;departure.readOnly=active;if(active){people.value='2';transfer.value='Sim';form.elements.origem.value='Aeroporto Marechal Rondon — Várzea Grande';form.elements.destino_traslado.value='Pousadas do pacote Chapada (ida, transferências e volta)';updateTransfer();packageDates();}transfer.disabled=active;}
@@ -51,4 +52,7 @@ function chapadaRequestLines(){if(destination.value!=='Chapada dos Guimarães')r
 packageOrder.addEventListener('change',renderStays);quoteOrder.addEventListener('change',()=>{packageOrder.value=quoteOrder.value;renderStays()});destination.addEventListener('change',updatePackage);arrival.addEventListener('change',packageDates);
 document.querySelector('#package-quote').addEventListener('click',()=>{destination.value='Chapada dos Guimarães';quoteOrder.value=packageOrder.value;updatePackage()});
 document.querySelectorAll('[data-destino],#transfer-link').forEach(a=>a.addEventListener('click',updatePackage));
+function syncPackageDetails(){const C=window.ChapadaPackage;if(!C)return;C.setOrder(packageOrder.value);document.querySelector('#package-lodge-info').innerHTML=C.stops().map((l,i)=>C.lodgeHTML(l,i===0)).join('');const url=new URL('explorer.html',location.href);url.searchParams.set('expedicao','chapada');url.searchParams.set('ordem',C.order);document.querySelector('#package-map-link').href=url.href;}
+if(window.ChapadaPackage)packageOrder.value=window.ChapadaPackage.order;
 renderStays();updatePackage();
+
