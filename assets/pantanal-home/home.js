@@ -47,8 +47,8 @@ function renderStays(){
  syncPackageDetails();
 }
 function packageDates(){if(destination.value!=='Chapada dos Guimarães')return;if(arrival.value){const date=new Date(arrival.value+'T12:00:00Z');date.setUTCDate(date.getUTCDate()+8);departure.value=date.toISOString().slice(0,10);}else departure.value='';departure.setCustomValidity('');}
-function updatePackage(){const active=destination.value==='Chapada dos Guimarães';packageFields.hidden=!active;quoteOrder.disabled=!active;people.readOnly=active;departure.readOnly=active;if(active){people.value='2';transfer.value='Sim';form.elements.origem.value='Aeroporto Marechal Rondon — Várzea Grande';form.elements.destino_traslado.value='Pousadas do pacote Chapada (ida, transferências e volta)';updateTransfer();packageDates();}transfer.disabled=active;}
-function chapadaRequestLines(){if(destination.value!=='Chapada dos Guimarães')return [];return ['',...window.ChapadaPackage.inclusions(),'Pagamentos aceitos: dinheiro, Pix, transferência, cartão e criptomoeda. Condições combinadas no atendimento.'];}
+function updatePackage(){document.querySelector('#jaguar-price-note').hidden=destination.value!=='Porto Jofre — Onça-pintada';const active=destination.value==='Chapada dos Guimarães';packageFields.hidden=!active;quoteOrder.disabled=!active;people.readOnly=active;departure.readOnly=active;if(active){people.value='2';transfer.value='Sim';form.elements.origem.value='Aeroporto Marechal Rondon — Várzea Grande';form.elements.destino_traslado.value='Pousadas do pacote Chapada (ida, transferências e volta)';updateTransfer();packageDates();}transfer.disabled=active;}
+function chapadaRequestLines(){if(destination.value==='Porto Jofre — Onça-pintada')return ['Expedição Jaguar — R$ 50.000,00 por casal','Base: BRL 50000.00',window.PantanalMoney?.note()||''];if(destination.value!=='Chapada dos Guimarães')return [];return ['',...window.ChapadaPackage.inclusions(),'Base: BRL 20000.00',window.PantanalMoney?.note()||'','Pagamentos aceitos: dinheiro, Pix, transferência, cartão e criptomoeda. Condições combinadas no atendimento.'];}
 packageOrder.addEventListener('change',renderStays);quoteOrder.addEventListener('change',()=>{packageOrder.value=quoteOrder.value;renderStays()});destination.addEventListener('change',updatePackage);arrival.addEventListener('change',packageDates);
 document.querySelector('#package-quote').addEventListener('click',()=>{destination.value='Chapada dos Guimarães';quoteOrder.value=packageOrder.value;updatePackage()});
 document.querySelectorAll('[data-destino],#transfer-link').forEach(a=>a.addEventListener('click',updatePackage));
@@ -56,3 +56,5 @@ function syncPackageDetails(){const C=window.ChapadaPackage;if(!C)return;C.setOr
 if(window.ChapadaPackage)packageOrder.value=window.ChapadaPackage.order;
 renderStays();updatePackage();
 
+
+window.addEventListener('pantanal:rateschange',()=>{if(!fallback.hidden){const body=request();if(body)fallback.value=body;}});
