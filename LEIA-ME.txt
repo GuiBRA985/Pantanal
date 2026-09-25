@@ -1,3 +1,22 @@
+ATUALIZAÇÃO DE IDIOMAS — 25/09/2026
+Inglês como padrão na primeira visita, salvo quando há preferência válida ou idioma explícito na URL. Seletor com quatro bandeiras: EUA (inglês), Brasil (português), Espanha (espanhol), França (francês). Bandeiras vetoriais incorporadas ao código, sem dependência de emojis do sistema. Idioma ativo destacado, botões acessíveis e escolha mantida nas páginas que usam o sistema de idiomas existente.
+
+PARA QUEM JÁ INSTALOU A ÚLTIMA VERSÃO
+Substitua somente os 6 arquivos:
+index.html
+explorer.html
+assets/pantanal-home/home.js
+css/languages.css
+js/i18n/runtime.js
+js/i18n/translations.js
+
+O ZIP inclui os 11 arquivos da atualização cumulativa. Não apague os demais arquivos do site.
+Foram adicionadas traduções em inglês, espanhol e francês para os novos textos do circuito, alimentação, traslados, atrações, guia, voo e pagamento, incluindo os pedidos preparados por e-mail. Valores financeiros continuam em reais brasileiros. As demais expedições e seus dados não foram alterados.
+
+VALIDAÇÃO
+Padrão inglês, ordem das quatro bandeiras, seleção ativa, preferência salva, parâmetro lang, exclusão de idiomas removidos, tradução dinâmica e retorno ao português testados com DOM simulado. Sintaxe JavaScript verificada. Conferência visual em navegador não executada neste ambiente. Não publicado automaticamente.
+
+HISTÓRICO DA ATUALIZAÇÃO ANTERIOR (as notas sobre novos textos somente em português são substituídas pela atualização acima):
 CIRCUITO PARQUE, CACHOEIRAS E PENHASCO — 9 DIAS / 8 NOITES
 Atualização de 25/09/2026
 
