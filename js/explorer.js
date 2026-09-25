@@ -9,7 +9,7 @@
   const expeditionName = isJaguar
     ? "Expedição Jaguar — Porto Jofre"
     : isChapada
-      ? "Expedição de Cachoeiras — Chapada dos Guimarães"
+      ? "Chapada 20K — 9 dias / 8 noites"
       : regional ? `Expedição ${regional.nome}` : "";
   const P = window.PantanalGuides;
   const G = window.ExplorerGuides;
@@ -142,16 +142,7 @@
       lines.push("Duração: 10 dias / 9 noites", "Paradas:");
       window.JaguarExpedition.stops().forEach((stop, index) => lines.push(`${index + 1}. ${stop.nome} — ${stop.noites} noites`));
     } else if (isChapada) {
-      const chapada = window.ChapadaWaterfalls;
-      const days = window.ChapadaExplorer?.getDays() || 0;
-      const lodge = window.ChapadaExplorer?.getSelectedLodge();
-      lines.push(
-        `Estadia desejada: ${days} ${days === 1 ? "dia" : "dias"}`,
-        `Pousada escolhida: ${lodge?.nome || ""}`,
-        `Etapa 1 — traslado: ${chapada.origem.nome} até ${lodge?.nome || ""}`,
-        `Base das atrações: ${lodge?.nome || ""}`,
-        `Etapa 2 — roteiro entre ${chapada.atracoes.length} atrações mapeadas, a combinar conforme os dias e condições de acesso.`
-      );
+      lines.push(...window.ChapadaExplorer.requestLines());
     } else {
       lines.push(`Saída: ${regional.origem.nome}, Várzea Grande — MT`, `Destino: ${regional.nome} — MT`);
       if (regional.distanciaKm && regional.duracaoMinutos) {
@@ -282,3 +273,4 @@
     try { regionalMap(); } catch (_) { showMapError(); }
   }
 })();
+
