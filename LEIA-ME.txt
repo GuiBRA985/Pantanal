@@ -1,10 +1,34 @@
-PANTANAL — ATUALIZAÇÃO DA PÁGINA INICIAL
-Substitua somente estes três arquivos no repositório GuiBRA985/Pantanal, mantendo as pastas:
-index.html
-assets/pantanal-home/home.css
-assets/pantanal-home/home.js
-Não exclua nem substitua o repositório inteiro. Os mapas, dados, guias e outras expedições não foram modificados.
-A oferta da Chapada aparece na página inicial, com link para o mapa existente. A seleção de ordem compõe o pedido de reserva; não altera as rotas do mapa.
-O formulário prepara um e-mail, como antes. Não confirma reserva nem processa pagamentos. Criptomoedas são combinadas no atendimento.
-Os novos textos estão em português. O seletor e as traduções existentes permanecem; a tradução integral do novo pacote ainda está pendente.
-Verificações: sintaxe JavaScript, IDs únicos e links internos. Teste visual em navegador não executado neste ambiente.
+PANTANAL — CHAPADA 20K + AJUSTE DA CAPA — 25/09/2026
+
+COMO APLICAR
+Extraia este ZIP e envie os 8 arquivos para a raiz do repositório Pantanal, mantendo as subpastas. Substitua os arquivos de mesmo nome e adicione os novos. Não exclua o restante do site. O ZIP depende das imagens, bibliotecas, dados e configurações que já existem no repositório.
+
+ALTERAÇÕES
+- Faixa preta ao pé do vídeo, com legenda Porto Jofre e botão de pausa alinhados.
+- "Por onde você quer começar?" expansível, fichas das três pousadas, escolha Parque/Penhasco e link para o mapa ao fim do bloco.
+- Mapa Chapada 20K na rota existente explorer.html?expedicao=chapada.
+- Parâmetro ordem=parque ou ordem=penhasco preservado entre página inicial e mapa.
+- 8 noites: Parque 2, Flor 5, Penhasco 1; ou Penhasco 1, Flor 5, Parque 2.
+- Quatro trechos: aeroporto, três pousadas na ordem escolhida e retorno ao aeroporto no dia 9.
+- Rotas reutilizam os traçados rodoviários existentes; trechos entre pousadas unem seus ramais pelo ponto comum. São referências, não navegação em tempo real. Cada trecho possui link de navegação atualizado no Google Maps.
+- As 16 atrações foram mantidas; distâncias e links de trajeto partem da base escolhida. Distâncias exibidas são em linha reta e identificadas assim.
+- Interesse em passeios registra a pousada de saída no pedido. A ordem pode mudar sem alterar a quantidade de noites de cada hospedagem.
+- Guias VIP: usa a consulta e a verificação de elegibilidade existentes, sem modificar banco de dados.
+- Pagamento: preferência "A combinar" ou "Criptomoeda" no pedido para o Bento Pantanal. Não há checkout ou confirmação automática de pagamento. Moeda, rede, cotação e recebimento são combinados no atendimento.
+- Passeios, transporte às atrações, acompanhamento e ingressos são pagos diretamente ao guia, fora dos R$ 20.000 do casal.
+
+PRESERVAÇÃO
+Não foram alterados dados de outras expedições, pousadas, guias, autenticação ou banco de dados. Arquivos de dados geográficos existentes não precisam ser substituídos. Textos novos estão em português; as traduções preexistentes permanecem.
+
+VALIDAÇÃO
+Sintaxe dos quatro JavaScripts, duas ordens, oito noites/nove dias, quatro trechos, retorno ao aeroporto, armazenamento indisponível, mudança de base, preferência de pagamento, resumo e preservação dos cartões das outras expedições verificados. Teste de integração usa simulação de DOM/Leaflet; renderização visual e chamadas ao serviço de guias não foram verificadas ao vivo. Download do navegador de teste falhou neste ambiente.
+
+FONTES DAS INFORMAÇÕES DE HOSPEDAGEM
+https://www.pousadadoparque.com.br/
+https://www.chapadaexp.com/
+https://penhasco.com.br/hospedagem
+https://website.penhasco.com.br/hospedagem/
+Consultadas em 25/09/2026. Dados de localização e traçados: base existente do site.
+
+PUBLICAÇÃO
+Esta atualização não foi publicada automaticamente. A conexão do GitHub recusou escrita anteriormente (403). O envio dos arquivos ao repositório é necessário.
