@@ -139,10 +139,10 @@
     const lines = ["Olá, Bento Pantanal! Quero uma cotação para:", "", expeditionName,
       `Guia VIP escolhido: ${P.displayName(guide)}`, `Perfil do guia: ${new URL(P.guidePath(guide.slug), location.origin).href}`, ""];
     if (isJaguar) {
-      lines.push("Duração: 10 dias / 9 noites", "Paradas:");
+      lines.push("Expedição Jaguar — R$ 50.000,00 por casal", "Base: BRL 50000.00", "Duração: 10 dias / 9 noites", "Paradas:");
       window.JaguarExpedition.stops().forEach((stop, index) => lines.push(`${index + 1}. ${stop.nome} — ${stop.noites} noites`));
     } else if (isChapada) {
-      lines.push(...window.ChapadaExplorer.requestLines());
+      lines.push(...window.ChapadaExplorer.requestLines(), "Base: BRL 20000.00");
     } else {
       lines.push(`Saída: ${regional.origem.nome}, Várzea Grande — MT`, `Destino: ${regional.nome} — MT`);
       if (regional.distanciaKm && regional.duracaoMinutos) {
@@ -155,6 +155,7 @@
       }
     }
     lines.push("", isChapada ? "Quero planejar este circuito para duas pessoas e confirmar os detalhes do voo com o Bento Pantanal." : "Quero combinar datas, número de viajantes, orçamento e logística com o Bento Pantanal.", "Guia e reserva sujeitos à confirmação de disponibilidade.");
+    if(isJaguar||isChapada)lines.push(window.PantanalMoney?.note()||"");
     return lines.map(line => window.PantanalI18n?.t(line) || line).join("\n");
   }
   function showRequest(guide) {
@@ -236,6 +237,7 @@
   });
   window.addEventListener("explorer:guidechange", syncLinks);
   window.addEventListener("pantanal:languagechange", () => { if (document.getElementById("request-dialog").open && G.getSelected()) showRequest(G.getSelected()); });
+  window.addEventListener("pantanal:rateschange", () => { if (document.getElementById("request-dialog").open && G.getSelected()) showRequest(G.getSelected()); });
   window.ExplorerApp = Object.freeze({ prepareRequest, composeRequest, routeId });
   syncLinks();
 
@@ -251,6 +253,7 @@
   document.getElementById("map").hidden = false;
   infoPanel.hidden = false;
   if (isJaguar) {
+    document.getElementById("jaguar-route-price").hidden=false;
     ["roteiro-panel", "roteiro-btn", "jaguar-menu"].forEach(id => { document.getElementById(id).hidden = false; });
     (async () => {
       try {
