@@ -1,34 +1,29 @@
-PANTANAL — CHAPADA 20K + AJUSTE DA CAPA — 25/09/2026
+CIRCUITO PARQUE, CACHOEIRAS E PENHASCO — 9 DIAS / 8 NOITES
+Atualização de 25/09/2026
 
-COMO APLICAR
-Extraia este ZIP e envie os 8 arquivos para a raiz do repositório Pantanal, mantendo as subpastas. Substitua os arquivos de mesmo nome e adicione os novos. Não exclua o restante do site. O ZIP depende das imagens, bibliotecas, dados e configurações que já existem no repositório.
+INSTALAÇÃO
+Suba os 8 arquivos deste ZIP para o repositório Pantanal, mantendo as pastas. Substitua os arquivos de mesmo nome e adicione os novos. Não apague os demais arquivos. Este ZIP inclui as mudanças anteriores da capa, seleção expansível e mapa. Depende das imagens, dados geográficos, traduções, bibliotecas e configurações que já existem no site.
 
-ALTERAÇÕES
-- Faixa preta ao pé do vídeo, com legenda Porto Jofre e botão de pausa alinhados.
-- "Por onde você quer começar?" expansível, fichas das três pousadas, escolha Parque/Penhasco e link para o mapa ao fim do bloco.
-- Mapa Chapada 20K na rota existente explorer.html?expedicao=chapada.
-- Parâmetro ordem=parque ou ordem=penhasco preservado entre página inicial e mapa.
-- 8 noites: Parque 2, Flor 5, Penhasco 1; ou Penhasco 1, Flor 5, Parque 2.
-- Quatro trechos: aeroporto, três pousadas na ordem escolhida e retorno ao aeroporto no dia 9.
-- Rotas reutilizam os traçados rodoviários existentes; trechos entre pousadas unem seus ramais pelo ponto comum. São referências, não navegação em tempo real. Cada trecho possui link de navegação atualizado no Google Maps.
-- As 16 atrações foram mantidas; distâncias e links de trajeto partem da base escolhida. Distâncias exibidas são em linha reta e identificadas assim.
-- Interesse em passeios registra a pousada de saída no pedido. A ordem pode mudar sem alterar a quantidade de noites de cada hospedagem.
-- Guias VIP: usa a consulta e a verificação de elegibilidade existentes, sem modificar banco de dados.
-- Pagamento: preferência "A combinar" ou "Criptomoeda" no pedido para o Bento Pantanal. Não há checkout ou confirmação automática de pagamento. Moeda, rede, cotação e recebimento são combinados no atendimento.
-- Passeios, transporte às atrações, acompanhamento e ingressos são pagos diretamente ao guia, fora dos R$ 20.000 do casal.
+O QUE MUDOU
+- Nome comercial em todos os novos textos, mapa e pedidos.
+- Apresentação das três etapas com cartões numerados, chamadas próprias e alimentação incluída.
+- Pousada do Parque: duas noites, passeios dentro da propriedade, pensão completa.
+- Flor da Chapada: cinco noites; segunda etapa e base fixa de todos os passeios externos; café da manhã e três almoços nos três dias com guia.
+- Penhasco: uma noite de lazer aquático e vista; café da manhã e almoço.
+- Valor: R$ 20.000,00 por casal, incluindo hospedagem, traslados, transferências, guia, três dias de carro, ingressos do roteiro combinado e três almoços. Passeios incluem atrações centrais e duas cachoeiras, definidos com o guia.
+- Refeições por conta do cliente: jantar no Penhasco; todos os jantares na Flor e almoços nos dias sem guia. Passagens e deslocamento até o aeroporto de encontro também por conta do cliente.
+- Atrações continuam no formato de lista e mapa, como sugestões sujeitas a clima, disponibilidade e acesso. A seleção de interesses não garante visita a todas as atrações.
+- Guias e pagamento: escolha do guia no início, valor, data prevista e pagamentos aceitos (dinheiro, Pix, transferência, cartão ou criptomoeda).
+- A data de chegada é provisória. O cliente pode informar número do voo e confirmar que a companhia confirmou seu voo. Alterar a data ou o número invalida a confirmação local.
+- Sem voo confirmado: pedido preliminar. Com data, número e confirmação: mensagem para conferência dos dados e preparação do contrato. Nenhuma assinatura ou cobrança é realizada pelo site.
+- O contrato é assinado após a confirmação do número do voo de chegada; nenhum pagamento é necessário antes dessa etapa. As condições de pagamento são combinadas no atendimento.
+- O guia mantém a consulta e validação de elegibilidade existentes. Não houve alteração do banco de dados.
 
-PRESERVAÇÃO
-Não foram alterados dados de outras expedições, pousadas, guias, autenticação ou banco de dados. Arquivos de dados geográficos existentes não precisam ser substituídos. Textos novos estão em português; as traduções preexistentes permanecem.
+PRESERVADO
+Vídeo e faixa preta da capa, inversão Parque/Penhasco, oito noites, aeroporto na chegada e retorno no dia 9. Dados e cartões das demais expedições preservados. Traçados reaproveitam a base rodoviária existente; links de navegação por trecho permanecem disponíveis.
 
-VALIDAÇÃO
-Sintaxe dos quatro JavaScripts, duas ordens, oito noites/nove dias, quatro trechos, retorno ao aeroporto, armazenamento indisponível, mudança de base, preferência de pagamento, resumo e preservação dos cartões das outras expedições verificados. Teste de integração usa simulação de DOM/Leaflet; renderização visual e chamadas ao serviço de guias não foram verificadas ao vivo. Download do navegador de teste falhou neste ambiente.
-
-FONTES DAS INFORMAÇÕES DE HOSPEDAGEM
-https://www.pousadadoparque.com.br/
-https://www.chapadaexp.com/
-https://penhasco.com.br/hospedagem
-https://website.penhasco.com.br/hospedagem/
-Consultadas em 25/09/2026. Dados de localização e traçados: base existente do site.
+VALIDAÇÃO E LIMITES
+Verificados: sintaxe JavaScript; duas ordens; oito noites/nove dias; Flor fixa; inclusões; ordem do painel de pagamento; voo pendente/confirmado; invalidação ao editar; permanência dos dados ao escolher guia; funcionamento sem sessionStorage; links internos; IDs e preservação dos outros cartões. A integração de interface foi exercitada com DOM e Leaflet simulados. Não foi possível executar conferência visual em navegador neste ambiente. Os textos novos estão em português; traduções anteriores permanecem. Sem checkout ou assinatura eletrônica.
 
 PUBLICAÇÃO
-Esta atualização não foi publicada automaticamente. A conexão do GitHub recusou escrita anteriormente (403). O envio dos arquivos ao repositório é necessário.
+Os arquivos não foram publicados automaticamente. Envie o conteúdo ao GitHub para atualizar o site.
