@@ -1,3 +1,30 @@
+ATUALIZAÇÃO 27/09/2026 — ESCOLHA DA PRIMEIRA POUSADA
+Substitua somente estes cinco arquivos para aplicar esta atualização:
+explorer.html
+css/chapada-package.css
+js/chapada-package.js
+js/explorer-chapada.js
+js/i18n/translations.js
+
+A escolha agora destaca o trecho aeroporto → pousada escolhida, com nome no mapa.
+Os quatro trechos continuam disponíveis e o circuito completo pode ser reaberto.
+Cartões menores com rolagem vertical e os regimes de alimentação atualizados.
+Teste da troca Parque/Penhasco, dos quatro trechos e das oito noites concluído.
+Conferência visual no navegador pendente. Publicação manual no GitHub.
+
+ATUALIZAÇÃO 26/09/2026 — MAPA RESPONSIVO
+Para aplicar apenas esta atualização, envie estes três arquivos mantendo suas pastas:
+- explorer.html
+- css/explorer-layout.css (novo)
+- js/explorer-layout.js (novo)
+
+Mapa com mais espaço, detalhes laterais no PC e painel inferior no celular.
+O mapa recalcula seu tamanho e enquadramento quando o layout muda.
+O aviso duplicado de câmbio deixa de ocupar espaço abaixo do mapa.
+Rotas, preços e conteúdo das expedições foram preservados.
+Validação de sintaxe e lógica concluída. Conferência visual no navegador pendente.
+Esta entrega não publica automaticamente o site.
+
 PREÇOS POR CASAL E CONVERSÃO POR IDIOMA — 25/09/2026
 
 BASES EM REAIS
