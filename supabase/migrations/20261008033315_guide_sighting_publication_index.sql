@@ -1,0 +1,1 @@
+create index guide_sighting_publications_source on public.guide_sighting_publications(sighting_id, guide_id);
