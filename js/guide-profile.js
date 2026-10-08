@@ -240,6 +240,9 @@
         !guide.expedition_leader
       );
 
+      document.querySelector("#profile-sightings").href =
+        `/guias/avistamentos/?slug=${encodeURIComponent(guide.slug)}`;
+
       vipActions.classList.remove("hidden");
     }
 
