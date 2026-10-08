@@ -1,110 +1,18 @@
-ATUALIZAÇÃO 27/09/2026 — ESCOLHA DA PRIMEIRA POUSADA
-Substitua somente estes cinco arquivos para aplicar esta atualização:
-explorer.html
-css/chapada-package.css
-js/chapada-package.js
-js/explorer-chapada.js
-js/i18n/translations.js
+ATUALIZAÇÃO AVISTAMENTOS VIP — BENTO PANTANAL
 
-A escolha agora destaca o trecho aeroporto → pousada escolhida, com nome no mapa.
-Os quatro trechos continuam disponíveis e o circuito completo pode ser reaberto.
-Cartões menores com rolagem vertical e os regimes de alimentação atualizados.
-Teste da troca Parque/Penhasco, dos quatro trechos e das oito noites concluído.
-Conferência visual no navegador pendente. Publicação manual no GitHub.
+O Supabase já está preparado. Os arquivos do site ainda precisam ser publicados, pois a integração GitHub recusou a gravação com erro 403.
 
-ATUALIZAÇÃO 26/09/2026 — MAPA RESPONSIVO
-Para aplicar apenas esta atualização, envie estes três arquivos mantendo suas pastas:
-- explorer.html
-- css/explorer-layout.css (novo)
-- js/explorer-layout.js (novo)
+1. Extraia este ZIP.
+2. No repositório GuiBRA985/Pantanal, abra a branch main e use Add file > Upload files.
+3. Arraste as pastas css, js, guias, supabase e docs para a raiz do repositório, preservando os caminhos. Confirme a substituição dos dois arquivos existentes e faça Commit changes.
+4. Aguarde a publicação do GitHub Pages. Abra o perfil VIP e toque em Avistamentos.
 
-Mapa com mais espaço, detalhes laterais no PC e painel inferior no celular.
-O mapa recalcula seu tamanho e enquadramento quando o layout muda.
-O aviso duplicado de câmbio deixa de ocupar espaço abaixo do mapa.
-Rotas, preços e conteúdo das expedições foram preservados.
-Validação de sintaxe e lógica concluída. Conferência visual no navegador pendente.
-Esta entrega não publica automaticamente o site.
+Exemplo: https://pantanal.bento.host/guias/avistamentos/?slug=guilherme-barros-arantes
 
-PREÇOS POR CASAL E CONVERSÃO POR IDIOMA — 25/09/2026
+As migrações já foram aplicadas ao Bento-Pantanal. Não execute novamente neste projeto.
 
-BASES EM REAIS
-Circuito Parque, Cachoeiras e Penhasco: R$ 20.000,00 por casal.
-Expedição Jaguar: R$ 50.000,00 por casal.
-O idioma inicial continua inglês. Moeda: inglês USD; português BRL; espanhol e francês EUR. A escolha de idioma mantém os valores-base e recalcula sua apresentação, sem converter um preço já convertido.
+Cada guia usa sua própria conta: não é necessário um APK diferente. A conta deve estar vinculada ao perfil VIP aprovado/verificado. Tchaco e Jhimy ainda precisam dessa vinculação de login.
 
-COMO APLICAR
-Se já aplicou a versão de bandeiras, envie estes 8 arquivos mantendo as pastas:
-index.html
-explorer.html
-assets/pantanal-home/home.js
-css/languages.css
-js/currency.js (novo)
-js/explorer.js
-js/i18n/runtime.js
-js/i18n/translations.js
-O ZIP é cumulativo, com 12 arquivos. Não exclua outros arquivos do repositório.
+O APK v0.2 atual NÃO envia registros. Falta implementar login e sincronização no Android, conforme docs/AVISTAMENTOS_VIP.md.
 
-FUNCIONAMENTO
-Consulta as taxas BRL/USD e BRL/EUR ao abrir a página, pela API Frankfurter v2. Cada taxa vem com sua data de referência. Os valores convertidos são exibidos com duas casas decimais e código da moeda. A cotação e a data aparecem na página. Os pedidos de viagem incluem o preço convertido, a base em BRL e a referência da cotação.
-A API usa taxas de referência, não uma cotação contratada de processamento de pagamento. Os valores podem mudar com o câmbio. Não foi criado checkout ou cobrança automática.
-Em falha de rede, usa a última taxa válida salva no navegador, mostrando sua data. Sem taxa salva, informa conversão indisponível e a base em BRL. Nenhuma taxa fictícia foi embutida.
-O Jaguar recebeu preço no destaque inicial, cartão, Explorer, cabeçalho da expedição e pedido, sem mudar seu roteiro ou definir novas inclusões.
-Documentação: https://frankfurter.dev/ (API v2).
-
-VALIDAÇÃO
-Sintaxe, colocação dos preços, ordem de carregamento, conversão dos dois pacotes nos quatro idiomas, formatos monetários, data, falha de API e recuperação de cache verificados. Testes usam taxas simuladas apenas fora dos arquivos entregues. Não foi possível verificar a consulta da API ao vivo nem a aparência no navegador neste ambiente. Não publicado automaticamente.
-
-HISTÓRICO (as regras de moeda acima substituem as anteriores):
-ATUALIZAÇÃO DE IDIOMAS — 25/09/2026
-Inglês como padrão na primeira visita, salvo quando há preferência válida ou idioma explícito na URL. Seletor com quatro bandeiras: EUA (inglês), Brasil (português), Espanha (espanhol), França (francês). Bandeiras vetoriais incorporadas ao código, sem dependência de emojis do sistema. Idioma ativo destacado, botões acessíveis e escolha mantida nas páginas que usam o sistema de idiomas existente.
-
-PARA QUEM JÁ INSTALOU A ÚLTIMA VERSÃO
-Substitua somente os 6 arquivos:
-index.html
-explorer.html
-assets/pantanal-home/home.js
-css/languages.css
-js/i18n/runtime.js
-js/i18n/translations.js
-
-O ZIP inclui os 11 arquivos da atualização cumulativa. Não apague os demais arquivos do site.
-Foram adicionadas traduções em inglês, espanhol e francês para os novos textos do circuito, alimentação, traslados, atrações, guia, voo e pagamento, incluindo os pedidos preparados por e-mail. Valores financeiros continuam em reais brasileiros. As demais expedições e seus dados não foram alterados.
-
-VALIDAÇÃO
-Padrão inglês, ordem das quatro bandeiras, seleção ativa, preferência salva, parâmetro lang, exclusão de idiomas removidos, tradução dinâmica e retorno ao português testados com DOM simulado. Sintaxe JavaScript verificada. Conferência visual em navegador não executada neste ambiente. Não publicado automaticamente.
-
-HISTÓRICO DA ATUALIZAÇÃO ANTERIOR (as notas sobre novos textos somente em português são substituídas pela atualização acima):
-CIRCUITO PARQUE, CACHOEIRAS E PENHASCO — 9 DIAS / 8 NOITES
-Atualização de 25/09/2026
-
-INSTALAÇÃO
-Suba os 8 arquivos deste ZIP para o repositório Pantanal, mantendo as pastas. Substitua os arquivos de mesmo nome e adicione os novos. Não apague os demais arquivos. Este ZIP inclui as mudanças anteriores da capa, seleção expansível e mapa. Depende das imagens, dados geográficos, traduções, bibliotecas e configurações que já existem no site.
-
-O QUE MUDOU
-- Nome comercial em todos os novos textos, mapa e pedidos.
-- Apresentação das três etapas com cartões numerados, chamadas próprias e alimentação incluída.
-- Pousada do Parque: duas noites, passeios dentro da propriedade, pensão completa.
-- Flor da Chapada: cinco noites; segunda etapa e base fixa de todos os passeios externos; café da manhã e três almoços nos três dias com guia.
-- Penhasco: uma noite de lazer aquático e vista; café da manhã e almoço.
-- Valor: R$ 20.000,00 por casal, incluindo hospedagem, traslados, transferências, guia, três dias de carro, ingressos do roteiro combinado e três almoços. Passeios incluem atrações centrais e duas cachoeiras, definidos com o guia.
-- Refeições por conta do cliente: jantar no Penhasco; todos os jantares na Flor e almoços nos dias sem guia. Passagens e deslocamento até o aeroporto de encontro também por conta do cliente.
-- Atrações continuam no formato de lista e mapa, como sugestões sujeitas a clima, disponibilidade e acesso. A seleção de interesses não garante visita a todas as atrações.
-- Guias e pagamento: escolha do guia no início, valor, data prevista e pagamentos aceitos (dinheiro, Pix, transferência, cartão ou criptomoeda).
-- A data de chegada é provisória. O cliente pode informar número do voo e confirmar que a companhia confirmou seu voo. Alterar a data ou o número invalida a confirmação local.
-- Sem voo confirmado: pedido preliminar. Com data, número e confirmação: mensagem para conferência dos dados e preparação do contrato. Nenhuma assinatura ou cobrança é realizada pelo site.
-- O contrato é assinado após a confirmação do número do voo de chegada; nenhum pagamento é necessário antes dessa etapa. As condições de pagamento são combinadas no atendimento.
-- O guia mantém a consulta e validação de elegibilidade existentes. Não houve alteração do banco de dados.
-
-PRESERVADO
-Vídeo e faixa preta da capa, inversão Parque/Penhasco, oito noites, aeroporto na chegada e retorno no dia 9. Dados e cartões das demais expedições preservados. Traçados reaproveitam a base rodoviária existente; links de navegação por trecho permanecem disponíveis.
-
-VALIDAÇÃO E LIMITES
-Verificados: sintaxe JavaScript; duas ordens; oito noites/nove dias; Flor fixa; inclusões; ordem do painel de pagamento; voo pendente/confirmado; invalidação ao editar; permanência dos dados ao escolher guia; funcionamento sem sessionStorage; links internos; IDs e preservação dos outros cartões. A integração de interface foi exercitada com DOM e Leaflet simulados. Não foi possível executar conferência visual em navegador neste ambiente. Os textos novos estão em português; traduções anteriores permanecem. Sem checkout ou assinatura eletrônica.
-
-PUBLICAÇÃO
-Os arquivos não foram publicados automaticamente. Envie o conteúdo ao GitHub para atualizar o site.
-
-CORREÇÃO DA PRIMEIRA TELA DO TRASLADO
-Duas caixas selecionáveis: Penhasco (1 noite) ou Parque (2 noites), sem acordeão ou confirmação extra. Escolher atualiza imediatamente o percurso. Quatro trechos numerados com mapa individual, navegação externa e visualização completa. Traslados entre aeroporto e hotéis garantidos no pacote. Deslocamentos dos três dias de passeios combinados com a empresa do guia e já pagos no pacote.
-Nesta correção mudaram apenas explorer.html, js/explorer-chapada.js e css/chapada-package.css. O ZIP é cumulativo, com os 8 arquivos da atualização anterior.
-Teste de lógica com mapa e interface simulados passou; conferência visual em navegador segue pendente.
+O guia logado verá seus dados privados. Visitantes verão apenas publicações escolhidas pelo guia. A interface de publicação ainda não está incluída; consulte o contrato no documento.
