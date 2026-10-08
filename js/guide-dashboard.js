@@ -36,7 +36,7 @@
   }
 
   function populate() {
-    ["nome", "nome_profissional", "cadastur_numero", "whatsapp", "bio", "instagram", "facebook", "email", "site"].forEach((name) => {
+    ["nome", "nome_profissional", "cadastur_numero", "whatsapp", "bio", "instagram", "facebook", "email"].forEach((name) => {
       const input = field(name);
       if (input) input.value = guide[name] || "";
     });
@@ -95,7 +95,6 @@
         instagram: field("instagram").value.trim() || null,
         facebook: field("facebook").value.trim() || null,
         email: field("email").value.trim() || session.user.email,
-        site: field("site").value.trim() || null,
         idiomas: languages,
         regioes: regions,
         especialidades: P.checkedValues(form, "specialties")
