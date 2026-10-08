@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173a2b">
+  <meta name="description" content="Mapa de avistamentos de um guia VIP do Bento Pantanal.">
+  <title>Avistamentos | Bento Pantanal</title>
+  <link rel="stylesheet" href="/css/guides.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="/css/guide-sightings.css">
+</head>
+<body class="sightings-page">
+  <a class="skip-link" href="#sightings-content">Ir para os avistamentos</a>
+  <header class="sightings-header">
+    <a id="back-profile" class="button button-ghost" href="/guias/">← Perfil do guia</a>
+    <div><span class="eyebrow">BENTO PANTANAL · GUIA VIP</span><h1 id="guide-name">Avistamentos</h1></div>
+    <button id="refresh-sightings" class="button button-outline" type="button" disabled>Atualizar mapa</button>
+  </header>
+  <main id="sightings-content">
+    <div class="sightings-toolbar"><p id="sightings-status" role="status" aria-live="polite">Carregando o guia…</p><a id="owner-login" class="text-link hidden" href="#">Sou este guia</a></div>
+    <div id="sightings-map" role="region" aria-label="Mapa dos avistamentos do guia"></div>
+    <nav id="guide-contacts" class="guide-contacts" aria-label="Contatos do guia"></nav>
+    <section class="sightings-records" aria-label="Registros do guia"><h2>Avistamentos</h2><p id="visibility-note"></p><div id="sightings-list"></div></section>
+  </main>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.4/dist/umd/supabase.min.js"></script>
+  <script src="/js/supabase-config.js"></script>
+  <script src="/js/guides-common.js"></script>
+  <script src="/js/guide-sightings.js"></script>
+</body>
+</html>
