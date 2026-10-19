@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#173a2b">
+  <title>Aprovar avistamentos | Bento Pantanal</title>
+  <link rel="stylesheet" href="/css/guides.css">
+  <link rel="stylesheet" href="/css/guide-sightings.css?v=20261019-aprovacao">
+</head>
+<body class="account-page">
+  <header class="site-header"><nav class="site-nav" aria-label="Navegação principal">
+    <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">🐆</span><span class="brand-text">BENTO PANTANAL</span></a>
+    <div class="nav-links"><a href="/admin/guias/">Administrar guias</a><button id="review-signout" class="button button-small button-light" type="button">Sair</button></div>
+  </nav></header>
+  <main class="admin-shell">
+    <div id="review-loading" class="panel-card">Conferindo acesso administrativo…</div>
+    <section id="review-denied" class="hidden"><div class="empty-state"><strong>Acesso não autorizado.</strong>Somente administradores podem aprovar avistamentos.</div></section>
+    <section id="review-area" class="hidden">
+      <header class="admin-top"><div><span class="eyebrow">Administração</span><h1>Aprovar avistamentos</h1><p>Confira a espécie, a descrição e o ponto propostos. Apenas sua aprovação libera o mapa público.</p></div><button id="review-refresh" class="button button-outline" type="button">Atualizar fila</button></header>
+      <p><a class="text-link" href="/admin/guias/">← Administração de guias</a></p>
+      <div class="admin-toolbar"><label for="review-filter">Situação</label><select id="review-filter"><option value="pending">Aguardando aprovação</option><option value="approved">Aprovados e publicados</option><option value="rejected">Não aprovados</option></select></div>
+      <p id="review-message" role="status" aria-live="polite"></p>
+      <div id="review-list" class="review-list"></div>
+      <div class="publication-actions"><button id="review-previous" class="button button-outline" type="button" disabled>Anterior</button><span id="review-page"></span><button id="review-next" class="button button-outline" type="button" disabled>Próxima</button></div>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.4/dist/umd/supabase.min.js"></script>
+  <script src="/js/supabase-config.js"></script>
+  <script src="/js/guides-common.js"></script>
+  <script src="/js/admin-sightings.js?v=20261019-aprovacao"></script>
+</body>
+</html>
