@@ -17,6 +17,16 @@
 .sighting-media img { max-width:100%; max-height:280px; border-radius:10px; margin-top:12px; }
 .sighting-media audio { max-width:100%; margin-top:12px; }
 .leaflet-popup-content p { white-space:pre-wrap; overflow-wrap:anywhere; }
+.publication-editor { border-top:1px solid #d8dfd8; margin-top:18px; padding-top:14px; }
+.publication-editor h4 { margin:10px 0; font-size:18px; }
+.publication-state { font-weight:700; color:#173a2b; }
+.publication-editor label { display:flex; flex-direction:column; gap:6px; margin:12px 0; font-weight:600; }
+.publication-editor input, .publication-editor textarea, .publication-editor select { box-sizing:border-box; width:100%; min-height:44px; border:1px solid #bccbc2; border-radius:10px; padding:10px; background:#fff; color:#173a2b; font:inherit; }
+.publication-editor textarea { resize:vertical; }
+.publication-actions { display:flex; flex-wrap:wrap; gap:8px; }
+.publication-actions .button { white-space:normal; }
+.publication-point, .publication-message { font-size:14px; }
+.publication-actions [hidden] { display:none; }
 @media(max-width:640px) {
  .sightings-header { flex-wrap:wrap; gap:12px; padding:16px; }
  .sightings-header > div { order:-1; width:100%; }
