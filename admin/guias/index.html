@@ -12,7 +12,7 @@
   <header class="site-header">
     <nav class="site-nav" aria-label="Navegação principal">
       <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">🐆</span><span class="brand-text">BENTO PANTANAL</span></a>
-      <div class="nav-links"><a href="/guias/">Rede pública</a><button id="admin-signout" class="button button-small button-light" type="button">Sair</button></div>
+      <div class="nav-links"><a href="/admin/avistamentos/">Aprovar avistamentos</a><a href="/guias/">Rede pública</a><button id="admin-signout" class="button button-small button-light" type="button">Sair</button></div>
     </nav>
   </header>
 
@@ -24,6 +24,7 @@
         <div><span class="eyebrow">Administração</span><h1>Rede de Guias</h1><p>Verifique o Cadastur antes de publicar qualquer perfil.</p></div>
         <button id="admin-refresh" class="button button-outline" type="button">Atualizar lista</button>
       </header>
+      <p><a class="button button-outline" href="/admin/avistamentos/">Aprovar avistamentos</a></p>
       <div id="admin-message" class="message" role="status"></div>
       <div class="stats-grid" id="admin-stats"></div>
       <div class="admin-toolbar">
@@ -77,3 +78,4 @@
   <script src="/js/admin-guides.js"></script>
 </body>
 </html>
+
