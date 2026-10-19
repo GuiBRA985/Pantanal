@@ -7,6 +7,7 @@
   const list = document.querySelector("#sightings-list");
   const contacts = document.querySelector("#guide-contacts");
   let guide, owner = false, map, markers;
+  const publicPreview = new URLSearchParams(location.search).get("view") === "public";
   const dateLabel = value => new Date(value).toLocaleString("pt-BR");
 
   function contact(label, url) {
@@ -49,6 +50,90 @@
       console.error(error);
     }
   }
+  function publicationEditor(row, published) {
+    const form = document.createElement("form");
+    form.className = "publication-editor";
+    const badge = document.createElement("p"); badge.className = "publication-state";
+    const heading = document.createElement("h4"); heading.textContent = "Publicar este avistamento";
+    const explanation = document.createElement("p");
+    explanation.textContent = "Espécie, data, descrição e localização escolhida ficarão visíveis para qualquer visitante. Fotos e áudios originais continuam privados.";
+    const field = (label, element) => {
+      const wrapper = document.createElement("label"); wrapper.textContent = label;
+      wrapper.append(element); form.append(wrapper); return element;
+    };
+    form.append(badge, heading, explanation);
+    const species = field("Espécie", document.createElement("input"));
+    species.required = true; species.maxLength = 200; species.value = published?.species || row.species;
+    const notes = field("Descrição pública", document.createElement("textarea"));
+    notes.rows = 3; notes.maxLength = 5000; notes.value = published?.public_notes || "";
+    const precision = field("Localização pública", document.createElement("select"));
+    for (const [value, text] of [["approximate", "Aproximada (cerca de 1 km)"], ["original", "Original do GPS"]]) {
+      const option = document.createElement("option"); option.value = value; option.textContent = text; precision.append(option);
+    }
+    if (published && published.public_latitude === row.latitude && published.public_longitude === row.longitude) precision.value = "original";
+    const point = document.createElement("p"); point.className = "publication-point"; form.append(point);
+    const hasPosition = Number.isFinite(row.latitude) && Number.isFinite(row.longitude);
+    const coordinates = () => precision.value === "original"
+      ? { public_latitude: row.latitude, public_longitude: row.longitude }
+      : { public_latitude: Math.round(row.latitude * 100) / 100, public_longitude: Math.round(row.longitude * 100) / 100 };
+    const showPoint = () => {
+      const c = coordinates();
+      point.textContent = hasPosition ? `Ponto que será publicado: ${c.public_latitude}, ${c.public_longitude}` : "Este registro não tem GPS. A publicação no mapa exige uma localização.";
+    };
+    precision.addEventListener("change", showPoint); showPoint();
+    const actions = document.createElement("div"); actions.className = "publication-actions";
+    const save = document.createElement("button"); save.type = "submit"; save.className = "button";
+    const remove = document.createElement("button"); remove.type = "button"; remove.className = "button button-outline"; remove.textContent = "Retirar do mapa público";
+    const message = document.createElement("p"); message.className = "publication-message"; message.setAttribute("role", "status"); message.setAttribute("aria-live", "polite");
+    const update = () => {
+      badge.textContent = published ? "Publicado no mapa público" : "Somente você pode ver este registro";
+      save.textContent = published ? "Atualizar publicação" : "Publicar no mapa público";
+      save.disabled = !hasPosition; precision.disabled = !hasPosition; remove.hidden = !published;
+    };
+    const busy = value => { for (const element of [save, remove, species, notes, precision]) element.disabled = value; if (!value) update(); };
+    const confirmAccount = async () => {
+      const { data, error } = await P.db.auth.getUser();
+      if (error || !data.user) throw new Error("Entre novamente na sua conta para publicar.");
+    };
+    form.addEventListener("submit", async event => {
+      event.preventDefault();
+      if (save.disabled || !hasPosition) return;
+      if (!species.value.trim()) { species.focus(); return; }
+      busy(true); message.textContent = "Publicando…";
+      try {
+        await confirmAccount();
+        const payload = { sighting_id: row.id, guide_id: guide.id, species: species.value.trim(), public_notes: notes.value.trim(), observed_at: row.observed_at, ...coordinates() };
+        const { data, error } = await P.db.from("guide_sighting_publications").upsert(payload, { onConflict: "sighting_id" }).select("sighting_id").single();
+        if (error || data?.sighting_id !== row.id) throw new Error("Não foi possível publicar. Tente novamente.");
+        published = payload;
+        message.textContent = "Publicado. O avistamento já está disponível para visitantes sem login.";
+      } catch (error) { message.textContent = error.message || "Não foi possível publicar."; }
+      finally { busy(false); }
+    });
+    remove.addEventListener("click", async () => {
+      if (remove.disabled) return;
+      busy(true); message.textContent = "Retirando publicação…";
+      try {
+        await confirmAccount();
+        const { data, error } = await P.db.from("guide_sighting_publications").delete().eq("sighting_id", row.id).eq("guide_id", guide.id).select("sighting_id");
+        if (error || !data?.some(item => item.sighting_id === row.id)) throw new Error("Não foi possível retirar a publicação. Atualize o mapa e tente novamente.");
+        published = null;
+        message.textContent = "Retirado do mapa público. Seu registro original permanece privado.";
+      } catch (error) { message.textContent = error.message || "Não foi possível retirar a publicação."; }
+      finally { busy(false); }
+    });
+    actions.append(save, remove); form.append(actions, message); update(); return form;
+  }
+  async function fetchPublications() {
+    const rows = [];
+    for (let offset = 0; ; offset += 500) {
+      const { data, error } = await P.db.from("guide_sighting_publications")
+        .select("sighting_id,species,public_notes,public_latitude,public_longitude")
+        .eq("guide_id", guide.id).order("sighting_id").range(offset, offset + 499);
+      if (error) throw error;
+      rows.push(...data); if (data.length < 500) return new Map(rows.map(row => [row.sighting_id, row]));
+    }
+  }
   async function fetchRows() {
     const table = owner ? "guide_sightings" : "guide_sighting_publications";
     const fields = owner
@@ -69,6 +154,7 @@
     status.textContent = "Buscando avistamentos…";
     try {
       const rows = await fetchRows();
+      const publications = owner ? await fetchPublications() : null;
       const nextMarkers = L.featureGroup();
       const fragment = document.createDocumentFragment();
       let located = 0;
@@ -102,6 +188,7 @@
           button.addEventListener("click", () => showMedia(row, media, button));
           card.append(button, media);
         }
+        if (owner) card.append(publicationEditor(row, publications.get(row.id)));
         fragment.append(card);
       }
       markers.clearLayers(); markers.addLayer(nextMarkers);
@@ -130,7 +217,15 @@
     if (sessionData.session) {
       const { data: own, error: ownError } = await P.db.from("guides").select("id").eq("id", guide.id).eq("user_id", sessionData.session.user.id).maybeSingle();
       if (ownError) throw new Error("Não foi possível verificar o acesso privado. Recarregue a página.");
-      owner = Boolean(own);
+      owner = Boolean(own) && !publicPreview;
+      if (own) {
+        const preview = document.createElement("a"); preview.className = "button button-outline";
+        const url = new URL(location.href);
+        if (publicPreview) url.searchParams.delete("view"); else url.searchParams.set("view", "public");
+        preview.href = url.pathname + url.search;
+        preview.textContent = publicPreview ? "Voltar aos meus registros privados" : "Ver mapa público";
+        document.querySelector("#visibility-note").after(preview);
+      }
     }
     if (!owner) {
       const login = document.querySelector("#owner-login");
@@ -138,7 +233,7 @@
       login.classList.remove("hidden");
     }
     document.querySelector("#visibility-note").textContent = owner
-      ? "Você está vendo seus registros privados. Fotos, áudios e coordenadas originais são acessíveis apenas na sua conta. A sincronização exige uma versão compatível do aplicativo."
+      ? "O aplicativo envia os registros para sua área privada. Para mostrar um avistamento aos visitantes, use Publicar no mapa público no cartão abaixo."
       : "Este mapa mostra apenas os avistamentos e as localizações escolhidos pelo guia para publicação.";
     const phone = P.normalizePhone(guide.whatsapp);
     contact("WhatsApp", phone ? `https://wa.me/${phone}` : "");
