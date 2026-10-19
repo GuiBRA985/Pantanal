@@ -54,9 +54,9 @@
     const form = document.createElement("form");
     form.className = "publication-editor";
     const badge = document.createElement("p"); badge.className = "publication-state";
-    const heading = document.createElement("h4"); heading.textContent = "Publicar este avistamento";
+    const heading = document.createElement("h4"); heading.textContent = "Solicitar publicação";
     const explanation = document.createElement("p");
-    explanation.textContent = "Espécie, data, descrição e localização escolhida ficarão visíveis para qualquer visitante. Fotos e áudios originais continuam privados.";
+    explanation.textContent = "O administrador precisa aprovar a espécie, a data, a descrição e o ponto antes de aparecerem ao público. Fotos e áudios originais continuam privados. Alterações exigem nova aprovação.";
     const field = (label, element) => {
       const wrapper = document.createElement("label"); wrapper.textContent = label;
       wrapper.append(element); form.append(wrapper); return element;
@@ -83,30 +83,31 @@
     precision.addEventListener("change", showPoint); showPoint();
     const actions = document.createElement("div"); actions.className = "publication-actions";
     const save = document.createElement("button"); save.type = "submit"; save.className = "button";
-    const remove = document.createElement("button"); remove.type = "button"; remove.className = "button button-outline"; remove.textContent = "Retirar do mapa público";
+    const remove = document.createElement("button"); remove.type = "button"; remove.className = "button button-outline"; remove.textContent = "Retirar solicitação ou publicação";
     const message = document.createElement("p"); message.className = "publication-message"; message.setAttribute("role", "status"); message.setAttribute("aria-live", "polite");
     const update = () => {
-      badge.textContent = published ? "Publicado no mapa público" : "Somente você pode ver este registro";
-      save.textContent = published ? "Atualizar publicação" : "Publicar no mapa público";
+      const labels = { pending: "Aguardando aprovação do administrador", approved: "Aprovado e publicado", rejected: "Não aprovado pelo administrador" };
+      badge.textContent = published ? labels[published.review_status] || labels.pending : "Somente você pode ver este registro";
+      save.textContent = published ? "Enviar para nova aprovação" : "Enviar para aprovação";
       save.disabled = !hasPosition; precision.disabled = !hasPosition; remove.hidden = !published;
     };
     const busy = value => { for (const element of [save, remove, species, notes, precision]) element.disabled = value; if (!value) update(); };
     const confirmAccount = async () => {
       const { data, error } = await P.db.auth.getUser();
-      if (error || !data.user) throw new Error("Entre novamente na sua conta para publicar.");
+      if (error || !data.user) throw new Error("Entre novamente na sua conta para enviar a solicitação.");
     };
     form.addEventListener("submit", async event => {
       event.preventDefault();
       if (save.disabled || !hasPosition) return;
       if (!species.value.trim()) { species.focus(); return; }
-      busy(true); message.textContent = "Publicando…";
+      busy(true); message.textContent = "Enviando para aprovação…";
       try {
         await confirmAccount();
-        const payload = { sighting_id: row.id, guide_id: guide.id, species: species.value.trim(), public_notes: notes.value.trim(), observed_at: row.observed_at, ...coordinates() };
-        const { data, error } = await P.db.from("guide_sighting_publications").upsert(payload, { onConflict: "sighting_id" }).select("sighting_id").single();
-        if (error || data?.sighting_id !== row.id) throw new Error("Não foi possível publicar. Tente novamente.");
-        published = payload;
-        message.textContent = "Publicado. O avistamento já está disponível para visitantes sem login.";
+        const payload = { sighting_id: row.id, guide_id: guide.id, species: species.value.trim(), public_notes: notes.value.trim(), observed_at: row.observed_at, review_status: "pending", ...coordinates() };
+        const { data, error } = await P.db.from("guide_sighting_publications").upsert(payload, { onConflict: "sighting_id" }).select("sighting_id,review_status").single();
+        if (error || data?.sighting_id !== row.id || data.review_status !== "pending") throw new Error("Não foi possível enviar para aprovação. Tente novamente.");
+        published = { ...payload, ...data };
+        message.textContent = "Enviado para análise. Ficará público somente após aprovação do administrador.";
       } catch (error) { message.textContent = error.message || "Não foi possível publicar."; }
       finally { busy(false); }
     });
@@ -128,7 +129,7 @@
     const rows = [];
     for (let offset = 0; ; offset += 500) {
       const { data, error } = await P.db.from("guide_sighting_publications")
-        .select("sighting_id,species,public_notes,public_latitude,public_longitude")
+        .select("sighting_id,species,public_notes,public_latitude,public_longitude,review_status")
         .eq("guide_id", guide.id).order("sighting_id").range(offset, offset + 499);
       if (error) throw error;
       rows.push(...data); if (data.length < 500) return new Map(rows.map(row => [row.sighting_id, row]));
@@ -141,7 +142,9 @@
       : "sighting_id,species,public_notes,observed_at,public_latitude,public_longitude";
     const rows = [];
     for (let offset = 0; ; offset += 500) {
-      const { data, error } = await P.db.from(table).select(fields).eq("guide_id", guide.id)
+      let query = P.db.from(table).select(fields).eq("guide_id", guide.id);
+      if (!owner) query = query.eq("review_status", "approved");
+      const { data, error } = await query
         .order("observed_at", { ascending: false }).order(owner ? "id" : "sighting_id")
         .range(offset, offset + 499);
       if (error) throw error;
@@ -233,8 +236,8 @@
       login.classList.remove("hidden");
     }
     document.querySelector("#visibility-note").textContent = owner
-      ? "O aplicativo envia os registros para sua área privada. Para mostrar um avistamento aos visitantes, use Publicar no mapa público no cartão abaixo."
-      : "Este mapa mostra apenas os avistamentos e as localizações escolhidos pelo guia para publicação.";
+      ? "O aplicativo envia os registros para sua área privada. Escolha um avistamento e envie para aprovação. Somente o administrador pode liberar a publicação."
+      : "Este mapa mostra apenas os avistamentos aprovados pela administração.";
     const phone = P.normalizePhone(guide.whatsapp);
     contact("WhatsApp", phone ? `https://wa.me/${phone}` : "");
     contact("Instagram", social(guide.instagram, "https://instagram.com/"));
